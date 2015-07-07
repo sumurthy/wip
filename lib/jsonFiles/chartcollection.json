@@ -35,25 +35,6 @@
     {
       "name": "getItem",
       "returnType": "Chart",
-      "description": "Gets a chart using its ID.",
-      "parameters": [
-        {
-          "name": "id",
-          "dataType": "string",
-          "description": "Id of the chart to be retrieved.",
-          "isRequired": true,
-          "enumNameJs": null,
-          "possibleValues": null,
-          "notes": null
-        }
-      ],
-      "syntax": "chartCollectionObject.getItem(id);",
-      "signature": "getItem(id: string)",
-      "notes": null
-    },
-    {
-      "name": "getItem",
-      "returnType": "Chart",
       "description": "Gets a chart using its name. If there are multiple charts with the same name, the first one will be returned.",
       "parameters": [
         {
@@ -68,6 +49,25 @@
       ],
       "syntax": "chartCollectionObject.getItem(name);",
       "signature": "getItem(name: string)",
+      "notes": null
+    },
+    {
+      "name": "getItem",
+      "returnType": "Chart",
+      "description": "Gets a chart using its id",
+      "parameters": [
+        {
+          "name": "id",
+          "dataType": "string",
+          "description": "Id of the chart to be retrieved.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "chartCollectionObject.getItem(id);",
+      "signature": "getItem(id: string)",
       "notes": null
     },
     {

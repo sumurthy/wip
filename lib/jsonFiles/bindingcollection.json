@@ -40,7 +40,7 @@
         {
           "name": "id",
           "dataType": "string",
-          "description": "Id of the binding object to be retrieved.",
+          "description": "Id of the binding object to be retrieved. ",
           "isRequired": true,
           "enumNameJs": null,
           "possibleValues": null,

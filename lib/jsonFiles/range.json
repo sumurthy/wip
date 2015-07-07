@@ -64,6 +64,17 @@
       "notes": null
     },
     {
+      "name": "valueTypes",
+      "dataType": "RangeValueType[][]",
+      "description": "Represents the type of data of each cell",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
       "name": "format",
       "dataType": "RangeFormat",
       "description": "Returns a format object, encapsulating the range's font, fill, borders, alignment, and other properties.",
@@ -172,7 +183,7 @@
         {
           "name": "applyTo",
           "dataType": "string",
-          "description": "Determines the type of clear action. Possible values are: All (default option), Format, and Content.",
+          "description": "Determines the type of clear action.",
           "isRequired": false,
           "enumNameJs": "Excel.ClearApplyTo",
           "possibleValues": null,
@@ -191,7 +202,7 @@
         {
           "name": "shift",
           "dataType": "string",
-          "description": "Specifies which way to shift the cells. Possible values are: Up (default option) or Left.",
+          "description": "Specifies which way to shift the cells.",
           "isRequired": true,
           "enumNameJs": "Excel.DeleteShiftDirection",
           "possibleValues": null,
@@ -306,6 +317,33 @@
       "notes": null
     },
     {
+      "name": "getLastCell",
+      "returnType": "Range",
+      "description": "Gets the last cell within the range. For example, the last cell of \"B2:D5\" is \"D5\".",
+      "parameters": null,
+      "syntax": "rangeObject.getLastCell();",
+      "signature": "getLastCell()",
+      "notes": null
+    },
+    {
+      "name": "getLastColumn",
+      "returnType": "Range",
+      "description": "Gets the last column within the range. For example, the last column of \"B2:D5\" is \"D2:D5\".",
+      "parameters": null,
+      "syntax": "rangeObject.getLastColumn();",
+      "signature": "getLastColumn()",
+      "notes": null
+    },
+    {
+      "name": "getLastRow",
+      "returnType": "Range",
+      "description": "Gets the last row within the range. For example, the last row of \"B2:D5\" is \"B5:D5\".",
+      "parameters": null,
+      "syntax": "rangeObject.getLastRow();",
+      "signature": "getLastRow()",
+      "notes": null
+    },
+    {
       "name": "getOffsetRange",
       "returnType": "Range",
       "description": "Gets an object which represents a range that's offset from the specified range. The dimension of the returned range will match this range. If the resulting range is forced outside the bounds of the worksheet grid, an exception will be thrown.",
@@ -354,13 +392,13 @@
     },
     {
       "name": "insert",
-      "returnType": "void",
-      "description": "Inserts a cell or a range of cells into the worksheet in place of this range, and shifts the other cells to make space.",
+      "returnType": "Range",
+      "description": "Inserts a cell or a range of cells into the worksheet in place of this range, and shifts the other cells to make space. Returns a new Range object at the now blank space.",
       "parameters": [
         {
           "name": "shift",
           "dataType": "string",
-          "description": "Specifies which way to shift the cells. Can be one of the following: Down (default option) or Right.",
+          "description": "Specifies which way to shift the cells. ",
           "isRequired": true,
           "enumNameJs": "Excel.InsertShiftDirection",
           "possibleValues": null,

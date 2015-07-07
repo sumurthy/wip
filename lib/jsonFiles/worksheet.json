@@ -62,6 +62,17 @@
       "possibleValues": null,
       "isRelationship": true,
       "notes": null
+    },
+    {
+      "name": "visibility",
+      "dataType": "SheetVisibility",
+      "description": "The Visibility of the worksheet,",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
     }
   ],
   "methods": [
