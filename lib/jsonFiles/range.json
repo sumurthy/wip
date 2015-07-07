@@ -1,0 +1,393 @@
+{
+  "name": "Range",
+  "description": "Range represents a set of one or more contiguous cells such as a cell, a row, a column, block of cells, etc.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "address",
+      "dataType": "string",
+      "description": "Represents the range reference in A1-style. Address value will contain the Sheet reference (e.g. Sheet1!A1:B4).",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "addressLocal",
+      "dataType": "string",
+      "description": "Represents range reference for the specified range in the language of the user.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "cellCount",
+      "dataType": "int",
+      "description": "Number of cells in the range.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "columnCount",
+      "dataType": "int",
+      "description": "Represents the total number of columns in the range.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "columnIndex",
+      "dataType": "int",
+      "description": "Represents the column number of the first cell in the range. Zero-indexed.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "format",
+      "dataType": "RangeFormat",
+      "description": "Returns a format object, encapsulating the range's font, fill, borders, alignment, and other properties.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "formulas",
+      "dataType": "object[][]",
+      "description": "Represents the formula in A1-style notation.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "formulasLocal",
+      "dataType": "object[][]",
+      "description": "Represents the formula in A1-style notation, in the user's language and number-formatting locale.  For example, the English \"=SUM(A1, 1.5)\" formula would become \"=SUMME(A1; 1,5)\" in German.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "numberFormat",
+      "dataType": "object[][]",
+      "description": "Represents Excel's number format code for the given cell.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "rowCount",
+      "dataType": "int",
+      "description": "Returns the total number of rows in the range.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "rowIndex",
+      "dataType": "int",
+      "description": "Returns the row number of the first cell in the range. Zero-indexed.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "text",
+      "dataType": "object[][]",
+      "description": "Text values of the specified range. The Text value will not depend on the cell width. The # sign substitution that happens in Excel UI will not affect the text value returned by the API.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "values",
+      "dataType": "object[][]",
+      "description": "Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "worksheet",
+      "dataType": "Worksheet",
+      "description": "The worksheet containing the current range.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "clear",
+      "returnType": "void",
+      "description": "Clear range values, format, fill, border, etc.",
+      "parameters": [
+        {
+          "name": "applyTo",
+          "dataType": "string",
+          "description": "Determines the type of clear action. Possible values are: All (default option), Format, and Content.",
+          "isRequired": false,
+          "enumNameJs": "Excel.ClearApplyTo",
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "rangeObject.clear(applyTo);",
+      "signature": "clear(applyTo: string)",
+      "notes": null
+    },
+    {
+      "name": "delete",
+      "returnType": "void",
+      "description": "Deletes the cells associated with the range.",
+      "parameters": [
+        {
+          "name": "shift",
+          "dataType": "string",
+          "description": "Specifies which way to shift the cells. Possible values are: Up (default option) or Left.",
+          "isRequired": true,
+          "enumNameJs": "Excel.DeleteShiftDirection",
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "rangeObject.delete(shift);",
+      "signature": "delete(shift: string)",
+      "notes": null
+    },
+    {
+      "name": "getEntireColumn",
+      "returnType": "Range",
+      "description": "Gets an object that represents the entire column of the range.",
+      "parameters": null,
+      "syntax": "rangeObject.getEntireColumn();",
+      "signature": "getEntireColumn()",
+      "notes": null
+    },
+    {
+      "name": "getEntireRow",
+      "returnType": "Range",
+      "description": "Gets an object that represents the entire row of the range.",
+      "parameters": null,
+      "syntax": "rangeObject.getEntireRow();",
+      "signature": "getEntireRow()",
+      "notes": null
+    },
+    {
+      "name": "getBoundingRect",
+      "returnType": "Range",
+      "description": "Gets the smallest range object that encompasses the given ranges. For example, the GetBoundingRect of \"B2:C5\" and \"D10:E15\" is \"B2:E16\".",
+      "parameters": [
+        {
+          "name": "anotherRange",
+          "dataType": "object",
+          "description": "The range object or address or range name.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "rangeObject.getBoundingRect(anotherRange);",
+      "signature": "getBoundingRect(anotherRange: object)",
+      "notes": null
+    },
+    {
+      "name": "getCell",
+      "returnType": "Range",
+      "description": "Gets the range object containing the single cell based on row and column numbers. The cell can be outside the bounds of its parent range, so long as it's stays within the worksheet grid. The returned cell is located relative to the top left cell of the range.",
+      "parameters": [
+        {
+          "name": "row",
+          "dataType": "number",
+          "description": "Row number of the cell to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        },
+        {
+          "name": "column",
+          "dataType": "number",
+          "description": "Column number of the cell to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "rangeObject.getCell(row, column);",
+      "signature": "getCell(row: number, column: number)",
+      "notes": null
+    },
+    {
+      "name": "getColumn",
+      "returnType": "Range",
+      "description": "Gets a column contained in the range.",
+      "parameters": [
+        {
+          "name": "column",
+          "dataType": "number",
+          "description": "Column number of the range to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "rangeObject.getColumn(column);",
+      "signature": "getColumn(column: number)",
+      "notes": null
+    },
+    {
+      "name": "getIntersection",
+      "returnType": "Range",
+      "description": "Gets the range object that represents the rectangular intersection of the given ranges.",
+      "parameters": [
+        {
+          "name": "anotherRange",
+          "dataType": "object",
+          "description": "The range object or range address that will be used to determine the intersection of ranges.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "rangeObject.getIntersection(anotherRange);",
+      "signature": "getIntersection(anotherRange: object)",
+      "notes": null
+    },
+    {
+      "name": "getOffsetRange",
+      "returnType": "Range",
+      "description": "Gets an object which represents a range that's offset from the specified range. The dimension of the returned range will match this range. If the resulting range is forced outside the bounds of the worksheet grid, an exception will be thrown.",
+      "parameters": [
+        {
+          "name": "rowOffset",
+          "dataType": "number",
+          "description": "The number of rows (positive, negative, or 0) by which the range is to be offset. Positive values are offset downward, and negative values are offset upward.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        },
+        {
+          "name": "columnOffset",
+          "dataType": "number",
+          "description": "The number of columns (positive, negative, or 0) by which the range is to be offset. Positive values are offset to the right, and negative values are offset to the left.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "rangeObject.getOffsetRange(rowOffset, columnOffset);",
+      "signature": "getOffsetRange(rowOffset: number, columnOffset: number)",
+      "notes": null
+    },
+    {
+      "name": "getRow",
+      "returnType": "Range",
+      "description": "Gets a row contained in the range.",
+      "parameters": [
+        {
+          "name": "row",
+          "dataType": "number",
+          "description": "Row number of the range to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "rangeObject.getRow(row);",
+      "signature": "getRow(row: number)",
+      "notes": null
+    },
+    {
+      "name": "insert",
+      "returnType": "void",
+      "description": "Inserts a cell or a range of cells into the worksheet in place of this range, and shifts the other cells to make space.",
+      "parameters": [
+        {
+          "name": "shift",
+          "dataType": "string",
+          "description": "Specifies which way to shift the cells. Can be one of the following: Down (default option) or Right.",
+          "isRequired": true,
+          "enumNameJs": "Excel.InsertShiftDirection",
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "rangeObject.insert(shift);",
+      "signature": "insert(shift: string)",
+      "notes": null
+    },
+    {
+      "name": "select",
+      "returnType": "void",
+      "description": "Selects the specified range in the Excel UI.",
+      "parameters": null,
+      "syntax": "rangeObject.select();",
+      "signature": "select()",
+      "notes": null
+    },
+    {
+      "name": "getUsedRange",
+      "returnType": "Range",
+      "description": "Returns the used range of the given range object.",
+      "parameters": null,
+      "syntax": "rangeObject.getUsedRange();",
+      "signature": "getUsedRange()",
+      "notes": null
+    }
+  ]
+}

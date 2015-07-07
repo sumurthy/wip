@@ -1,0 +1,72 @@
+{
+  "name": "WorksheetCollection",
+  "description": "Represents a collection of worksheet objects that are part of the workbook.",
+  "isCollection": true,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "items",
+      "dataType": "WorksheetCollection",
+      "description": "A collection of worksheet objects.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getActiveWorksheet",
+      "returnType": "Worksheet",
+      "description": "Gets the currently active worksheet in the workbook.",
+      "parameters": null,
+      "syntax": "worksheetCollectionObject.getActiveWorksheet();",
+      "signature": "getActiveWorksheet()",
+      "notes": null
+    },
+    {
+      "name": "getItem",
+      "returnType": "Worksheet",
+      "description": "Gets a worksheet object using its Name or ID.",
+      "parameters": [
+        {
+          "name": "index",
+          "dataType": "string",
+          "description": "The Name or ID of the worksheet.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "worksheetCollectionObject.getItem(index);",
+      "signature": "getItem(index: string)",
+      "notes": null
+    },
+    {
+      "name": "add",
+      "returnType": "Worksheet",
+      "description": "Adds a new worksheet to the workbook. The worksheet will be added at the end of existing worksheets. If you wish to activate the newly added worksheet, call \".activate() on it.",
+      "parameters": [
+        {
+          "name": "name",
+          "dataType": "string",
+          "description": "The name of the worksheet to be added. If specified, name should be unqiue. If not specified, Excel determines the name of the new worksheet.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "worksheetCollectionObject.add(name);",
+      "signature": "add(name: string)",
+      "notes": null
+    }
+  ]
+}

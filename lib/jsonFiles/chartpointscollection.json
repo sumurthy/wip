@@ -1,0 +1,55 @@
+{
+  "name": "ChartPointsCollection",
+  "description": "A collection of all the chart points within a series inside a chart.",
+  "isCollection": true,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "count",
+      "dataType": "int",
+      "description": "Returns the number of chart points in the collection.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "items",
+      "dataType": "ChartPointsCollection",
+      "description": "A collection of chartPoints objects.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getItemAt",
+      "returnType": "ChartPoint",
+      "description": "Retrieve a point based on its position within the series.",
+      "parameters": [
+        {
+          "name": "index",
+          "dataType": "number",
+          "description": "Index value of the object to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "chartPointsCollectionObject.getItemAt(index);",
+      "signature": "getItemAt(index: number)",
+      "notes": null
+    }
+  ]
+}

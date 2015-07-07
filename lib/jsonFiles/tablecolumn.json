@@ -1,0 +1,103 @@
+{
+  "name": "TableColumn",
+  "description": "Represents a column in a table.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "id",
+      "dataType": "int",
+      "description": "Returns a unique key that identifies the column within the table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "name",
+      "dataType": "string",
+      "description": "Returns the name of the table column.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "index",
+      "dataType": "int",
+      "description": "Returns the index number of the column within the columns collection of the table. Zero-indexed.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "values",
+      "dataType": "object[][]",
+      "description": "Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getRange",
+      "returnType": "Range",
+      "description": "Gets the range object associated with the entire column.",
+      "parameters": null,
+      "syntax": "tableColumnObject.getRange();",
+      "signature": "getRange()",
+      "notes": null
+    },
+    {
+      "name": "getHeaderRowRange",
+      "returnType": "Range",
+      "description": "Gets the range object associated with the header row of the column.",
+      "parameters": null,
+      "syntax": "tableColumnObject.getHeaderRowRange();",
+      "signature": "getHeaderRowRange()",
+      "notes": null
+    },
+    {
+      "name": "getDataBodyRange",
+      "returnType": "Range",
+      "description": "Gets the range object associated with the data body of the column.",
+      "parameters": null,
+      "syntax": "tableColumnObject.getDataBodyRange();",
+      "signature": "getDataBodyRange()",
+      "notes": null
+    },
+    {
+      "name": "getTotalRowRange",
+      "returnType": "Range",
+      "description": "Gets the range object associated with the totals row of the column.",
+      "parameters": null,
+      "syntax": "tableColumnObject.getTotalRowRange();",
+      "signature": "getTotalRowRange()",
+      "notes": null
+    },
+    {
+      "name": "delete",
+      "returnType": "void",
+      "description": "Deletes the column from the table.",
+      "parameters": null,
+      "syntax": "tableColumnObject.delete();",
+      "signature": "delete()",
+      "notes": null
+    }
+  ]
+}

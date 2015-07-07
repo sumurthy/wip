@@ -1,0 +1,126 @@
+{
+	"Excel.BindingType": {
+		"Range": "",
+		"Table": "",
+		"Text": ""
+	},
+	"Excel.BorderIndex": {
+		"EdgeTop": "",
+		"EdgeBottom": "",
+		"EdgeLeft": "",
+		"EdgeRight": "",
+		"InsideVertical": "",
+		"InsideHorizontal": "",
+		"DiagonalDown": "",
+		"DiagonalUp": ""
+	},
+	"Excel.BorderLineStyle": {
+		"None": "",
+		"Continuous": "",
+		"Dash": "",
+		"DashDot": "",
+		"DashDotDot": "",
+		"Dot": "",
+		"Double": "",
+		"SlantDashDot": ""
+	},
+	"Excel.BorderWeight": {
+		"Hairline": "",
+		"Thin": "",
+		"Medium": "",
+		"Thick": ""
+	},
+	"Excel.CalculationMode": {
+		"Automatic": "Excel controls recalculation.",
+		"AutomaticExceptTables": "Excel controls recalculation but ignores changes in tables.",
+		"Manual": "Calculation is done when the user requests it."
+	},
+	"Excel.CalculationType": {
+		"Recalculate": "Default-option. Performs normal calculation by calculating all the formulas in the workbook.",
+		"Full": "Forces a full calculation of the data.",
+		"FullRebuild": " Forces a full calculation of the data and rebuilds the dependencies."
+	},
+	"Excel.ClearApplyTo": {
+		"All": "Default-option",
+		"Formats": "",
+		"Contents": ""
+	},
+	"Excel.ChartDataLabelPosition": {
+		"None": "",
+		"Center": "",
+		"InsideEnd": "",
+		"InsideBase": "",
+		"OutsideEnd": "",
+		"Left": "",
+		"Right": "",
+		"Top": "",
+		"Bottom": "",
+		"BestFit": "",
+		"Callout": ""
+	},
+	"Excel.ChartLegendPosition": {
+		"Top": "",
+		"Bottom": "",
+		"Left": "",
+		"Right": "",
+		"Corner": "",
+		"Custom": ""
+	},
+	"Excel.ChartSeriesBy": {
+		"Auto": "",
+		"Columns": "",
+		"Rows": ""
+	},
+	"Excel.ChartType": {
+		"ColumnClustered": "",
+		"ColumnStacked": "",
+		"ColumnStacked100": "",
+		"BarClustered": "",
+		"BarStacked": "",
+		"BarStacked100": "",
+		"etc."
+	},
+	"Excel.ChartUnderlineStyle": {
+		"None": "",
+		"Single": ""
+	},
+	"Excel.DeleteShiftDirection": {
+		"Up": "",
+		"Left": ""
+	},
+	"Excel.HorizontalAlignment": {
+		"General": "",
+		"Left": "",
+		"Center": "",
+		"Right": "",
+		"Fill": "",
+		"Justify": "",
+		"CenterAcrossSelection": "",
+		"Distributed": ""
+	},
+	"Excel.InsertShiftDirection": {
+		"Down": "",
+		"Right": ""
+	},
+	"Excel.NamedItemType": {
+		"String": "",
+		"Integer": "",
+		"Double": "",
+		"Boolean": "",
+		"Range": ""
+	},
+	"Excel.RangeUnderlineStyle": {
+		"None": "",
+		"Single": "",
+		"Double": "",
+		"SingleAccountant": "",
+		"DoubleAccountant": ""
+	},
+	"Excel.VerticalAlignment": {
+		"Top": "",
+		"Center": "",
+		"Bottom": "",
+		"Justify": "",
+		"Distributed": ""
+	}
+}

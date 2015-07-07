@@ -1,0 +1,46 @@
+{
+  "name": "ChartAxisTitle",
+  "description": "Represents the title of a chart axis.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "format",
+      "dataType": "ChartAxisTitleFormat",
+      "description": "Represents the formatting of chart axis title.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "text",
+      "dataType": "string",
+      "description": "Represents the axis title.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "visible",
+      "dataType": "bool",
+      "description": "A boolean that specifies the visibility of an axis title.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": null
+}

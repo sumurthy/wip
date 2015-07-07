@@ -1,0 +1,44 @@
+{
+  "name": "NamedItemCollection",
+  "description": "A collection of all the nameditem objects that are part of the workbook.",
+  "isCollection": true,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "items",
+      "dataType": "NamedItemCollection",
+      "description": "A collection of namedItem objects.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getItem",
+      "returnType": "NamedItem",
+      "description": "Gets a nameditem object using its name",
+      "parameters": [
+        {
+          "name": "name",
+          "dataType": "string",
+          "description": "nameditem name.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "namedItemCollectionObject.getItem(name);",
+      "signature": "getItem(name: string)",
+      "notes": null
+    }
+  ]
+}

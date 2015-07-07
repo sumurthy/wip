@@ -1,0 +1,55 @@
+{
+  "name": "ChartSeriesCollection",
+  "description": "Represents a collection of chart series.",
+  "isCollection": true,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "count",
+      "dataType": "int",
+      "description": "Returns the number of series in the collection.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "items",
+      "dataType": "ChartSeriesCollection",
+      "description": "A collection of chartSeries objects.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getItemAt",
+      "returnType": "ChartSeries",
+      "description": "Retrieves a series based on its position in the collection",
+      "parameters": [
+        {
+          "name": "index",
+          "dataType": "number",
+          "description": "Index value of the object to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "chartSeriesCollectionObject.getItemAt(index);",
+      "signature": "getItemAt(index: number)",
+      "notes": null
+    }
+  ]
+}

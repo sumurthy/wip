@@ -1,0 +1,136 @@
+{
+  "name": "Table",
+  "description": "Represents an Excel table.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "id",
+      "dataType": "int",
+      "description": "Returns a value that uniquely identifies the table in a given workbook. The value of the identifier remains the same even when the table is renamed.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "name",
+      "dataType": "string",
+      "description": "Name of the table.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "showHeaders",
+      "dataType": "bool",
+      "description": "Indicates whether the header row is visible or not. This value can be set to show or remove the header row.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "showTotals",
+      "dataType": "bool",
+      "description": "Indicates whether the total row is visible or not. This value can be set to show or remove the total row.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "style",
+      "dataType": "string",
+      "description": "Constant value that represents the Table style. Possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "columns",
+      "dataType": "TableColumnCollection",
+      "description": "Represents a collection of all the columns in the table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "rows",
+      "dataType": "TableRowCollection",
+      "description": "Represents a collection of all the rows in the table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getRange",
+      "returnType": "Range",
+      "description": "Gets the range object associated with the entire table.",
+      "parameters": null,
+      "syntax": "tableObject.getRange();",
+      "signature": "getRange()",
+      "notes": null
+    },
+    {
+      "name": "getHeaderRowRange",
+      "returnType": "Range",
+      "description": "Gets the range object associated with header row of the table.",
+      "parameters": null,
+      "syntax": "tableObject.getHeaderRowRange();",
+      "signature": "getHeaderRowRange()",
+      "notes": null
+    },
+    {
+      "name": "getDataBodyRange",
+      "returnType": "Range",
+      "description": "Gets the range object associated with the data body of the table.",
+      "parameters": null,
+      "syntax": "tableObject.getDataBodyRange();",
+      "signature": "getDataBodyRange()",
+      "notes": null
+    },
+    {
+      "name": "getTotalRowRange",
+      "returnType": "Range",
+      "description": "Gets the range object associated with totals row of the table.",
+      "parameters": null,
+      "syntax": "tableObject.getTotalRowRange();",
+      "signature": "getTotalRowRange()",
+      "notes": null
+    },
+    {
+      "name": "delete",
+      "returnType": "void",
+      "description": "Deletes the table.",
+      "parameters": null,
+      "syntax": "tableObject.delete();",
+      "signature": "delete()",
+      "notes": null
+    }
+  ]
+}

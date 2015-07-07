@@ -1,0 +1,57 @@
+{
+  "name": "ChartLegend",
+  "description": "Represents the legend in a chart.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "format",
+      "dataType": "ChartLegendFormat",
+      "description": "Represents the formatting of a chart legend, which includes fill and font formatting.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "visible",
+      "dataType": "bool",
+      "description": "A boolean value the represents the visibility of a ChartLegend object.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "position",
+      "dataType": "string",
+      "description": "Represents the position of the legend on the chart.",
+      "isReadOnly": false,
+      "enumNameJs": "Excel.ChartLegendPosition",
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "overlay",
+      "dataType": "bool",
+      "description": "Boolean value for whether the chart legend should overlap with the main body of the chart.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": null
+}

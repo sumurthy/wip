@@ -1,0 +1,172 @@
+{
+  "name": "Chart",
+  "description": "Represents a chart object in a workbook.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "axes",
+      "dataType": "ChartAxes",
+      "description": "Represents chart axes.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "dataLabels",
+      "dataType": "ChartDataLabels",
+      "description": "Represents the datalabels on the chart.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "height",
+      "dataType": "double",
+      "description": "Represents the height, in points, of the chart object.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "left",
+      "dataType": "double",
+      "description": "The distance, in points, from the left side of the chart to the worksheet origin.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "legend",
+      "dataType": "ChartLegend",
+      "description": "Represents the legend for the chart.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "name",
+      "dataType": "string",
+      "description": "Represents the name of a chart object.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "series",
+      "dataType": "ChartSeriesCollection",
+      "description": "Represents either a single series or collection of series in the chart.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "title",
+      "dataType": "ChartTitle",
+      "description": "Represents the title of the specified chart, including the text, visibility, position and formating of the title.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "top",
+      "dataType": "double",
+      "description": "Represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "width",
+      "dataType": "double",
+      "description": "Represents the width, in points, of the chart object.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "format",
+      "dataType": "ChartAreaFormat",
+      "description": "Encapsulates the format properties for the chart area.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "delete",
+      "returnType": "void",
+      "description": "Deletes the chart object.",
+      "parameters": null,
+      "syntax": "chartObject.delete();",
+      "signature": "delete()",
+      "notes": null
+    },
+    {
+      "name": "setData",
+      "returnType": "void",
+      "description": "Resets the source data for the chart.",
+      "parameters": [
+        {
+          "name": "sourceData",
+          "dataType": "string",
+          "description": "The address or name of the range that contains the source data. If an address or a worksheet-scoped name is used, it must include the worksheet name (e.g. \"Sheet1!A5:B9\"). ",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        },
+        {
+          "name": "seriesBy",
+          "dataType": "string",
+          "description": "Specifies the way columns or rows are used as data series on the chart.",
+          "isRequired": false,
+          "enumNameJs": "Excel.ChartSeriesBy",
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "chartObject.setData(sourceData, seriesBy);",
+      "signature": "setData(sourceData: string, seriesBy: string)",
+      "notes": null
+    }
+  ]
+}

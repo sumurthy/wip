@@ -8,11 +8,10 @@ module SpecMaker
 require 'logger'
 require 'json'
 #require_relative 'resource'
-LOG_FILE = 'logs/genMdFiles_log.txt'
+LOG_FILE = '../../logs/genJsonFromCS_log.txt'
 
 begin
 	File.delete(LOG_FILE)
-	File.delete(EXCELAPI_FILE_TRANSIT)
 rescue => err
 	#Ignore this error
 end
@@ -20,7 +19,7 @@ end
 @logger = Logger.new(LOG_FILE)
 @logger.level = Logger::DEBUG
 
-EXCELAPI_FILE_SOURCE = 'c:/ruby/ExcelApI.cs'
+EXCELAPI_FILE_SOURCE = '../../data/ExcelApI.cs'
 ENUMS = 'jsonFiles/enums/enums.json'
 JSONOUTPUT_FOLDER = 'jsonFiles/'
 
@@ -196,13 +195,13 @@ parm_hash_array = []
 				enumName = nil
 			end
 
-			if member_summary.include?('Read-only')
-				readOnly = true
-				member_summary = member_summary.gsub('. Read-only.', '.')
-				member_summary = member_summary.gsub(' Read-only.', '.')
-			else
-				readOnly = false
-			end
+			# if member_summary.include?('Read-only')
+			# 	readOnly = true
+			# 	member_summary = member_summary.gsub('. Read-only.', '.')
+			# 	member_summary = member_summary.gsub(' Read-only.', '.')
+			# else
+			# 	readOnly = false
+			# end
 		end
 	end
 
@@ -239,6 +238,15 @@ parm_hash_array = []
 			isItCollection = true
 		else
 			isItCollection = false
+		end
+		if line.include?('set;')
+		 	readOnly = false
+		 	member_summary = member_summary.gsub('. Read-only.', '.')
+		 	member_summary = member_summary.gsub(' Read-only.', '.')
+		else
+		 	readOnly = true
+		 	member_summary = member_summary.chomp(' Read-only.')
+		 	member_summary = member_summary.chomp('Read-only.')
 		end
 
 		proDataType = line.split[0].gsub('?','')

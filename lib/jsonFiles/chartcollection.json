@@ -1,0 +1,130 @@
+{
+  "name": "ChartCollection",
+  "description": "A collection of all the chart objects on a worksheet.",
+  "isCollection": true,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "count",
+      "dataType": "int",
+      "description": "Returns the number of charts in the worksheet.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "items",
+      "dataType": "ChartCollection",
+      "description": "A collection of chart objects.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getItem",
+      "returnType": "Chart",
+      "description": "Gets a chart using its ID.",
+      "parameters": [
+        {
+          "name": "id",
+          "dataType": "string",
+          "description": "Id of the chart to be retrieved.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "chartCollectionObject.getItem(id);",
+      "signature": "getItem(id: string)",
+      "notes": null
+    },
+    {
+      "name": "getItem",
+      "returnType": "Chart",
+      "description": "Gets a chart using its name. If there are multiple charts with the same name, the first one will be returned.",
+      "parameters": [
+        {
+          "name": "name",
+          "dataType": "string",
+          "description": "Name of the chart to be retrieved.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "chartCollectionObject.getItem(name);",
+      "signature": "getItem(name: string)",
+      "notes": null
+    },
+    {
+      "name": "add",
+      "returnType": "Chart",
+      "description": "Creates a new chart.",
+      "parameters": [
+        {
+          "name": "type",
+          "dataType": "string",
+          "description": "Represents the type of a chart.",
+          "isRequired": true,
+          "enumNameJs": "Excel.ChartType",
+          "possibleValues": null,
+          "notes": null
+        },
+        {
+          "name": "sourceData",
+          "dataType": "string",
+          "description": "The address or name of the range that contains the source data. If an address or a worksheet-scoped name is used, it must include the worksheet name (e.g. \"Sheet1!A5:B9\"). ",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        },
+        {
+          "name": "seriesBy",
+          "dataType": "string",
+          "description": "Specifies the way columns or rows are used as data series on the chart. Can be one of the following: Auto (default), Rows, Columns.",
+          "isRequired": false,
+          "enumNameJs": "Excel.ChartSeriesBy",
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "chartCollectionObject.add(type, sourceData, seriesBy);",
+      "signature": "add(type: string, sourceData: string, seriesBy: string)",
+      "notes": null
+    },
+    {
+      "name": "getItemAt",
+      "returnType": "Chart",
+      "description": "Gets a chart based on its position in the collection.",
+      "parameters": [
+        {
+          "name": "index",
+          "dataType": "number",
+          "description": "Index value of the object to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "chartCollectionObject.getItemAt(index);",
+      "signature": "getItemAt(index: number)",
+      "notes": null
+    }
+  ]
+}

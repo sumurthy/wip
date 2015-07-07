@@ -1,0 +1,79 @@
+{
+  "name": "RangeFormat",
+  "description": "A format object encapsulating the range's font, fill, borders, alignment, and other properties.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "fill",
+      "dataType": "RangeFill",
+      "description": "Returns the fill object defined on the overall range.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "borders",
+      "dataType": "RangeBorderCollection",
+      "description": "Collection of border objects that apply to the overall range selected",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "font",
+      "dataType": "RangeFont",
+      "description": "Returns the font object defined on the overall range selected",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "horizontalAlignment",
+      "dataType": "string",
+      "description": "Represents the horizontal alignment for the specified object.",
+      "isReadOnly": false,
+      "enumNameJs": "Excel.HorizontalAlignment",
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "verticalAlignment",
+      "dataType": "string",
+      "description": "Represents the vertical alignment for the specified object.",
+      "isReadOnly": false,
+      "enumNameJs": "Excel.VerticalAlignment",
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "wrapText",
+      "dataType": "bool",
+      "description": "Indicates if Excel wraps the text in the object. A null value indicates that the entire range doesn't have uniform wrap setting",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": null
+}

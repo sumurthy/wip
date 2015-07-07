@@ -1,0 +1,24 @@
+{
+  "name": "ChartAxisTitleFormat",
+  "description": "Represents the chart axis title formatting.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "font",
+      "dataType": "ChartFont",
+      "description": "Represents the font attributes, such as font name, font size, color, etc. of chart axis title object.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    }
+  ],
+  "methods": null
+}

@@ -1,0 +1,35 @@
+{
+  "name": "ChartSeriesFormat",
+  "description": "encapsulates the format properties for the chart series",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "fill",
+      "dataType": "ChartFill",
+      "description": "Represents the fill format of a chart series, which includes interiorbackground formating information.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "line",
+      "dataType": "ChartLineFormat",
+      "description": "Represents line formatting.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    }
+  ],
+  "methods": null
+}

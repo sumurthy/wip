@@ -1,0 +1,35 @@
+{
+  "name": "ChartTitleFormat",
+  "description": "Provides access to the office art formatting for chart title.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "font",
+      "dataType": "ChartFont",
+      "description": "Represents the font attributes (font name, font size, color, etc.) for an object.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "fill",
+      "dataType": "ChartFill",
+      "description": "Represents the fill format of an object, which includes interiorbackground formating information.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    }
+  ],
+  "methods": null
+}

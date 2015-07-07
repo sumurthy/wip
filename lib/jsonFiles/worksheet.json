@@ -1,0 +1,143 @@
+{
+  "name": "Worksheet",
+  "description": "An Excel worksheet is a grid of cells. It can contain data, tables, charts, etc.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "charts",
+      "dataType": "ChartCollection",
+      "description": "Returns collection of charts that are part of the worksheet.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    },
+    {
+      "name": "id",
+      "dataType": "string",
+      "description": "Returns a value that uniquely identifies the worksheet in a given workbook. The value of the identifier remains the same even when the worksheet is renamed or moved.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "position",
+      "dataType": "int",
+      "description": "The zero-based position of the worksheet within the workbook.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "name",
+      "dataType": "string",
+      "description": "The display name of the worksheet.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "tables",
+      "dataType": "TableCollection",
+      "description": "Collection of tables that are part of the worksheet.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "activate",
+      "returnType": "void",
+      "description": "Activate the worksheet in the Excel UI.",
+      "parameters": null,
+      "syntax": "worksheetObject.activate();",
+      "signature": "activate()",
+      "notes": null
+    },
+    {
+      "name": "delete",
+      "returnType": "void",
+      "description": "Deletes the worksheet from the workbook.",
+      "parameters": null,
+      "syntax": "worksheetObject.delete();",
+      "signature": "delete()",
+      "notes": null
+    },
+    {
+      "name": "getCell",
+      "returnType": "Range",
+      "description": "Gets the range object containing the single cell based on row and column numbers. The cell can be outside the bounds of its parent range, so long as it's stays within the worksheet grid.",
+      "parameters": [
+        {
+          "name": "row",
+          "dataType": "number",
+          "description": "The row number of the cell to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        },
+        {
+          "name": "column",
+          "dataType": "number",
+          "description": "the column number of the cell to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "worksheetObject.getCell(row, column);",
+      "signature": "getCell(row: number, column: number)",
+      "notes": null
+    },
+    {
+      "name": "getRange",
+      "returnType": "Range",
+      "description": "Gets the range object specified by the address or name.",
+      "parameters": [
+        {
+          "name": "address",
+          "dataType": "string",
+          "description": "The address or the name of the range. If not specified, the entire worksheet range is returned.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "worksheetObject.getRange(address);",
+      "signature": "getRange(address: string)",
+      "notes": null
+    },
+    {
+      "name": "getUsedRange",
+      "returnType": "Range",
+      "description": "The used range is the smallest range than encompasses any cells that have a value or formatting assigned to them. If the worksheet is blank, this function will return the top left cell.",
+      "parameters": null,
+      "syntax": "worksheetObject.getUsedRange();",
+      "signature": "getUsedRange()",
+      "notes": null
+    }
+  ]
+}

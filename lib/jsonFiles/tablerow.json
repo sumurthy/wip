@@ -1,0 +1,54 @@
+{
+  "name": "TableRow",
+  "description": "Represents a row in a table.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "index",
+      "dataType": "int",
+      "description": "Returns the index number of the row within the rows collection of the table. Zero-indexed.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "values",
+      "dataType": "object[][]",
+      "description": "Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getRange",
+      "returnType": "Range",
+      "description": "Returns the range object associated with the entire row.",
+      "parameters": null,
+      "syntax": "tableRowObject.getRange();",
+      "signature": "getRange()",
+      "notes": null
+    },
+    {
+      "name": "delete",
+      "returnType": "void",
+      "description": "Deletes the row from the table.",
+      "parameters": null,
+      "syntax": "tableRowObject.delete();",
+      "signature": "delete()",
+      "notes": null
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "Binding",
+  "description": "Represents an Office.js binding that is defined in the workbook.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "id",
+      "dataType": "string",
+      "description": "Represents binding identifier.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "type",
+      "dataType": "string",
+      "description": "Returns the type of the binding.",
+      "isReadOnly": true,
+      "enumNameJs": "Excel.BindingType",
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getRange",
+      "returnType": "Range",
+      "description": "Returns the range represented by the binding. Will throw an error if binding is not of the correct type.",
+      "parameters": null,
+      "syntax": "bindingObject.getRange();",
+      "signature": "getRange()",
+      "notes": null
+    },
+    {
+      "name": "getTable",
+      "returnType": "Table",
+      "description": "Returns the table represented by the binding. Will throw an error if binding is not of the correct type.",
+      "parameters": null,
+      "syntax": "bindingObject.getTable();",
+      "signature": "getTable()",
+      "notes": null
+    },
+    {
+      "name": "getText",
+      "returnType": "string",
+      "description": "Returns the text represented by the binding. Will throw an error if binding is not of the correct type.",
+      "parameters": null,
+      "syntax": "bindingObject.getText();",
+      "signature": "getText()",
+      "notes": null
+    }
+  ]
+}

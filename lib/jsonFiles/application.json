@@ -1,0 +1,44 @@
+{
+  "name": "Application",
+  "description": "Represents the Excel application that manages the workbook.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "calculationMode",
+      "dataType": "string",
+      "description": "Returns the calculation mode used in the workbook.",
+      "isReadOnly": true,
+      "enumNameJs": "Excel.CalculationMode",
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "calculate",
+      "returnType": "void",
+      "description": "Recalculate all currently opened workbooks in Excel.",
+      "parameters": [
+        {
+          "name": "calculationType",
+          "dataType": "string",
+          "description": "Specifies the calculation type to use.",
+          "isRequired": true,
+          "enumNameJs": "Excel.CalculationType",
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "applicationObject.calculate(calculationType);",
+      "signature": "calculate(calculationType: string)",
+      "notes": null
+    }
+  ]
+}

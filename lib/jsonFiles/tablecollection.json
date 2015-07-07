@@ -1,0 +1,102 @@
+{
+  "name": "TableCollection",
+  "description": "Represents a collection of all the tables that are part of the workbook.",
+  "isCollection": true,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "count",
+      "dataType": "int",
+      "description": "Returns the number of tables in the workbook.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "items",
+      "dataType": "TableCollection",
+      "description": "A collection of table objects.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getItem",
+      "returnType": "Table",
+      "description": "Gets a table by Name or ID.",
+      "parameters": [
+        {
+          "name": "id",
+          "dataType": "object",
+          "description": "Name or ID of the table to be retrieved.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "tableCollectionObject.getItem(id);",
+      "signature": "getItem(id: object)",
+      "notes": null
+    },
+    {
+      "name": "getItemAt",
+      "returnType": "Table",
+      "description": "Gets a table based on its position in the collection.",
+      "parameters": [
+        {
+          "name": "index",
+          "dataType": "number",
+          "description": "Index value of the object to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "tableCollectionObject.getItemAt(index);",
+      "signature": "getItemAt(index: number)",
+      "notes": null
+    },
+    {
+      "name": "add",
+      "returnType": "Table",
+      "description": "Create a new table. The range source address determines the worksheet under which the table will be added. If the table cannot be added (e.g., because the address is invalid, or the table would overlap with another table), an error will be thrown.",
+      "parameters": [
+        {
+          "name": "address",
+          "dataType": "string",
+          "description": "Address or name of the range object representing the data source. If the address does not contain a sheet name, the currently-active sheet is used.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        },
+        {
+          "name": "hasHeaders",
+          "dataType": "bool",
+          "description": "Boolean value that indicates whether the data being imported has column labels. If the source does not contain headers (i.e,. when this property set to false), Excel will automatically generate header shifting the data down by one row.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "tableCollectionObject.add(address, hasHeaders);",
+      "signature": "add(address: string, hasHeaders: bool)",
+      "notes": null
+    }
+  ]
+}

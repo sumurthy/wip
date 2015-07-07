@@ -1,0 +1,35 @@
+{
+  "name": "ChartGridlines",
+  "description": "Represents major or minor gridlines on a chart axis.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "visible",
+      "dataType": "bool",
+      "description": "Boolean value representing if the axis gridlines are visible or not.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    },
+    {
+      "name": "format",
+      "dataType": "ChartGridlinesFormat",
+      "description": "Represents the formatting of chart gridlines.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": true,
+      "notes": null
+    }
+  ],
+  "methods": null
+}

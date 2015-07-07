@@ -1,0 +1,34 @@
+{
+  "name": "RangeFill",
+  "description": "Represents the background of a range object.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "color",
+      "dataType": "string",
+      "description": "HTML color code representing the color of the border line, of the form #RRGGBB (e.g. \"FFA500\") or as a named HTML color (e.g. \"orange\")",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "clear",
+      "returnType": "void",
+      "description": "Resets the range background.",
+      "parameters": null,
+      "syntax": "rangeFillObject.clear();",
+      "signature": "clear()",
+      "notes": null
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "ChartLineFormat",
+  "description": "Enapsulates the formatting options for line elements.",
+  "isCollection": false,
+  "info": {
+    "version": "1.0",
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "color",
+      "dataType": "string",
+      "description": "HTML color code representing the color of lines in the chart.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "possibleValues": null,
+      "isRelationship": false,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "clear",
+      "returnType": "void",
+      "description": "Clear the line format of a chart element.",
+      "parameters": null,
+      "syntax": "chartLineFormatObject.clear();",
+      "signature": "clear()",
+      "notes": null
+    }
+  ]
+}
