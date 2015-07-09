@@ -168,14 +168,18 @@ parm_hash_array = []
 		end
 
 		# Add the .load method to the method array. 		
-		method_array.push @loadMethodHash		
-		@json_object[:methods] = method_array				
-		# if method_array.length == 0
-		# 	@json_object[:methods] = nil
-		# else
-		# 	@json_object[:methods] = method_array				
-		# end
-			
+		if property_array.length == 0
+			puts @json_object[:name]
+			if method_array.length == 0
+				@json_object[:methods] = nil
+			else
+				@json_object[:methods] = method_array				
+			end
+		else
+			method_array.push @loadMethodHash		
+			@json_object[:methods] = method_array				
+
+		end	
 
 		File.open("#{JSONOUTPUT_FOLDER}#{(@json_object[:name]).downcase}.json", "w") do |f|
 			f.write(JSON.pretty_generate @json_object)
