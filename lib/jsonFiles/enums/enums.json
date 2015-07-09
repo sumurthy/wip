@@ -122,6 +122,15 @@
 		"SingleAccountant": "",
 		"DoubleAccountant": ""
 	},
+	"RangeValueType" : {
+		"Unknown": "",
+		"Empty": "",
+		"String": "",
+		"Integer" : "",
+		"Double" : "",
+		"Boolean" : "",
+		"Error": ""
+	},
 	"Excel.VerticalAlignment": {
 		"Top": "",
 		"Center": "",

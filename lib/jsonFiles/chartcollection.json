@@ -21,7 +21,7 @@
     },
     {
       "name": "items",
-      "dataType": "ChartCollection",
+      "dataType": "Chart[]",
       "description": "A collection of chart objects.",
       "isReadOnly": true,
       "enumNameJs": null,
@@ -32,6 +32,25 @@
     }
   ],
   "methods": [
+    {
+      "name": "getItem",
+      "returnType": "Chart",
+      "description": "Gets a chart using its ID.",
+      "parameters": [
+        {
+          "name": "id",
+          "dataType": "string",
+          "description": "Id of the chart to be retrieved.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "chartCollectionObject.getItem(id);",
+      "signature": "getItem(id: string)",
+      "notes": null
+    },
     {
       "name": "getItem",
       "returnType": "Chart",
@@ -49,25 +68,6 @@
       ],
       "syntax": "chartCollectionObject.getItem(name);",
       "signature": "getItem(name: string)",
-      "notes": null
-    },
-    {
-      "name": "getItem",
-      "returnType": "Chart",
-      "description": "Gets a chart using its id",
-      "parameters": [
-        {
-          "name": "id",
-          "dataType": "string",
-          "description": "Id of the chart to be retrieved.",
-          "isRequired": true,
-          "enumNameJs": null,
-          "possibleValues": null,
-          "notes": null
-        }
-      ],
-      "syntax": "chartCollectionObject.getItem(id);",
-      "signature": "getItem(id: string)",
       "notes": null
     },
     {
@@ -124,6 +124,25 @@
       ],
       "syntax": "chartCollectionObject.getItemAt(index);",
       "signature": "getItemAt(index: number)",
+      "notes": null
+    },
+    {
+      "name": "load",
+      "returnType": "void",
+      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "parameters": [
+        {
+          "name": "param",
+          "dataType": "object",
+          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
       "notes": null
     }
   ]

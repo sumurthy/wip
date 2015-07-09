@@ -62,17 +62,6 @@
       "possibleValues": null,
       "isRelationship": true,
       "notes": null
-    },
-    {
-      "name": "visibility",
-      "dataType": "SheetVisibility",
-      "description": "The Visibility of the worksheet,",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "possibleValues": null,
-      "isRelationship": true,
-      "notes": null
     }
   ],
   "methods": [
@@ -148,6 +137,25 @@
       "parameters": null,
       "syntax": "worksheetObject.getUsedRange();",
       "signature": "getUsedRange()",
+      "notes": null
+    },
+    {
+      "name": "load",
+      "returnType": "void",
+      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "parameters": [
+        {
+          "name": "param",
+          "dataType": "object",
+          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
       "notes": null
     }
   ]

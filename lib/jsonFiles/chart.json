@@ -157,7 +157,7 @@
         {
           "name": "seriesBy",
           "dataType": "string",
-          "description": "Specifies the way columns or rows are used as data series on the chart. Can be one of the following: Auto (default), Rows, Columns.",
+          "description": "Specifies the way columns or rows are used as data series on the chart.",
           "isRequired": false,
           "enumNameJs": "Excel.ChartSeriesBy",
           "possibleValues": null,
@@ -166,6 +166,25 @@
       ],
       "syntax": "chartObject.setData(sourceData, seriesBy);",
       "signature": "setData(sourceData: string, seriesBy: string)",
+      "notes": null
+    },
+    {
+      "name": "load",
+      "returnType": "void",
+      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "parameters": [
+        {
+          "name": "param",
+          "dataType": "object",
+          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
       "notes": null
     }
   ]

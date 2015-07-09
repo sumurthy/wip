@@ -19,8 +19,10 @@ end
 @logger = Logger.new(LOG_FILE)
 @logger.level = Logger::DEBUG
 
-EXCELAPI_FILE_SOURCE = '../../data/ExcelApI.cs'
+#EXCELAPI_FILE_SOURCE = '../../data/ExcelApi.cs'
+EXCELAPI_FILE_SOURCE = '../../data/ExcelApi_june.cs'
 ENUMS = 'jsonFiles/enums/enums.json'
+LOADMETHOD = 'jsonFiles/enums/loadMethod.json'
 JSONOUTPUT_FOLDER = 'jsonFiles/'
 
 
@@ -53,7 +55,7 @@ Method = Struct.new(:name, :returnType, :description, :parameters, :syntax, :sig
 Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :possibleValues, :isRelationship, :notes)
 ParamStr = Struct.new(:name, :dataType, :description, :isRequired, :enumNameJs, :possibleValues, :notes)
 
-SIMPLETYPES = %w[int string object object[][] double bool number void]
+SIMPLETYPES = %w[int string object object[][] object[] double bool number void]
 
 def csarray_write (line=nil) 
 	@csarray_out.push line
@@ -65,6 +67,9 @@ end
 @enumHash = {}
 tempEnumHash = JSON.parse File.read(ENUMS)
 @enumHash = Hash[tempEnumHash.map {|k, v| [k.gsub('Excel.',''), v] }]
+
+@loadMethodHash = {}
+@loadMethodHash = JSON.parse(File.read(LOADMETHOD), {:symbolize_names => true})
 
 ### 
 # Read the file & create a transit file by removing existing comments from the .CS File.
@@ -147,7 +152,9 @@ parm_hash_array = []
 			readOnly = true
 			enumName = nil
 			isItCollection = true
-			property = Property.new(prop_name, @json_object[:name], makeDesc, readOnly, enumName, isItCollection, nil, isRel, nil)	
+			itemReturnType = @json_object[:name][0,@json_object[:name].index('Collection')] + '[]'
+
+			property = Property.new(prop_name, itemReturnType, makeDesc, readOnly, enumName, isItCollection, nil, isRel, nil)	
 			property_array.push property.to_h
 			property = nil		
 		end		
@@ -159,16 +166,22 @@ parm_hash_array = []
 		else
 			@json_object[:properties] = property_array
 		end
-		if method_array.length == 0
-			@json_object[:methods] = nil
-		else
-			@json_object[:methods] = method_array				
-		end
+
+		# Add the .load method to the method array. 		
+		method_array.push @loadMethodHash		
+		@json_object[:methods] = method_array				
+		# if method_array.length == 0
+		# 	@json_object[:methods] = nil
+		# else
+		# 	@json_object[:methods] = method_array				
+		# end
 			
 
 		File.open("#{JSONOUTPUT_FOLDER}#{(@json_object[:name]).downcase}.json", "w") do |f|
 			f.write(JSON.pretty_generate @json_object)
 		end
+
+		# Reset the variables.
 		in_region = false
 		parm_hash_array = []
 		parm_array = []
@@ -251,6 +264,11 @@ parm_hash_array = []
 
 		proDataType = line.split[0].gsub('?','')
 
+		if (proDataType != 'object[]') && (proDataType != 'object[][]')
+			proDataType = proDataType.chomp('[][]')
+			proDataType = proDataType.chomp('[]')		
+		end
+
 		# If the return type is primitive or one of the enums, then it's a property. else a relation.
 		if (SIMPLETYPES.include? proDataType) || (@enumHash.has_key? proDataType)
 			isRel = false
@@ -262,8 +280,8 @@ parm_hash_array = []
 		end
 
 		if @enumHash.has_key? proDataType
-			proDataType = 'string'
 			enumName = 'Excel.' + proDataType
+			proDataType = 'string'
 		end
 
 		property = Property.new(prop_name, proDataType, member_summary, readOnly, enumName, isItCollection, nil, isRel, nil)	
@@ -305,10 +323,6 @@ parm_hash_array = []
 			if parm_array[j][:dataType] == 'int'	
 				parm_array[j][:dataType] = 'number'
 			end
-			if enumName != nil
-				parm_array[j][:dataType] = 'string'
-			end
-			parm_array[j][:dataType] = parm_array[j][:dataType].gsub('?', '')
 
 			# If the enum still slips through to the data type, then overwrite and set the enum correctly. 
 			if @enumHash.has_key? parm_array[j][:dataType] 
@@ -316,6 +330,11 @@ parm_hash_array = []
 				parm_array[j][:dataType]  = 'string'
 			end
 
+			# Enum data type should be documented as strings. 
+			if enumName != nil
+				parm_array[j][:dataType] = 'string'
+			end
+			parm_array[j][:dataType] = parm_array[j][:dataType].gsub('?', '')
 		end
 
 		parm_array.each do |parmStruct| 
@@ -362,6 +381,7 @@ parm_hash_array = []
 	end
 end
 
+	puts "*** Run Completed ***"
 
 #end module
 end

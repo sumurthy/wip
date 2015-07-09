@@ -21,7 +21,7 @@
     },
     {
       "name": "items",
-      "dataType": "TableCollection",
+      "dataType": "Table[]",
       "description": "A collection of table objects.",
       "isReadOnly": true,
       "enumNameJs": null,
@@ -96,6 +96,25 @@
       ],
       "syntax": "tableCollectionObject.add(address, hasHeaders);",
       "signature": "add(address: string, hasHeaders: bool)",
+      "notes": null
+    },
+    {
+      "name": "load",
+      "returnType": "void",
+      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "parameters": [
+        {
+          "name": "param",
+          "dataType": "object",
+          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
       "notes": null
     }
   ]

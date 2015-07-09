@@ -10,7 +10,7 @@
   "properties": [
     {
       "name": "items",
-      "dataType": "NamedItemCollection",
+      "dataType": "NamedItem[]",
       "description": "A collection of namedItem objects.",
       "isReadOnly": true,
       "enumNameJs": null,
@@ -38,6 +38,25 @@
       ],
       "syntax": "namedItemCollectionObject.getItem(name);",
       "signature": "getItem(name: string)",
+      "notes": null
+    },
+    {
+      "name": "load",
+      "returnType": "void",
+      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "parameters": [
+        {
+          "name": "param",
+          "dataType": "object",
+          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ],
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
       "notes": null
     }
   ]
