@@ -52,8 +52,8 @@ JSONOUTPUT_FOLDER = 'jsonFiles/'
 # Method = Struct.new(:name, :returnType, :description, :parameters, :syntax, :vbaInfo, :signature)
 # Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :vbaInfo, :possibleValues, :isRelationship)
 Method = Struct.new(:name, :returnType, :description, :parameters, :syntax, :signature, :notes)
-Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :possibleValues, :isRelationship, :notes)
-ParamStr = Struct.new(:name, :dataType, :description, :isRequired, :enumNameJs, :possibleValues, :notes)
+Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :isRelationship, :notes)
+ParamStr = Struct.new(:name, :dataType, :description, :isRequired, :enumNameJs, :notes)
 
 SIMPLETYPES = %w[int string object object[][] object[] double bool number void]
 
@@ -154,7 +154,7 @@ parm_hash_array = []
 			isItCollection = true
 			itemReturnType = @json_object[:name][0,@json_object[:name].index('Collection')] + '[]'
 
-			property = Property.new(prop_name, itemReturnType, makeDesc, readOnly, enumName, isItCollection, nil, isRel, nil)	
+			property = Property.new(prop_name, itemReturnType, makeDesc, readOnly, enumName, isItCollection, isRel, nil)	
 			property_array.push property.to_h
 			property = nil		
 		end		
@@ -239,7 +239,7 @@ parm_hash_array = []
 
 
 		param_name = line.split('"')[1]
-		parameter = ParamStr.new(param_name, nil, param_summary, nil, enumName, nil, nil)	
+		parameter = ParamStr.new(param_name, nil, param_summary, nil, enumName, nil)	
 		parm_array.push parameter
 	end
 
@@ -287,7 +287,7 @@ parm_hash_array = []
 			proDataType = 'string'
 		end
 
-		property = Property.new(prop_name, proDataType, member_summary, readOnly, enumName, isItCollection, nil, isRel, nil)	
+		property = Property.new(prop_name, proDataType, member_summary, readOnly, enumName, isItCollection, isRel, nil)	
 		property_array.push property.to_h
 		property = nil
 	end

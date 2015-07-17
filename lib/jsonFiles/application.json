@@ -15,7 +15,6 @@
       "isReadOnly": true,
       "enumNameJs": "Excel.CalculationMode",
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     }
@@ -32,7 +31,6 @@
           "description": "Specifies the calculation type to use.",
           "isRequired": true,
           "enumNameJs": "Excel.CalculationType",
-          "possibleValues": null,
           "notes": null
         }
       ],

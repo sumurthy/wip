@@ -15,7 +15,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": true,
-      "possibleValues": null,
       "isRelationship": true,
       "notes": null
     },
@@ -26,7 +25,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -37,7 +35,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -48,7 +45,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -59,19 +55,17 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": true,
-      "possibleValues": null,
       "isRelationship": true,
       "notes": null
     },
     {
       "name": "visibility",
-      "dataType": "SheetVisibility",
+      "dataType": "string",
       "description": "The Visibility of the worksheet,",
       "isReadOnly": true,
-      "enumNameJs": null,
+      "enumNameJs": "Excel.SheetVisibility",
       "isCollection": false,
-      "possibleValues": null,
-      "isRelationship": true,
+      "isRelationship": false,
       "notes": null
     }
   ],
@@ -105,7 +99,6 @@
           "description": "The row number of the cell to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         },
         {
@@ -114,7 +107,6 @@
           "description": "the column number of the cell to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -133,7 +125,6 @@
           "description": "The address or the name of the range. If not specified, the entire worksheet range is returned.",
           "isRequired": false,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],

@@ -15,7 +15,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": true,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     }
@@ -41,7 +40,6 @@
           "description": "The Name or ID of the worksheet.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -60,7 +58,6 @@
           "description": "The name of the worksheet to be added. If specified, name should be unqiue. If not specified, Excel determines the name of the new worksheet.",
           "isRequired": false,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],

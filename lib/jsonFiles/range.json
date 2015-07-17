@@ -15,7 +15,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -26,7 +25,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -37,7 +35,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -48,7 +45,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -59,7 +55,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -70,7 +65,6 @@
       "isReadOnly": true,
       "enumNameJs": "Excel.RangeValueType",
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -81,7 +75,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": true,
       "notes": null
     },
@@ -92,7 +85,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -103,7 +95,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -114,7 +105,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -125,7 +115,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -136,7 +125,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -147,7 +135,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -158,7 +145,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -169,7 +155,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": true,
       "notes": null
     }
@@ -186,7 +171,6 @@
           "description": "Determines the type of clear action. ",
           "isRequired": false,
           "enumNameJs": "Excel.ClearApplyTo",
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -205,7 +189,6 @@
           "description": "Specifies which way to shift the cells. ",
           "isRequired": true,
           "enumNameJs": "Excel.DeleteShiftDirection",
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -242,7 +225,6 @@
           "description": "The range object or address or range name.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -261,7 +243,6 @@
           "description": "Row number of the cell to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         },
         {
@@ -270,7 +251,6 @@
           "description": "Column number of the cell to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -289,7 +269,6 @@
           "description": "Column number of the range to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -308,7 +287,6 @@
           "description": "The range object or range address that will be used to determine the intersection of ranges.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -354,7 +332,6 @@
           "description": "The number of rows (positive, negative, or 0) by which the range is to be offset. Positive values are offset downward, and negative values are offset upward.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         },
         {
@@ -363,7 +340,6 @@
           "description": "The number of columns (positive, negative, or 0) by which the range is to be offset. Positive values are offset to the right, and negative values are offset to the left.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -382,7 +358,6 @@
           "description": "Row number of the range to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -401,7 +376,6 @@
           "description": "Specifies which way to shift the cells. ",
           "isRequired": true,
           "enumNameJs": "Excel.InsertShiftDirection",
-          "possibleValues": null,
           "notes": null
         }
       ],

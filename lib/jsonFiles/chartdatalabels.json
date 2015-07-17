@@ -15,7 +15,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": true,
       "notes": null
     },
@@ -26,7 +25,6 @@
       "isReadOnly": false,
       "enumNameJs": "Excel.ChartDataLabelPosition",
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -37,7 +35,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -48,7 +45,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -59,7 +55,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -70,7 +65,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -81,7 +75,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -92,7 +85,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -103,7 +95,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     }

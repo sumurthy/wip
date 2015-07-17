@@ -15,7 +15,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -26,7 +25,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": true,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     }
@@ -43,7 +41,6 @@
           "description": " Column Name or ID.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -62,7 +59,6 @@
           "description": "Index value of the object to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -81,7 +77,6 @@
           "description": "Specifies the relative position of the new column. The previous column at this position is shifted to the right. The index value should be equal to or less than the last column's index value, so it cannot be used to append a column at the end of the table. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         },
         {
@@ -90,7 +85,6 @@
           "description": "A 2-dimensional array of unformatted values of the table column.",
           "isRequired": false,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],

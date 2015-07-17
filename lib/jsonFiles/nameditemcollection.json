@@ -15,7 +15,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": true,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     }
@@ -32,7 +31,6 @@
           "description": "nameditem name.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],

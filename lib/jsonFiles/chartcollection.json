@@ -15,7 +15,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -26,7 +25,6 @@
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": true,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     }
@@ -43,7 +41,6 @@
           "description": "Id of the chart to be retrieved.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -62,7 +59,6 @@
           "description": "Name of the chart to be retrieved.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -81,7 +77,6 @@
           "description": "Represents the type of a chart.",
           "isRequired": true,
           "enumNameJs": "Excel.ChartType",
-          "possibleValues": null,
           "notes": null
         },
         {
@@ -90,7 +85,6 @@
           "description": "The address or name of the range that contains the source data. If an address or a worksheet-scoped name is used, it must include the worksheet name (e.g. \"Sheet1!A5:B9\"). ",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         },
         {
@@ -99,7 +93,6 @@
           "description": "Specifies the way columns or rows are used as data series on the chart. Can be one of the following: Auto (default), Rows, Columns.",
           "isRequired": false,
           "enumNameJs": "Excel.ChartSeriesBy",
-          "possibleValues": null,
           "notes": null
         }
       ],
@@ -118,7 +111,6 @@
           "description": "Index value of the object to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ],

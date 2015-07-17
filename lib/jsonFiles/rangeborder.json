@@ -15,7 +15,6 @@
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -26,7 +25,6 @@
       "isReadOnly": false,
       "enumNameJs": "Excel.BorderLineStyle",
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -37,7 +35,6 @@
       "isReadOnly": true,
       "enumNameJs": "Excel.BorderIndex",
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     },
@@ -48,7 +45,6 @@
       "isReadOnly": false,
       "enumNameJs": "Excel.BorderWeight",
       "isCollection": false,
-      "possibleValues": null,
       "isRelationship": false,
       "notes": null
     }
