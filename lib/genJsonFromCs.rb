@@ -20,7 +20,7 @@ end
 @logger.level = Logger::DEBUG
 
 #EXCELAPI_FILE_SOURCE = '../../data/ExcelApi.cs'
-EXCELAPI_FILE_SOURCE = '../../data/ExcelApi_june.cs'
+EXCELAPI_FILE_SOURCE = '../../data/ExcelApi.cs'
 ENUMS = 'jsonFiles/enums/enums.json'
 LOADMETHOD = 'jsonFiles/enums/loadMethod.json'
 JSONOUTPUT_FOLDER = 'jsonFiles/'
@@ -169,7 +169,6 @@ parm_hash_array = []
 
 		# Add the .load method to the method array. 		
 		if property_array.length == 0
-			puts @json_object[:name]
 			if method_array.length == 0
 				@json_object[:methods] = nil
 			else
