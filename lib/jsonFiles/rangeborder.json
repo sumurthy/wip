@@ -2,6 +2,20 @@
   "name": "RangeBorder",
   "description": "Represents the border of an object.",
   "isCollection": false,
+  "restPath": [
+    "/workbook/bindings({id})/table/range/format/borders({sideIndex})",
+    "/workbook/tables({id|name})/range/format/borders({sideIndex})",
+    "/workbook/worksheets({id|name})/tables({id|name})/range/format/borders({sideIndex})",
+    "/workbook/bindings({id})/table/rows({index})/range/format/borders({sideIndex})",
+    "/workbook/tables({id|name})/rows({index})/range/format/borders({sideIndex})",
+    "/workbook/worksheets({id|name})/tables({id|name})/rows({index})/range/format/borders({sideIndex})",
+    "/workbook/bindings({id})/table/columns({id|name})/range/format/borders({sideIndex})",
+    "/workbook/tables({id|name})/columns({id|name})/range/format/borders({sideIndex})",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/range/format/borders({sideIndex})",
+    "/workbook/bindings({id})/range/format/borders({sideIndex})",
+    "/workbook/worksheets({id|name})/range({address})/format/borders({sideIndex})",
+    "/workbook/names({name})/range/format/borders({sideIndex})"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +30,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +41,7 @@
       "enumNameJs": "Excel.BorderLineStyle",
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -36,6 +52,7 @@
       "enumNameJs": "Excel.BorderIndex",
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -46,6 +63,7 @@
       "enumNameJs": "Excel.BorderWeight",
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -54,6 +72,10 @@
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -64,10 +86,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

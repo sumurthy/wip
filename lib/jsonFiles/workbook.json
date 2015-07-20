@@ -2,6 +2,9 @@
   "name": "Workbook",
   "description": "Workbook is the top level object which contains related workbook objects such as worksheets, tables, ranges, etc.",
   "isCollection": false,
+  "restPath": [
+    "/workbook"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +19,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +30,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     },
     {
@@ -36,6 +41,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     },
     {
@@ -46,6 +52,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     },
     {
@@ -56,6 +63,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -64,15 +72,20 @@
       "name": "getSelectedRange",
       "returnType": "Range",
       "description": "Gets the currently selected range from the workbook.",
-      "parameters": null,
       "syntax": "workbookObject.getSelectedRange();",
       "signature": "getSelectedRange()",
-      "notes": null
+      "restfulName": "SelectedRange",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -83,10 +96,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

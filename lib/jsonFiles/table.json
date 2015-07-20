@@ -2,6 +2,11 @@
   "name": "Table",
   "description": "Represents an Excel table.",
   "isCollection": false,
+  "restPath": [
+    "/workbook/bindings({id})/table",
+    "/workbook/tables({id|name})",
+    "/workbook/worksheets({id|name})/tables({id|name})"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +21,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +32,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -36,6 +43,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -46,6 +54,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -56,6 +65,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -66,6 +76,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     },
     {
@@ -76,6 +87,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -84,51 +96,60 @@
       "name": "getRange",
       "returnType": "Range",
       "description": "Gets the range object associated with the entire table.",
-      "parameters": null,
       "syntax": "tableObject.getRange();",
       "signature": "getRange()",
-      "notes": null
+      "restfulName": "Range",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getHeaderRowRange",
       "returnType": "Range",
       "description": "Gets the range object associated with header row of the table.",
-      "parameters": null,
       "syntax": "tableObject.getHeaderRowRange();",
       "signature": "getHeaderRowRange()",
-      "notes": null
+      "restfulName": "HeaderRowRange",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getDataBodyRange",
       "returnType": "Range",
       "description": "Gets the range object associated with the data body of the table.",
-      "parameters": null,
       "syntax": "tableObject.getDataBodyRange();",
       "signature": "getDataBodyRange()",
-      "notes": null
+      "restfulName": "DataBodyRange",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getTotalRowRange",
       "returnType": "Range",
       "description": "Gets the range object associated with totals row of the table.",
-      "parameters": null,
       "syntax": "tableObject.getTotalRowRange();",
       "signature": "getTotalRowRange()",
-      "notes": null
+      "restfulName": "TotalRowRange",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "delete",
       "returnType": "void",
       "description": "Deletes the table.",
-      "parameters": null,
       "syntax": "tableObject.delete();",
       "signature": "delete()",
-      "notes": null
+      "restfulName": "Delete",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -139,10 +160,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

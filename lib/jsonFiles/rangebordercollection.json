@@ -2,6 +2,20 @@
   "name": "RangeBorderCollection",
   "description": "Represents the border objects that make up range border.",
   "isCollection": true,
+  "restPath": [
+    "/workbook/bindings({id})/table/range/format/borders",
+    "/workbook/tables({id|name})/range/format/borders",
+    "/workbook/worksheets({id|name})/tables({id|name})/range/format/borders",
+    "/workbook/bindings({id})/table/rows({index})/range/format/borders",
+    "/workbook/tables({id|name})/rows({index})/range/format/borders",
+    "/workbook/worksheets({id|name})/tables({id|name})/rows({index})/range/format/borders",
+    "/workbook/bindings({id})/table/columns({id|name})/range/format/borders",
+    "/workbook/tables({id|name})/columns({id|name})/range/format/borders",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/range/format/borders",
+    "/workbook/bindings({id})/range/format/borders",
+    "/workbook/worksheets({id|name})/range({address})/format/borders",
+    "/workbook/names({name})/range/format/borders"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +30,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +41,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -34,6 +50,10 @@
       "name": "getItem",
       "returnType": "RangeBorder",
       "description": "Gets a border object using its name",
+      "syntax": "rangeBorderCollectionObject.getItem(index);",
+      "signature": "getItem(index: string)",
+      "restfulName": "Item",
+      "notes": null,
       "parameters": [
         {
           "name": "index",
@@ -43,15 +63,16 @@
           "enumNameJs": "Excel.BorderIndex",
           "notes": null
         }
-      ],
-      "syntax": "rangeBorderCollectionObject.getItem(index);",
-      "signature": "getItem(index: string)",
-      "notes": null
+      ]
     },
     {
       "name": "getItemAt",
       "returnType": "RangeBorder",
       "description": "Gets a border object using its index",
+      "syntax": "rangeBorderCollectionObject.getItemAt(index);",
+      "signature": "getItemAt(index: number)",
+      "restfulName": "ItemAt",
+      "notes": null,
       "parameters": [
         {
           "name": "index",
@@ -61,15 +82,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "rangeBorderCollectionObject.getItemAt(index);",
-      "signature": "getItemAt(index: number)",
-      "notes": null
+      ]
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -80,10 +102,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

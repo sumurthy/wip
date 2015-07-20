@@ -2,6 +2,18 @@
   "name": "ChartLineFormat",
   "description": "Enapsulates the formatting options for line elements.",
   "isCollection": false,
+  "restPath": [
+    "/workbook/worksheets({id|name})/charts({name})/series({undefined})/format/line",
+    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/minorgridlines/format/line",
+    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/minorgridlines/format/line",
+    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/minorgridlines/format/line",
+    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/majorgridlines/format/line",
+    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/majorgridlines/format/line",
+    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/majorgridlines/format/line",
+    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/format/line",
+    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/format/line",
+    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/format/line"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +28,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -24,15 +37,20 @@
       "name": "clear",
       "returnType": "void",
       "description": "Clear the line format of a chart element.",
-      "parameters": null,
       "syntax": "chartLineFormatObject.clear();",
       "signature": "clear()",
-      "notes": null
+      "restfulName": "Clear",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -43,10 +61,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

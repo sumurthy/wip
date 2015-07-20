@@ -2,6 +2,9 @@
   "name": "Application",
   "description": "Represents the Excel application that manages the workbook.",
   "isCollection": false,
+  "restPath": [
+    "/workbook/application"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +19,7 @@
       "enumNameJs": "Excel.CalculationMode",
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -24,6 +28,10 @@
       "name": "calculate",
       "returnType": "void",
       "description": "Recalculate all currently opened workbooks in Excel.",
+      "syntax": "applicationObject.calculate(calculationType);",
+      "signature": "calculate(calculationType: string)",
+      "restfulName": "Calculate",
+      "notes": null,
       "parameters": [
         {
           "name": "calculationType",
@@ -33,15 +41,16 @@
           "enumNameJs": "Excel.CalculationType",
           "notes": null
         }
-      ],
-      "syntax": "applicationObject.calculate(calculationType);",
-      "signature": "calculate(calculationType: string)",
-      "notes": null
+      ]
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -52,10 +61,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

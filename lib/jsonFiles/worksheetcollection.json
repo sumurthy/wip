@@ -2,6 +2,9 @@
   "name": "WorksheetCollection",
   "description": "Represents a collection of worksheet objects that are part of the workbook.",
   "isCollection": true,
+  "restPath": [
+    "/workbook/worksheets"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +19,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -24,15 +28,20 @@
       "name": "getActiveWorksheet",
       "returnType": "Worksheet",
       "description": "Gets the currently active worksheet in the workbook.",
-      "parameters": null,
       "syntax": "worksheetCollectionObject.getActiveWorksheet();",
       "signature": "getActiveWorksheet()",
-      "notes": null
+      "restfulName": "ActiveWorksheet)]",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getItem",
       "returnType": "Worksheet",
       "description": "Gets a worksheet object using its Name or ID.",
+      "syntax": "worksheetCollectionObject.getItem(index);",
+      "signature": "getItem(index: string)",
+      "restfulName": "Item",
+      "notes": null,
       "parameters": [
         {
           "name": "index",
@@ -42,15 +51,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "worksheetCollectionObject.getItem(index);",
-      "signature": "getItem(index: string)",
-      "notes": null
+      ]
     },
     {
       "name": "add",
       "returnType": "Worksheet",
       "description": "Adds a new worksheet to the workbook. The worksheet will be added at the end of existing worksheets. If you wish to activate the newly added worksheet, call \".activate() on it.",
+      "syntax": "worksheetCollectionObject.add(name);",
+      "signature": "add(name: string)",
+      "restfulName": "Add",
+      "notes": null,
       "parameters": [
         {
           "name": "name",
@@ -60,15 +70,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "worksheetCollectionObject.add(name);",
-      "signature": "add(name: string)",
-      "notes": null
+      ]
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -79,10 +90,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

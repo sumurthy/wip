@@ -2,6 +2,9 @@
   "name": "BindingCollection",
   "description": "Represents the collection of all the binding objects that are part of the workbook.",
   "isCollection": true,
+  "restPath": [
+    "/workbook/bindings"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +19,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +30,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -34,24 +39,29 @@
       "name": "getItem",
       "returnType": "Binding",
       "description": "Gets a binding object by ID.",
+      "syntax": "bindingCollectionObject.getItem(id);",
+      "signature": "getItem(id: string)",
+      "restfulName": "Item",
+      "notes": null,
       "parameters": [
         {
           "name": "id",
           "dataType": "string",
-          "description": "Id of the binding object to be retrieved. ",
+          "description": "Id of the binding object to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "bindingCollectionObject.getItem(id);",
-      "signature": "getItem(id: string)",
-      "notes": null
+      ]
     },
     {
       "name": "getItemAt",
       "returnType": "Binding",
       "description": "Gets a binding object based on its position in the items array.",
+      "syntax": "bindingCollectionObject.getItemAt(index);",
+      "signature": "getItemAt(index: number)",
+      "restfulName": "ItemAt",
+      "notes": null,
       "parameters": [
         {
           "name": "index",
@@ -61,15 +71,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "bindingCollectionObject.getItemAt(index);",
-      "signature": "getItemAt(index: number)",
-      "notes": null
+      ]
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -80,10 +91,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

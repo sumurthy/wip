@@ -2,6 +2,14 @@
   "name": "ChartFill",
   "description": "Represents the fill formatting for a chart element.",
   "isCollection": false,
+  "restPath": [
+    "/workbook/worksheets({id|name})/charts({name})/format/fill",
+    "/workbook/worksheets({id|name})/charts({name})/title/format/fill",
+    "/workbook/worksheets({id|name})/charts({name})/series({undefined})/points({undefined})/format/fill",
+    "/workbook/worksheets({id|name})/charts({name})/series({undefined})/format/fill",
+    "/workbook/worksheets({id|name})/charts({name})/legend/format/fill",
+    "/workbook/worksheets({id|name})/charts({name})/datalabels/format/fill"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -13,15 +21,20 @@
       "name": "clear",
       "returnType": "void",
       "description": "Clear the fill color of a chart element.",
-      "parameters": null,
       "syntax": "chartFillObject.clear();",
       "signature": "clear()",
-      "notes": null
+      "restfulName": "Clear",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "setSolidColor",
       "returnType": "void",
       "description": "Sets the fill formatting of a chart element to a uniform color.",
+      "syntax": "chartFillObject.setSolidColor(color);",
+      "signature": "setSolidColor(color: string)",
+      "restfulName": "SetSolidColor",
+      "notes": null,
       "parameters": [
         {
           "name": "color",
@@ -31,10 +44,7 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "chartFillObject.setSolidColor(color);",
-      "signature": "setSolidColor(color: string)",
-      "notes": null
+      ]
     }
   ]
 }

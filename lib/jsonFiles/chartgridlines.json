@@ -2,6 +2,14 @@
   "name": "ChartGridlines",
   "description": "Represents major or minor gridlines on a chart axis.",
   "isCollection": false,
+  "restPath": [
+    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/minorgridlines",
+    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/minorgridlines",
+    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/minorgridlines",
+    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/majorgridlines",
+    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/majorgridlines",
+    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/majorgridlines"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +24,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +35,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -34,6 +44,10 @@
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -44,10 +58,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

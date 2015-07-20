@@ -2,6 +2,9 @@
   "name": "ChartSeriesCollection",
   "description": "Represents a collection of chart series.",
   "isCollection": true,
+  "restPath": [
+    "/workbook/worksheets({id|name})/charts({name})/series"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +19,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +30,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -34,6 +39,10 @@
       "name": "getItemAt",
       "returnType": "ChartSeries",
       "description": "Retrieves a series based on its position in the collection",
+      "syntax": "chartSeriesCollectionObject.getItemAt(index);",
+      "signature": "getItemAt(index: number)",
+      "restfulName": "ItemAt",
+      "notes": null,
       "parameters": [
         {
           "name": "index",
@@ -43,15 +52,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "chartSeriesCollectionObject.getItemAt(index);",
-      "signature": "getItemAt(index: number)",
-      "notes": null
+      ]
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -62,10 +72,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

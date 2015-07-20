@@ -2,6 +2,9 @@
   "name": "ChartPointFormat",
   "description": "Represents formatting object for chart points.",
   "isCollection": false,
+  "restPath": [
+    "/workbook/worksheets({id|name})/charts({name})/series({undefined})/points({undefined})/format"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +19,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -24,6 +28,10 @@
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -34,10 +42,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

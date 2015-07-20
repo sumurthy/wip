@@ -2,6 +2,20 @@
   "name": "Range",
   "description": "Range represents a set of one or more contiguous cells such as a cell, a row, a column, block of cells, etc.",
   "isCollection": false,
+  "restPath": [
+    "/workbook/bindings({id})/table/range",
+    "/workbook/tables({id|name})/range",
+    "/workbook/worksheets({id|name})/tables({id|name})/range",
+    "/workbook/bindings({id})/table/rows({index})/range",
+    "/workbook/tables({id|name})/rows({index})/range",
+    "/workbook/worksheets({id|name})/tables({id|name})/rows({index})/range",
+    "/workbook/bindings({id})/table/columns({id|name})/range",
+    "/workbook/tables({id|name})/columns({id|name})/range",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/range",
+    "/workbook/bindings({id})/range",
+    "/workbook/worksheets({id|name})/range({address})",
+    "/workbook/names({name})/range"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +30,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +41,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -36,6 +52,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -46,6 +63,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -56,6 +74,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -66,6 +85,7 @@
       "enumNameJs": "Excel.RangeValueType",
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -76,6 +96,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     },
     {
@@ -86,6 +107,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -96,6 +118,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -106,6 +129,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -116,6 +140,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -126,6 +151,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -136,6 +162,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -146,6 +173,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -156,6 +184,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -164,60 +193,68 @@
       "name": "clear",
       "returnType": "void",
       "description": "Clear range values, format, fill, border, etc.",
+      "syntax": "rangeObject.clear(applyTo);",
+      "signature": "clear(applyTo: string)",
+      "restfulName": "Clear",
+      "notes": null,
       "parameters": [
         {
           "name": "applyTo",
           "dataType": "string",
-          "description": "Determines the type of clear action. ",
+          "description": "Determines the type of clear action. Possible values are: All (default option), Format, and Content.",
           "isRequired": false,
           "enumNameJs": "Excel.ClearApplyTo",
           "notes": null
         }
-      ],
-      "syntax": "rangeObject.clear(applyTo);",
-      "signature": "clear(applyTo: string)",
-      "notes": null
+      ]
     },
     {
       "name": "delete",
       "returnType": "void",
       "description": "Deletes the cells associated with the range.",
+      "syntax": "rangeObject.delete(shift);",
+      "signature": "delete(shift: string)",
+      "restfulName": "Delete",
+      "notes": null,
       "parameters": [
         {
           "name": "shift",
           "dataType": "string",
-          "description": "Specifies which way to shift the cells. ",
+          "description": "Specifies which way to shift the cells. Possible values are: Up (default option) or Left.",
           "isRequired": true,
           "enumNameJs": "Excel.DeleteShiftDirection",
           "notes": null
         }
-      ],
-      "syntax": "rangeObject.delete(shift);",
-      "signature": "delete(shift: string)",
-      "notes": null
+      ]
     },
     {
       "name": "getEntireColumn",
       "returnType": "Range",
       "description": "Gets an object that represents the entire column of the range.",
-      "parameters": null,
       "syntax": "rangeObject.getEntireColumn();",
       "signature": "getEntireColumn()",
-      "notes": null
+      "restfulName": "EntireColumn",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getEntireRow",
       "returnType": "Range",
       "description": "Gets an object that represents the entire row of the range.",
-      "parameters": null,
       "syntax": "rangeObject.getEntireRow();",
       "signature": "getEntireRow()",
-      "notes": null
+      "restfulName": "EntireRow",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getBoundingRect",
       "returnType": "Range",
       "description": "Gets the smallest range object that encompasses the given ranges. For example, the GetBoundingRect of \"B2:C5\" and \"D10:E15\" is \"B2:E16\".",
+      "syntax": "rangeObject.getBoundingRect(anotherRange);",
+      "signature": "getBoundingRect(anotherRange: object)",
+      "restfulName": "BoundingRect",
+      "notes": null,
       "parameters": [
         {
           "name": "anotherRange",
@@ -227,15 +264,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "rangeObject.getBoundingRect(anotherRange);",
-      "signature": "getBoundingRect(anotherRange: object)",
-      "notes": null
+      ]
     },
     {
       "name": "getCell",
       "returnType": "Range",
       "description": "Gets the range object containing the single cell based on row and column numbers. The cell can be outside the bounds of its parent range, so long as it's stays within the worksheet grid. The returned cell is located relative to the top left cell of the range.",
+      "syntax": "rangeObject.getCell(row, column);",
+      "signature": "getCell(row: number, column: number)",
+      "restfulName": "Cell",
+      "notes": null,
       "parameters": [
         {
           "name": "row",
@@ -253,15 +291,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "rangeObject.getCell(row, column);",
-      "signature": "getCell(row: number, column: number)",
-      "notes": null
+      ]
     },
     {
       "name": "getColumn",
       "returnType": "Range",
       "description": "Gets a column contained in the range.",
+      "syntax": "rangeObject.getColumn(column);",
+      "signature": "getColumn(column: number)",
+      "restfulName": "Column",
+      "notes": null,
       "parameters": [
         {
           "name": "column",
@@ -271,15 +310,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "rangeObject.getColumn(column);",
-      "signature": "getColumn(column: number)",
-      "notes": null
+      ]
     },
     {
       "name": "getIntersection",
       "returnType": "Range",
       "description": "Gets the range object that represents the rectangular intersection of the given ranges.",
+      "syntax": "rangeObject.getIntersection(anotherRange);",
+      "signature": "getIntersection(anotherRange: object)",
+      "restfulName": "Intersection",
+      "notes": null,
       "parameters": [
         {
           "name": "anotherRange",
@@ -289,42 +329,46 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "rangeObject.getIntersection(anotherRange);",
-      "signature": "getIntersection(anotherRange: object)",
-      "notes": null
+      ]
     },
     {
       "name": "getLastCell",
       "returnType": "Range",
       "description": "Gets the last cell within the range. For example, the last cell of \"B2:D5\" is \"D5\".",
-      "parameters": null,
       "syntax": "rangeObject.getLastCell();",
       "signature": "getLastCell()",
-      "notes": null
+      "restfulName": "LastCell",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getLastColumn",
       "returnType": "Range",
       "description": "Gets the last column within the range. For example, the last column of \"B2:D5\" is \"D2:D5\".",
-      "parameters": null,
       "syntax": "rangeObject.getLastColumn();",
       "signature": "getLastColumn()",
-      "notes": null
+      "restfulName": "LastColumn",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getLastRow",
       "returnType": "Range",
       "description": "Gets the last row within the range. For example, the last row of \"B2:D5\" is \"B5:D5\".",
-      "parameters": null,
       "syntax": "rangeObject.getLastRow();",
       "signature": "getLastRow()",
-      "notes": null
+      "restfulName": "LastRow",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getOffsetRange",
       "returnType": "Range",
       "description": "Gets an object which represents a range that's offset from the specified range. The dimension of the returned range will match this range. If the resulting range is forced outside the bounds of the worksheet grid, an exception will be thrown.",
+      "syntax": "rangeObject.getOffsetRange(rowOffset, columnOffset);",
+      "signature": "getOffsetRange(rowOffset: number, columnOffset: number)",
+      "restfulName": "OffsetRange",
+      "notes": null,
       "parameters": [
         {
           "name": "rowOffset",
@@ -342,15 +386,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "rangeObject.getOffsetRange(rowOffset, columnOffset);",
-      "signature": "getOffsetRange(rowOffset: number, columnOffset: number)",
-      "notes": null
+      ]
     },
     {
       "name": "getRow",
       "returnType": "Range",
       "description": "Gets a row contained in the range.",
+      "syntax": "rangeObject.getRow(row);",
+      "signature": "getRow(row: number)",
+      "restfulName": "Row",
+      "notes": null,
       "parameters": [
         {
           "name": "row",
@@ -360,51 +405,55 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "rangeObject.getRow(row);",
-      "signature": "getRow(row: number)",
-      "notes": null
+      ]
     },
     {
       "name": "insert",
       "returnType": "Range",
       "description": "Inserts a cell or a range of cells into the worksheet in place of this range, and shifts the other cells to make space. Returns a new Range object at the now blank space.",
+      "syntax": "rangeObject.insert(shift);",
+      "signature": "insert(shift: string)",
+      "restfulName": "Insert",
+      "notes": null,
       "parameters": [
         {
           "name": "shift",
           "dataType": "string",
-          "description": "Specifies which way to shift the cells. ",
+          "description": "Specifies which way to shift the cells. Can be one of the following: Down (default option) or Right.",
           "isRequired": true,
           "enumNameJs": "Excel.InsertShiftDirection",
           "notes": null
         }
-      ],
-      "syntax": "rangeObject.insert(shift);",
-      "signature": "insert(shift: string)",
-      "notes": null
+      ]
     },
     {
       "name": "select",
       "returnType": "void",
       "description": "Selects the specified range in the Excel UI.",
-      "parameters": null,
       "syntax": "rangeObject.select();",
       "signature": "select()",
-      "notes": null
+      "restfulName": "Select",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getUsedRange",
       "returnType": "Range",
       "description": "Returns the used range of the given range object.",
-      "parameters": null,
       "syntax": "rangeObject.getUsedRange();",
       "signature": "getUsedRange()",
-      "notes": null
+      "restfulName": "UsedRange",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -415,10 +464,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

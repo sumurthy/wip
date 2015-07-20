@@ -2,6 +2,9 @@
   "name": "NamedItemCollection",
   "description": "A collection of all the nameditem objects that are part of the workbook.",
   "isCollection": true,
+  "restPath": [
+    "/workbook/names"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +19,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -24,6 +28,10 @@
       "name": "getItem",
       "returnType": "NamedItem",
       "description": "Gets a nameditem object using its name",
+      "syntax": "namedItemCollectionObject.getItem(name);",
+      "signature": "getItem(name: string)",
+      "restfulName": "Item",
+      "notes": null,
       "parameters": [
         {
           "name": "name",
@@ -33,15 +41,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "namedItemCollectionObject.getItem(name);",
-      "signature": "getItem(name: string)",
-      "notes": null
+      ]
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -52,10 +61,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

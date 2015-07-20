@@ -2,6 +2,10 @@
 	"name": "load",
 	"returnType": "void",
 	"description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+	"syntax": "object.load(param);",
+	"signature": "load(param: object)",
+	"restfulName": null,
+	"notes": null,
 	"parameters": [
 		{
 		"name": "param",
@@ -12,9 +16,6 @@
 		"possibleValues": null,
 		"notes": null
 		}
-	],
-	"syntax": "object.load(param);",
-	"signature": "load(param: object)",
-	"notes": null
+	]
 }
 

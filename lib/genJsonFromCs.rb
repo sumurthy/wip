@@ -7,23 +7,28 @@ module SpecMaker
 
 require 'logger'
 require 'json'
-#require_relative 'resource'
-LOG_FILE = '../../logs/genJsonFromCS_log.txt'
 
-begin
-	File.delete(LOG_FILE)
-rescue => err
-	#Ignore this error
-end
+# Log file
+	LOG_FOLDER = '../../logs'
+	Dir.mkdir(LOG_FOLDER) unless File.exists?(LOG_FOLDER)
 
-@logger = Logger.new(LOG_FILE)
-@logger.level = Logger::DEBUG
+	if File.exists?("#{LOG_FOLDER}/#{$PROGRAM_NAME.chomp('.rb')}.txt")
+		File.delete("#{LOG_FOLDER}/#{$PROGRAM_NAME.chomp('.rb')}.txt")
+	end
+	@logger = Logger.new("#{LOG_FOLDER}/#{$PROGRAM_NAME.chomp('.rb')}.txt")
+	@logger.level = Logger::DEBUG
+# End log file
 
+
+@processed_files = 0
+@json_files_created = 0
 #EXCELAPI_FILE_SOURCE = '../../data/ExcelApi.cs'
-EXCELAPI_FILE_SOURCE = '../../data/ExcelApi.cs'
-ENUMS = 'jsonFiles/enums/enums.json'
-LOADMETHOD = 'jsonFiles/enums/loadMethod.json'
+EXCELAPI_FILE_SOURCE = '../../data/ExcelApi_July_Pre.cs'
+ENUMS = 'jsonFiles/settings/enums.json'
+LOADMETHOD = 'jsonFiles/settings/loadMethod.json'
 JSONOUTPUT_FOLDER = 'jsonFiles/'
+OBJECTKEYS = 'jsonFiles/settings/objectkeys.json'
+
 
 
 #JSON_OUT = 'c:/ruby/excel_json.txt'
@@ -33,7 +38,7 @@ JSONOUTPUT_FOLDER = 'jsonFiles/'
 @csarray_out = []
 @current_object = ''
 @resource = {}
-
+@jsonHash = {}
 # Master json containers
 @json_hash = {}
 @json_array = []
@@ -41,6 +46,7 @@ JSONOUTPUT_FOLDER = 'jsonFiles/'
 @json_object[:name] = ''
 @json_object[:description] = ''
 @json_object[:isCollection] = false
+@json_object[:restPath] = []
 @json_object[:info] = {}
 @json_object[:info][:version] = '1.0'
 @json_object[:info][:title] = 'Office JavaScript Add-in API'
@@ -51,8 +57,8 @@ JSONOUTPUT_FOLDER = 'jsonFiles/'
 # Sub json containers
 # Method = Struct.new(:name, :returnType, :description, :parameters, :syntax, :vbaInfo, :signature)
 # Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :vbaInfo, :possibleValues, :isRelationship)
-Method = Struct.new(:name, :returnType, :description, :parameters, :syntax, :signature, :notes)
-Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :isRelationship, :notes)
+Method = Struct.new(:name, :returnType, :description, :syntax, :signature, :restfulName, :notes, :parameters)
+Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :isRelationship, :isKey, :notes)
 ParamStr = Struct.new(:name, :dataType, :description, :isRequired, :enumNameJs, :notes)
 
 SIMPLETYPES = %w[int string object object[][] object[] double bool number void]
@@ -68,8 +74,19 @@ end
 tempEnumHash = JSON.parse File.read(ENUMS)
 @enumHash = Hash[tempEnumHash.map {|k, v| [k.gsub('Excel.',''), v] }]
 
+### 
+# Load the "load()" method to be added to all items that have at least one property. 
+##
 @loadMethodHash = {}
 @loadMethodHash = JSON.parse(File.read(LOADMETHOD), {:symbolize_names => true})
+
+### 
+# Load the keys of the collections. Righ now, there is no way to identify keys from the metadata file. 
+##
+
+@objectKeyHash = {}
+@objectKeyHash = JSON.parse(File.read(OBJECTKEYS))
+
 
 ### 
 # Read the file & create a transit file by removing existing comments from the .CS File.
@@ -120,6 +137,7 @@ parm_array = []
 parm_array_metadata = []
 enumName = ''
 parm_hash_array = []
+restfulName = nil
 
 @csarray.each_with_index do |line, i|
 
@@ -138,8 +156,16 @@ parm_hash_array = []
 	
 	if line.strip.start_with?('[ClientCallableComMember', '[ClientCallableOperation') 
 		member_ahead = true
+		restfulName = nil
+		# Extract the Restfull name, which usually strips off get prefix from method names.
+		if line.include?('RESTfulName')
+			lineSplitArray = line.split(',')
+			restNameIndex = lineSplitArray.index {|w| w.include?('RESTfulName')}
+			restfulName = lineSplitArray[restNameIndex].split('=')[1].gsub('"','').strip
+		end
 	end
-	
+
+	# This signals end of an object. Time to write stuff to file.
 	if in_region && line.start_with?("\t}")		
 
 		# If this is a collection, add the 'items' property as that is not listed in the .CS file for some reason! 
@@ -153,6 +179,11 @@ parm_hash_array = []
 			enumName = nil
 			isItCollection = true
 			itemReturnType = @json_object[:name][0,@json_object[:name].index('Collection')] + '[]'
+
+			#Because chartpoints is not named correctly, it needs an override. 
+			if itemReturnType == 'ChartPoints[]'
+				itemReturnType = 'ChartPoint[]'
+			end
 
 			property = Property.new(prop_name, itemReturnType, makeDesc, readOnly, enumName, isItCollection, isRel, nil)	
 			property_array.push property.to_h
@@ -177,13 +208,20 @@ parm_hash_array = []
 		else
 			method_array.push @loadMethodHash		
 			@json_object[:methods] = method_array				
-
 		end	
+
+		# # Seed the restPath if its the parent object (workbook)
+		# if @json_object[:name] == 'Workbook' 
+		# 	@json_object[:restPath] = '/workbook'
+		# else
+		# 	@json_object[:restPath] = nil
+		# end
+
 
 		File.open("#{JSONOUTPUT_FOLDER}#{(@json_object[:name]).downcase}.json", "w") do |f|
 			f.write(JSON.pretty_generate @json_object)
 		end
-
+		@json_files_created = @json_files_created + 1
 		# Reset the variables.
 		in_region = false
 		parm_hash_array = []
@@ -376,15 +414,108 @@ parm_hash_array = []
 			syntax = syntax.gsub('?','')
 		end
 		line.split[0] = line.split[0].gsub('?','')
-		method = Method.new(mthd_name, line.split[0], member_summary, parm_hash_array,syntax, signature, nil)
+
+		# Finally, hanlde the restful names
+		if !restfulName 
+			restfulName = mthd_name			
+			if restfulName.start_with?('get')
+				restfulName = restfulName[3..-1]
+			end
+		end
+		restfulName = restfulName.slice(0,1).capitalize + restfulName.slice(1..-1)
+
+		# Create method hash and push the values. 
+		method = Method.new(mthd_name, line.split[0], member_summary, syntax, signature, restfulName, nil, parm_hash_array)
 		method_array.push method.to_h
+
+		# Reset the variables. 
 		method = nil
 		parm_array = []
 		parm_hash_array = []
 	end
 end
 
-	puts "*** Run Completed ***"
+
+
+# Recursively add restPath
+
+def self.add_restpath (item=nil, restPath=[], pathToWriteBack)
+
+	@processed_files = @processed_files + 1
+	@logger.debug(".... #{@processed_files} .... Beginning #{__method__} for #{restPath} .... #{pathToWriteBack}")	
+	jsonHash = JSON.parse(item, {:symbolize_names => true})	
+	@logger.debug(".... Before restpath: #{jsonHash[:restPath]}")	
+	# Assign path. If one already exists, merge and remove dups. 	
+	jsonHash[:restPath] = jsonHash[:restPath] ? (restPath | jsonHash[:restPath]) : restPath
+	@logger.debug(".... After restpath: #{jsonHash[:restPath]}")
+	#resource = uncapitalize(jsonHash[:name])
+
+
+
+	propreties = jsonHash[:properties]
+	methods = jsonHash[:methods]
+
+	# Process if the resource has properties. 
+	if propreties
+		
+		propreties.each do |prop| 
+			# Process only if its a relation. 
+			# Avoid infinite loop by avoiding circular reference with worksheet > range > worksheet
+			if prop[:isRelationship] && !((prop[:name] == 'worksheet') && (jsonHash[:name] == 'Range'))
+				relFilePath = JSONOUTPUT_FOLDER + prop[:dataType].downcase + '.json'
+				if File.file?(relFilePath)
+					@logger.debug(".... Relation: Going recursive with #{prop[:name]}")	
+					pathToSendArray = jsonHash[:restPath].map {|d| d + '/' + prop[:name].downcase }
+					add_restpath File.read(relFilePath), pathToSendArray, relFilePath	
+				end
+				# If it's a collection, add the RESTful path to it's item. Ex: /table from /tables
+				if prop[:isCollection]
+					collectionItem = prop[:dataType].chomp('Collection').downcase 
+					# Special case chartpoint because it is not named correctly. 
+					if collectionItem == 'chartpoints'
+						collectionItem = 'chartpoint'
+					end
+					collectionItemFilePath = JSONOUTPUT_FOLDER + collectionItem + '.json'
+					# Append the keys of collection. e.g. worksheets({id|name})
+					lastSegment = (@objectKeyHash.has_key?(prop[:name].downcase)) ? ('({' + @objectKeyHash[prop[:name].downcase].join('|') + '})') : '({})'
+					collectionItemRestPath = jsonHash[:restPath].map { |d| d + '/' + prop[:name].downcase + lastSegment}
+					if File.file?(collectionItemFilePath)
+						@logger.debug(".... Collection Item: Going recursive with #{collectionItem}")	
+						add_restpath File.read(collectionItemFilePath), collectionItemRestPath, collectionItemFilePath	
+					end
+				end
+			end
+		end
+	end		
+	# Now process methods to get things like range. 
+		# Process if the resource has properties. 
+	if methods
+		methods.each do |method|
+			# Process only if its a relation. 		  
+			methodFilePath = JSONOUTPUT_FOLDER + method[:restfulName].to_s.downcase + '.json'
+			if File.file?(methodFilePath)
+				@logger.debug(".... Method: Going recursive with #{method[:restfulName]}")	
+				parmForMethod = method[:parameters] ? '({' + method[:parameters][0][:name] + '})' : ''
+				pathToSendArray = jsonHash[:restPath].map {|d| d + '/' + method[:restfulName].downcase + parmForMethod}
+				add_restpath File.read(methodFilePath), pathToSendArray, methodFilePath	
+			end
+		end
+	end		
+
+	# Write the file back with the REST path. 
+	File.open(pathToWriteBack, "w") do |f|
+		f.write(JSON.pretty_generate jsonHash)
+	end
+end
+
+# Add REST Path to the resources. 
+
+	fullpath = JSONOUTPUT_FOLDER + 'workbook.json'
+	if File.file?(fullpath)
+		add_restpath File.read(fullpath), ["/workbook"], fullpath
+	end
+
+puts "*** OK. Created #{@json_files_created} JSON files. For REST Processed #{@processed_files} times. Check log file folder for results. ***"
 
 #end module
 end

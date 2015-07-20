@@ -2,6 +2,10 @@
   "name": "TableCollection",
   "description": "Represents a collection of all the tables that are part of the workbook.",
   "isCollection": true,
+  "restPath": [
+    "/workbook/tables",
+    "/workbook/worksheets({id|name})/tables"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +20,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +31,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -34,6 +40,10 @@
       "name": "getItem",
       "returnType": "Table",
       "description": "Gets a table by Name or ID.",
+      "syntax": "tableCollectionObject.getItem(id);",
+      "signature": "getItem(id: object)",
+      "restfulName": "Item",
+      "notes": null,
       "parameters": [
         {
           "name": "id",
@@ -43,15 +53,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "tableCollectionObject.getItem(id);",
-      "signature": "getItem(id: object)",
-      "notes": null
+      ]
     },
     {
       "name": "getItemAt",
       "returnType": "Table",
       "description": "Gets a table based on its position in the collection.",
+      "syntax": "tableCollectionObject.getItemAt(index);",
+      "signature": "getItemAt(index: number)",
+      "restfulName": "ItemAt",
+      "notes": null,
       "parameters": [
         {
           "name": "index",
@@ -61,15 +72,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "tableCollectionObject.getItemAt(index);",
-      "signature": "getItemAt(index: number)",
-      "notes": null
+      ]
     },
     {
       "name": "add",
       "returnType": "Table",
       "description": "Create a new table. The range source address determines the worksheet under which the table will be added. If the table cannot be added (e.g., because the address is invalid, or the table would overlap with another table), an error will be thrown.",
+      "syntax": "tableCollectionObject.add(address, hasHeaders);",
+      "signature": "add(address: string, hasHeaders: bool)",
+      "restfulName": "Add",
+      "notes": null,
       "parameters": [
         {
           "name": "address",
@@ -87,15 +99,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "tableCollectionObject.add(address, hasHeaders);",
-      "signature": "add(address: string, hasHeaders: bool)",
-      "notes": null
+      ]
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -106,10 +119,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

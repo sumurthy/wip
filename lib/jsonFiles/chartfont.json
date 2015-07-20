@@ -2,6 +2,18 @@
   "name": "ChartFont",
   "description": "This object represents the font attributes (font name, font size, color, etc.) for a chart object.",
   "isCollection": false,
+  "restPath": [
+    "/workbook/worksheets({id|name})/charts({name})/format/font",
+    "/workbook/worksheets({id|name})/charts({name})/title/format/font",
+    "/workbook/worksheets({id|name})/charts({name})/legend/format/font",
+    "/workbook/worksheets({id|name})/charts({name})/datalabels/format/font",
+    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/title/format/font",
+    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/title/format/font",
+    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/title/format/font",
+    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/format/font",
+    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/format/font",
+    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/format/font"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +28,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +39,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -36,6 +50,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -46,6 +61,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -56,6 +72,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -66,6 +83,7 @@
       "enumNameJs": "Excel.ChartUnderlineStyle",
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -74,6 +92,10 @@
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -84,10 +106,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }

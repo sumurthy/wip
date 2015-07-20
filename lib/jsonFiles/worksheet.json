@@ -2,6 +2,9 @@
   "name": "Worksheet",
   "description": "An Excel worksheet is a grid of cells. It can contain data, tables, charts, etc.",
   "isCollection": false,
+  "restPath": [
+    "/workbook/worksheets({id|name})"
+  ],
   "info": {
     "version": "1.0",
     "title": "Office JavaScript Add-in API",
@@ -16,6 +19,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     },
     {
@@ -26,6 +30,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -36,6 +41,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -46,6 +52,7 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     },
     {
@@ -56,6 +63,7 @@
       "enumNameJs": null,
       "isCollection": true,
       "isRelationship": true,
+      "isKey": null,
       "notes": null
     },
     {
@@ -66,6 +74,7 @@
       "enumNameJs": "Excel.SheetVisibility",
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
       "notes": null
     }
   ],
@@ -74,24 +83,30 @@
       "name": "activate",
       "returnType": "void",
       "description": "Activate the worksheet in the Excel UI.",
-      "parameters": null,
       "syntax": "worksheetObject.activate();",
       "signature": "activate()",
-      "notes": null
+      "restfulName": "Activate",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "delete",
       "returnType": "void",
       "description": "Deletes the worksheet from the workbook.",
-      "parameters": null,
       "syntax": "worksheetObject.delete();",
       "signature": "delete()",
-      "notes": null
+      "restfulName": "Delete",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "getCell",
       "returnType": "Range",
       "description": "Gets the range object containing the single cell based on row and column numbers. The cell can be outside the bounds of its parent range, so long as it's stays within the worksheet grid.",
+      "syntax": "worksheetObject.getCell(row, column);",
+      "signature": "getCell(row: number, column: number)",
+      "restfulName": "Cell",
+      "notes": null,
       "parameters": [
         {
           "name": "row",
@@ -109,15 +124,16 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "worksheetObject.getCell(row, column);",
-      "signature": "getCell(row: number, column: number)",
-      "notes": null
+      ]
     },
     {
       "name": "getRange",
       "returnType": "Range",
       "description": "Gets the range object specified by the address or name.",
+      "syntax": "worksheetObject.getRange(address);",
+      "signature": "getRange(address: string)",
+      "restfulName": "Range",
+      "notes": null,
       "parameters": [
         {
           "name": "address",
@@ -127,24 +143,26 @@
           "enumNameJs": null,
           "notes": null
         }
-      ],
-      "syntax": "worksheetObject.getRange(address);",
-      "signature": "getRange(address: string)",
-      "notes": null
+      ]
     },
     {
       "name": "getUsedRange",
       "returnType": "Range",
       "description": "The used range is the smallest range than encompasses any cells that have a value or formatting assigned to them. If the worksheet is blank, this function will return the top left cell.",
-      "parameters": null,
       "syntax": "worksheetObject.getUsedRange();",
       "signature": "getUsedRange()",
-      "notes": null
+      "restfulName": "UsedRange",
+      "notes": null,
+      "parameters": null
     },
     {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
       "parameters": [
         {
           "name": "param",
@@ -155,10 +173,7 @@
           "possibleValues": null,
           "notes": null
         }
-      ],
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "notes": null
+      ]
     }
   ]
 }
