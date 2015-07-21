@@ -2,19 +2,20 @@
   "name": "Range",
   "description": "Range represents a set of one or more contiguous cells such as a cell, a row, a column, block of cells, etc.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/bindings({id})/table/range",
-    "/workbook/tables({id|name})/range",
-    "/workbook/worksheets({id|name})/tables({id|name})/range",
-    "/workbook/bindings({id})/table/rows({index})/range",
-    "/workbook/tables({id|name})/rows({index})/range",
-    "/workbook/worksheets({id|name})/tables({id|name})/rows({index})/range",
-    "/workbook/bindings({id})/table/columns({id|name})/range",
-    "/workbook/tables({id|name})/columns({id|name})/range",
-    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/range",
-    "/workbook/bindings({id})/range",
-    "/workbook/worksheets({id|name})/range({address})",
-    "/workbook/names({name})/range"
+    "/workbook/bindings/{id}/table/range",
+    "/workbook/tables/{id|name}/range",
+    "/workbook/worksheets/{id|name}/tables/{id|name}/range",
+    "/workbook/bindings/{id}/table/rows/{index}/range",
+    "/workbook/tables/{id|name}/rows/{index}/range",
+    "/workbook/worksheets/{id|name}/tables/{id|name}/rows/{index}/range",
+    "/workbook/bindings/{id}/table/columns/{id|name}/range",
+    "/workbook/tables/{id|name}/columns/{id|name}/range",
+    "/workbook/worksheets/{id|name}/tables/{id|name}/columns/{id|name}/range",
+    "/workbook/bindings/{id}/range",
+    "/workbook/worksheets/{id|name}/range({address})",
+    "/workbook/names/{name}/range"
   ],
   "info": {
     "version": "1.0",
@@ -80,7 +81,7 @@
     {
       "name": "valueTypes",
       "dataType": "string",
-      "description": "Represents the type of data of each cell",
+      "description": "Represents the type of data of each cell.",
       "isReadOnly": true,
       "enumNameJs": "Excel.RangeValueType",
       "isCollection": false,
@@ -201,7 +202,7 @@
         {
           "name": "applyTo",
           "dataType": "string",
-          "description": "Determines the type of clear action. Possible values are: All (default option), Format, and Content.",
+          "description": "Determines the type of clear action.",
           "isRequired": false,
           "enumNameJs": "Excel.ClearApplyTo",
           "notes": null
@@ -220,7 +221,7 @@
         {
           "name": "shift",
           "dataType": "string",
-          "description": "Specifies which way to shift the cells. Possible values are: Up (default option) or Left.",
+          "description": "Specifies which way to shift the cells.",
           "isRequired": true,
           "enumNameJs": "Excel.DeleteShiftDirection",
           "notes": null
@@ -419,7 +420,7 @@
         {
           "name": "shift",
           "dataType": "string",
-          "description": "Specifies which way to shift the cells. Can be one of the following: Down (default option) or Right.",
+          "description": "Specifies which way to shift the cells.",
           "isRequired": true,
           "enumNameJs": "Excel.InsertShiftDirection",
           "notes": null

@@ -2,8 +2,9 @@
   "name": "ChartPointsCollection",
   "description": "A collection of all the chart points within a series inside a chart.",
   "isCollection": true,
+  "collectionOf": "ChartPoint",
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/series({undefined})/points"
+    "/workbook/worksheets/{id|name}/charts/{name}/series/{undefined}/points"
   ],
   "info": {
     "version": "1.0",

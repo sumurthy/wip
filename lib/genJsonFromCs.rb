@@ -23,7 +23,7 @@ require 'json'
 @processed_files = 0
 @json_files_created = 0
 #EXCELAPI_FILE_SOURCE = '../../data/ExcelApi.cs'
-EXCELAPI_FILE_SOURCE = '../../data/ExcelApi_July_Pre.cs'
+EXCELAPI_FILE_SOURCE = '../../data/ExcelApi_July.cs'
 ENUMS = 'jsonFiles/settings/enums.json'
 LOADMETHOD = 'jsonFiles/settings/loadMethod.json'
 JSONOUTPUT_FOLDER = 'jsonFiles/'
@@ -46,6 +46,7 @@ OBJECTKEYS = 'jsonFiles/settings/objectkeys.json'
 @json_object[:name] = ''
 @json_object[:description] = ''
 @json_object[:isCollection] = false
+@json_object[:collectionOf] = nil
 @json_object[:restPath] = []
 @json_object[:info] = {}
 @json_object[:info][:version] = '1.0'
@@ -147,8 +148,12 @@ restfulName = nil
 		@json_object[:name] = line.split.first(3).join(' ').split.last(1).join(' ').gsub(':','')
 		if @json_object[:name].include?('Collection')
 			@json_object[:isCollection] = true
+			# Define what it is a collection of. Extract object name between < >
+			# public interface ChartSeriesCollection : IEnumerable<ChartSeries>
+			@json_object[:collectionOf] = line.split('<')[1].chomp("\n").chomp(">")
 		else
 			@json_object[:isCollection] = false
+			@json_object[:collectionOf] = nil
 		end
 		in_region = true
 		@member_summary = ''
@@ -161,7 +166,7 @@ restfulName = nil
 		if line.include?('RESTfulName')
 			lineSplitArray = line.split(',')
 			restNameIndex = lineSplitArray.index {|w| w.include?('RESTfulName')}
-			restfulName = lineSplitArray[restNameIndex].split('=')[1].gsub('"','').strip
+			restfulName = lineSplitArray[restNameIndex].split('=')[1].gsub('"','').gsub(')','').gsub(']','').strip
 		end
 	end
 
@@ -337,7 +342,6 @@ restfulName = nil
 		parm_array_metadata = line[line.index('('), line.index(');')].split(',')
 		parm_array_metadata.map! {|n| n.split[0]}
 
-
 		parm_array_metadata.each_with_index do |metadata, j|
 			if metadata.include?('Opitional') || metadata.include?('Optional') 
 				parm_array[j][:isRequired] = false
@@ -477,7 +481,7 @@ def self.add_restpath (item=nil, restPath=[], pathToWriteBack)
 					end
 					collectionItemFilePath = JSONOUTPUT_FOLDER + collectionItem + '.json'
 					# Append the keys of collection. e.g. worksheets({id|name})
-					lastSegment = (@objectKeyHash.has_key?(prop[:name].downcase)) ? ('({' + @objectKeyHash[prop[:name].downcase].join('|') + '})') : '({})'
+					lastSegment = (@objectKeyHash.has_key?(prop[:name].downcase)) ? ('/{' + @objectKeyHash[prop[:name].downcase].join('|') + '}') : '/{undefined}'
 					collectionItemRestPath = jsonHash[:restPath].map { |d| d + '/' + prop[:name].downcase + lastSegment}
 					if File.file?(collectionItemFilePath)
 						@logger.debug(".... Collection Item: Going recursive with #{collectionItem}")	

@@ -2,10 +2,11 @@
   "name": "Table",
   "description": "Represents an Excel table.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/bindings({id})/table",
-    "/workbook/tables({id|name})",
-    "/workbook/worksheets({id|name})/tables({id|name})"
+    "/workbook/bindings/{id}/table",
+    "/workbook/tables/{id|name}",
+    "/workbook/worksheets/{id|name}/tables/{id|name}"
   ],
   "info": {
     "version": "1.0",

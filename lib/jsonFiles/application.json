@@ -2,6 +2,7 @@
   "name": "Application",
   "description": "Represents the Excel application that manages the workbook.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
     "/workbook/application"
   ],

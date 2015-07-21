@@ -2,10 +2,11 @@
   "name": "ChartAxis",
   "description": "Represents a single axis in a chart.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis",
-    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis",
-    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis"
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/valueaxis",
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/seriesaxis",
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis"
   ],
   "info": {
     "version": "1.0",

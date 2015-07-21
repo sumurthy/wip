@@ -2,8 +2,9 @@
   "name": "ChartTitle",
   "description": "Represents a chart title object of a chart.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/title"
+    "/workbook/worksheets/{id|name}/charts/{name}/title"
   ],
   "info": {
     "version": "1.0",

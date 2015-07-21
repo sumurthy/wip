@@ -2,10 +2,11 @@
   "name": "TableColumnCollection",
   "description": "Represents a collection of all the columns that are part of the table.",
   "isCollection": true,
+  "collectionOf": "TableColumn",
   "restPath": [
-    "/workbook/bindings({id})/table/columns",
-    "/workbook/tables({id|name})/columns",
-    "/workbook/worksheets({id|name})/tables({id|name})/columns"
+    "/workbook/bindings/{id}/table/columns",
+    "/workbook/tables/{id|name}/columns",
+    "/workbook/worksheets/{id|name}/tables/{id|name}/columns"
   ],
   "info": {
     "version": "1.0",

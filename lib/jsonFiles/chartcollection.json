@@ -2,8 +2,9 @@
   "name": "ChartCollection",
   "description": "A collection of all the chart objects on a worksheet.",
   "isCollection": true,
+  "collectionOf": "Chart",
   "restPath": [
-    "/workbook/worksheets({id|name})/charts"
+    "/workbook/worksheets/{id|name}/charts"
   ],
   "info": {
     "version": "1.0",
@@ -82,7 +83,7 @@
         {
           "name": "seriesBy",
           "dataType": "string",
-          "description": "Specifies the way columns or rows are used as data series on the chart. Can be one of the following: Auto (default), Rows, Columns.",
+          "description": "Specifies the way columns or rows are used as data series on the chart.",
           "isRequired": false,
           "enumNameJs": "Excel.ChartSeriesBy",
           "notes": null

@@ -2,8 +2,9 @@
   "name": "Worksheet",
   "description": "An Excel worksheet is a grid of cells. It can contain data, tables, charts, etc.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})"
+    "/workbook/worksheets/{id|name}"
   ],
   "info": {
     "version": "1.0",

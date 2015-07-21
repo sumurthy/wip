@@ -2,8 +2,9 @@
   "name": "Binding",
   "description": "Represents an Office.js binding that is defined in the workbook.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/bindings({id})"
+    "/workbook/bindings/{id}"
   ],
   "info": {
     "version": "1.0",

@@ -2,10 +2,11 @@
   "name": "TableRowCollection",
   "description": "Represents a collection of all the rows that are part of the table.",
   "isCollection": true,
+  "collectionOf": "TableRow",
   "restPath": [
-    "/workbook/bindings({id})/table/rows",
-    "/workbook/tables({id|name})/rows",
-    "/workbook/worksheets({id|name})/tables({id|name})/rows"
+    "/workbook/bindings/{id}/table/rows",
+    "/workbook/tables/{id|name}/rows",
+    "/workbook/worksheets/{id|name}/tables/{id|name}/rows"
   ],
   "info": {
     "version": "1.0",

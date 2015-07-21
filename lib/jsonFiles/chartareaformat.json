@@ -2,8 +2,9 @@
   "name": "ChartAreaFormat",
   "description": "Encapsulates the format properties for the overall chart area.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/format"
+    "/workbook/worksheets/{id|name}/charts/{name}/format"
   ],
   "info": {
     "version": "1.0",
@@ -14,7 +15,7 @@
     {
       "name": "fill",
       "dataType": "ChartFill",
-      "description": "Represents the fill format of an object, which includes interiorbackground formatting information.",
+      "description": "Represents the fill format of an object, which includes background formatting information.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,

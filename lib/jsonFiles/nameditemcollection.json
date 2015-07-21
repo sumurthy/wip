@@ -2,6 +2,7 @@
   "name": "NamedItemCollection",
   "description": "A collection of all the nameditem objects that are part of the workbook.",
   "isCollection": true,
+  "collectionOf": "NamedItem",
   "restPath": [
     "/workbook/names"
   ],

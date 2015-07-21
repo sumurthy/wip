@@ -2,6 +2,7 @@
   "name": "BindingCollection",
   "description": "Represents the collection of all the binding objects that are part of the workbook.",
   "isCollection": true,
+  "collectionOf": "Binding",
   "restPath": [
     "/workbook/bindings"
   ],
@@ -47,7 +48,7 @@
         {
           "name": "id",
           "dataType": "string",
-          "description": "Id of the binding object to be retrieved. Zero-indexed.",
+          "description": "Id of the binding object to be retrieved.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null

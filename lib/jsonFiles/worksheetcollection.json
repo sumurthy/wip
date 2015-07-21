@@ -2,6 +2,7 @@
   "name": "WorksheetCollection",
   "description": "Represents a collection of worksheet objects that are part of the workbook.",
   "isCollection": true,
+  "collectionOf": "Worksheet",
   "restPath": [
     "/workbook/worksheets"
   ],
@@ -30,7 +31,7 @@
       "description": "Gets the currently active worksheet in the workbook.",
       "syntax": "worksheetCollectionObject.getActiveWorksheet();",
       "signature": "getActiveWorksheet()",
-      "restfulName": "ActiveWorksheet)]",
+      "restfulName": "ActiveWorksheet",
       "notes": null,
       "parameters": null
     },

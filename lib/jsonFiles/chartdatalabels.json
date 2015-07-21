@@ -2,8 +2,9 @@
   "name": "ChartDataLabels",
   "description": "Represents a collection of all the data labels on a chart point.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/datalabels"
+    "/workbook/worksheets/{id|name}/charts/{name}/datalabels"
   ],
   "info": {
     "version": "1.0",

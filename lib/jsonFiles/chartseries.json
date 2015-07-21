@@ -2,8 +2,9 @@
   "name": "ChartSeries",
   "description": "Represents a series in a chart.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/series({undefined})"
+    "/workbook/worksheets/{id|name}/charts/{name}/series/{undefined}"
   ],
   "info": {
     "version": "1.0",

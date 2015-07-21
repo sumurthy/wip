@@ -2,6 +2,7 @@
   "name": "Workbook",
   "description": "Workbook is the top level object which contains related workbook objects such as worksheets, tables, ranges, etc.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
     "/workbook"
   ],

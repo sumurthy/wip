@@ -2,8 +2,9 @@
   "name": "ChartLegend",
   "description": "Represents the legend in a chart.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/legend"
+    "/workbook/worksheets/{id|name}/charts/{name}/legend"
   ],
   "info": {
     "version": "1.0",

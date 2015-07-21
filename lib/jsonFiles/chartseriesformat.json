@@ -2,8 +2,9 @@
   "name": "ChartSeriesFormat",
   "description": "encapsulates the format properties for the chart series",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/series({undefined})/format"
+    "/workbook/worksheets/{id|name}/charts/{name}/series/{undefined}/format"
   ],
   "info": {
     "version": "1.0",
@@ -14,7 +15,7 @@
     {
       "name": "fill",
       "dataType": "ChartFill",
-      "description": "Represents the fill format of a chart series, which includes interiorbackground formating information.",
+      "description": "Represents the fill format of a chart series, which includes background formating information.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,

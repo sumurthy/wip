@@ -2,8 +2,9 @@
   "name": "ChartLegendFormat",
   "description": "Encapsulates the format properties of a chart legend.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/legend/format"
+    "/workbook/worksheets/{id|name}/charts/{name}/legend/format"
   ],
   "info": {
     "version": "1.0",
@@ -25,7 +26,7 @@
     {
       "name": "fill",
       "dataType": "ChartFill",
-      "description": "Represents the fill format of an object, which includes interiorbackground formating information.",
+      "description": "Represents the fill format of an object, which includes background formating information.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,

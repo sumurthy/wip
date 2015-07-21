@@ -2,8 +2,9 @@
   "name": "ChartPoint",
   "description": "Represents a point of a series in a chart.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/series({undefined})/points({undefined})"
+    "/workbook/worksheets/{id|name}/charts/{name}/series/{undefined}/points/{undefined}"
   ],
   "info": {
     "version": "1.0",

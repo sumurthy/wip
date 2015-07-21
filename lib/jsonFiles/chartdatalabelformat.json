@@ -2,8 +2,9 @@
   "name": "ChartDataLabelFormat",
   "description": "Encapsulates the format properties for the chart data labels.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/datalabels/format"
+    "/workbook/worksheets/{id|name}/charts/{name}/datalabels/format"
   ],
   "info": {
     "version": "1.0",

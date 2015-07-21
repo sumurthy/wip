@@ -2,8 +2,9 @@
   "name": "Chart",
   "description": "Represents a chart object in a workbook.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})"
+    "/workbook/worksheets/{id|name}/charts/{name}"
   ],
   "info": {
     "version": "1.0",

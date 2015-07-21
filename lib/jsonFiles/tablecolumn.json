@@ -2,10 +2,11 @@
   "name": "TableColumn",
   "description": "Represents a column in a table.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/bindings({id})/table/columns({id|name})",
-    "/workbook/tables({id|name})/columns({id|name})",
-    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})"
+    "/workbook/bindings/{id}/table/columns/{id|name}",
+    "/workbook/tables/{id|name}/columns/{id|name}",
+    "/workbook/worksheets/{id|name}/tables/{id|name}/columns/{id|name}"
   ],
   "info": {
     "version": "1.0",

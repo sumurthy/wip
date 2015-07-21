@@ -2,9 +2,10 @@
   "name": "TableCollection",
   "description": "Represents a collection of all the tables that are part of the workbook.",
   "isCollection": true,
+  "collectionOf": "Table",
   "restPath": [
     "/workbook/tables",
-    "/workbook/worksheets({id|name})/tables"
+    "/workbook/worksheets/{id|name}/tables"
   ],
   "info": {
     "version": "1.0",

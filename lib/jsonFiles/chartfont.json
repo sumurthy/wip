@@ -2,17 +2,18 @@
   "name": "ChartFont",
   "description": "This object represents the font attributes (font name, font size, color, etc.) for a chart object.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/title/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/legend/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/datalabels/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/title/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/title/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/title/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/format/font"
+    "/workbook/worksheets/{id|name}/charts/{name}/format/font",
+    "/workbook/worksheets/{id|name}/charts/{name}/title/format/font",
+    "/workbook/worksheets/{id|name}/charts/{name}/legend/format/font",
+    "/workbook/worksheets/{id|name}/charts/{name}/datalabels/format/font",
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/valueaxis/title/format/font",
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/seriesaxis/title/format/font",
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis/title/format/font",
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/valueaxis/format/font",
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/seriesaxis/format/font",
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis/format/font"
   ],
   "info": {
     "version": "1.0",
@@ -45,7 +46,7 @@
     {
       "name": "italic",
       "dataType": "bool",
-      "description": "Represents the bold status of italic.",
+      "description": "Represents the italic status of the font.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,

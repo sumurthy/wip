@@ -2,8 +2,9 @@
   "name": "ChartAxes",
   "description": "Represents the chart axes.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/axes"
+    "/workbook/worksheets/{id|name}/charts/{name}/axes"
   ],
   "info": {
     "version": "1.0",

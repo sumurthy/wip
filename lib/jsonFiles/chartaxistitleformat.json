@@ -2,10 +2,11 @@
   "name": "ChartAxisTitleFormat",
   "description": "Represents the chart axis title formatting.",
   "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/title/format",
-    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/title/format",
-    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/title/format"
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/valueaxis/title/format",
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/seriesaxis/title/format",
+    "/workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis/title/format"
   ],
   "info": {
     "version": "1.0",
