@@ -81,7 +81,7 @@
     {
       "name": "valueTypes",
       "dataType": "string",
-      "description": "Represents the type of data of each cell.",
+      "description": "Represents the type of data of each cell",
       "isReadOnly": true,
       "enumNameJs": "Excel.RangeValueType",
       "isCollection": false,
@@ -202,7 +202,7 @@
         {
           "name": "applyTo",
           "dataType": "string",
-          "description": "Determines the type of clear action.",
+          "description": "Determines the type of clear action. Possible values are: All (default option), Format, and Content.",
           "isRequired": false,
           "enumNameJs": "Excel.ClearApplyTo",
           "notes": null
@@ -221,7 +221,7 @@
         {
           "name": "shift",
           "dataType": "string",
-          "description": "Specifies which way to shift the cells.",
+          "description": "Specifies which way to shift the cells. Possible values are: Up (default option) or Left.",
           "isRequired": true,
           "enumNameJs": "Excel.DeleteShiftDirection",
           "notes": null
@@ -420,7 +420,7 @@
         {
           "name": "shift",
           "dataType": "string",
-          "description": "Specifies which way to shift the cells.",
+          "description": "Specifies which way to shift the cells. Can be one of the following: Down (default option) or Right.",
           "isRequired": true,
           "enumNameJs": "Excel.InsertShiftDirection",
           "notes": null

@@ -83,7 +83,7 @@
         {
           "name": "seriesBy",
           "dataType": "string",
-          "description": "Specifies the way columns or rows are used as data series on the chart.",
+          "description": "Specifies the way columns or rows are used as data series on the chart. Can be one of the following: Auto (default), Rows, Columns.",
           "isRequired": false,
           "enumNameJs": "Excel.ChartSeriesBy",
           "notes": null

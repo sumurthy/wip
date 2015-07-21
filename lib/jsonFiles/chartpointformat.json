@@ -15,7 +15,7 @@
     {
       "name": "fill",
       "dataType": "ChartFill",
-      "description": "Represents the fill format of a chart, which includes background formating information.",
+      "description": "Represents the fill format of a chart, which includes interiorbackground formating information.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,

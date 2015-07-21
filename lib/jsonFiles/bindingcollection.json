@@ -48,7 +48,7 @@
         {
           "name": "id",
           "dataType": "string",
-          "description": "Id of the binding object to be retrieved.",
+          "description": "Id of the binding object to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null
