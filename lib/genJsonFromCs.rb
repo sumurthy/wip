@@ -23,7 +23,7 @@ require 'json'
 @processed_files = 0
 @json_files_created = 0
 #EXCELAPI_FILE_SOURCE = '../../data/ExcelApi.cs'
-EXCELAPI_FILE_SOURCE = '../../data/ExcelApi_July.cs'
+EXCELAPI_FILE_SOURCE = '../../data/ExcelApi_July_pre.cs'
 ENUMS = 'jsonFiles/settings/enums.json'
 LOADMETHOD = 'jsonFiles/settings/loadMethod.json'
 JSONOUTPUT_FOLDER = 'jsonFiles/'
