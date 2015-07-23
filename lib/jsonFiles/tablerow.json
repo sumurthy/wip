@@ -46,6 +46,7 @@
       "signature": "getRange()",
       "restfulName": "Range",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -56,6 +57,7 @@
       "signature": "delete()",
       "restfulName": "Delete",
       "notes": null,
+      "httpSuccessResponse": "204 No Content",
       "parameters": null
     },
     {

@@ -88,6 +88,7 @@
       "signature": "activate()",
       "restfulName": "Activate",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -98,6 +99,7 @@
       "signature": "delete()",
       "restfulName": "Delete",
       "notes": null,
+      "httpSuccessResponse": "204 No Content",
       "parameters": null
     },
     {
@@ -108,6 +110,7 @@
       "signature": "getCell(row: number, column: number)",
       "restfulName": "Cell",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "row",
@@ -135,6 +138,7 @@
       "signature": "getRange(address: string)",
       "restfulName": "Range",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "address",
@@ -154,6 +158,7 @@
       "signature": "getUsedRange()",
       "restfulName": "UsedRange",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {

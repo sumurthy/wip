@@ -44,6 +44,7 @@
       "signature": "clear()",
       "restfulName": "Clear",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {

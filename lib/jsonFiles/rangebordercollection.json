@@ -55,6 +55,7 @@
       "signature": "getItem(index: string)",
       "restfulName": "Item",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "index",
@@ -74,6 +75,7 @@
       "signature": "getItemAt(index: number)",
       "restfulName": "ItemAt",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "index",

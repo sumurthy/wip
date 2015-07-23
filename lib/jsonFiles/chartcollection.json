@@ -44,6 +44,7 @@
       "signature": "getItem(name: string)",
       "restfulName": "Item",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "name",
@@ -63,6 +64,7 @@
       "signature": "add(type: string, sourceData: string, seriesBy: string)",
       "restfulName": "Add",
       "notes": null,
+      "httpSuccessResponse": "201 Created",
       "parameters": [
         {
           "name": "type",
@@ -83,7 +85,7 @@
         {
           "name": "seriesBy",
           "dataType": "string",
-          "description": "Specifies the way columns or rows are used as data series on the chart. Can be one of the following: Auto (default), Rows, Columns.",
+          "description": "Specifies the way columns or rows are used as data series on the chart.",
           "isRequired": false,
           "enumNameJs": "Excel.ChartSeriesBy",
           "notes": null
@@ -98,6 +100,7 @@
       "signature": "getItemAt(index: number)",
       "restfulName": "ItemAt",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "index",

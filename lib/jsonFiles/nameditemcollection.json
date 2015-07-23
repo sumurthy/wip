@@ -33,6 +33,7 @@
       "signature": "getItem(name: string)",
       "restfulName": "Item",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "name",

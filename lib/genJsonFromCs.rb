@@ -23,13 +23,11 @@ require 'json'
 @processed_files = 0
 @json_files_created = 0
 #EXCELAPI_FILE_SOURCE = '../../data/ExcelApi.cs'
-EXCELAPI_FILE_SOURCE = '../../data/ExcelApi_July_pre.cs'
+EXCELAPI_FILE_SOURCE = '../../data/ExcelApi_July.cs'
 ENUMS = 'jsonFiles/settings/enums.json'
 LOADMETHOD = 'jsonFiles/settings/loadMethod.json'
 JSONOUTPUT_FOLDER = 'jsonFiles/'
 OBJECTKEYS = 'jsonFiles/settings/objectkeys.json'
-
-
 
 #JSON_OUT = 'c:/ruby/excel_json.txt'
 
@@ -58,7 +56,7 @@ OBJECTKEYS = 'jsonFiles/settings/objectkeys.json'
 # Sub json containers
 # Method = Struct.new(:name, :returnType, :description, :parameters, :syntax, :vbaInfo, :signature)
 # Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :vbaInfo, :possibleValues, :isRelationship)
-Method = Struct.new(:name, :returnType, :description, :syntax, :signature, :restfulName, :notes, :parameters)
+Method = Struct.new(:name, :returnType, :description, :syntax, :signature, :restfulName, :notes, :httpSuccessResponse, :parameters)
 Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :isRelationship, :isKey, :notes)
 ParamStr = Struct.new(:name, :dataType, :description, :isRequired, :enumNameJs, :notes)
 
@@ -428,8 +426,16 @@ restfulName = nil
 		end
 		restfulName = restfulName.slice(0,1).capitalize + restfulName.slice(1..-1)
 
+		httpSuccessResponse = '200 OK'
+		if mthd_name.casecmp('add') == 0
+			httpSuccessResponse = '201 Created'
+		end
+		if mthd_name.casecmp('delete') == 0
+			httpSuccessResponse = '204 No Content'			
+		end
+
 		# Create method hash and push the values. 
-		method = Method.new(mthd_name, line.split[0], member_summary, syntax, signature, restfulName, nil, parm_hash_array)
+		method = Method.new(mthd_name, line.split[0], member_summary, syntax, signature, restfulName, nil, httpSuccessResponse, parm_hash_array)
 		method_array.push method.to_h
 
 		# Reset the variables. 

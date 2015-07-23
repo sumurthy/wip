@@ -45,6 +45,7 @@
       "signature": "getItem(id: object)",
       "restfulName": "Item",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "id",
@@ -64,6 +65,7 @@
       "signature": "getItemAt(index: number)",
       "restfulName": "ItemAt",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "index",
@@ -83,6 +85,7 @@
       "signature": "add(address: string, hasHeaders: bool)",
       "restfulName": "Add",
       "notes": null,
+      "httpSuccessResponse": "201 Created",
       "parameters": [
         {
           "name": "address",

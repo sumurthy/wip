@@ -77,6 +77,7 @@
       "signature": "getSelectedRange()",
       "restfulName": "SelectedRange",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {

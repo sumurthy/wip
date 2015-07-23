@@ -81,7 +81,7 @@
     {
       "name": "valueTypes",
       "dataType": "string",
-      "description": "Represents the type of data of each cell",
+      "description": "Represents the type of data of each cell.",
       "isReadOnly": true,
       "enumNameJs": "Excel.RangeValueType",
       "isCollection": false,
@@ -198,11 +198,12 @@
       "signature": "clear(applyTo: string)",
       "restfulName": "Clear",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "applyTo",
           "dataType": "string",
-          "description": "Determines the type of clear action. Possible values are: All (default option), Format, and Content.",
+          "description": "Determines the type of clear action.",
           "isRequired": false,
           "enumNameJs": "Excel.ClearApplyTo",
           "notes": null
@@ -217,11 +218,12 @@
       "signature": "delete(shift: string)",
       "restfulName": "Delete",
       "notes": null,
+      "httpSuccessResponse": "204 No Content",
       "parameters": [
         {
           "name": "shift",
           "dataType": "string",
-          "description": "Specifies which way to shift the cells. Possible values are: Up (default option) or Left.",
+          "description": "Specifies which way to shift the cells.",
           "isRequired": true,
           "enumNameJs": "Excel.DeleteShiftDirection",
           "notes": null
@@ -236,6 +238,7 @@
       "signature": "getEntireColumn()",
       "restfulName": "EntireColumn",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -246,6 +249,7 @@
       "signature": "getEntireRow()",
       "restfulName": "EntireRow",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -256,6 +260,7 @@
       "signature": "getBoundingRect(anotherRange: object)",
       "restfulName": "BoundingRect",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "anotherRange",
@@ -275,6 +280,7 @@
       "signature": "getCell(row: number, column: number)",
       "restfulName": "Cell",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "row",
@@ -302,6 +308,7 @@
       "signature": "getColumn(column: number)",
       "restfulName": "Column",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "column",
@@ -321,6 +328,7 @@
       "signature": "getIntersection(anotherRange: object)",
       "restfulName": "Intersection",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "anotherRange",
@@ -340,6 +348,7 @@
       "signature": "getLastCell()",
       "restfulName": "LastCell",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -350,6 +359,7 @@
       "signature": "getLastColumn()",
       "restfulName": "LastColumn",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -360,6 +370,7 @@
       "signature": "getLastRow()",
       "restfulName": "LastRow",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -370,6 +381,7 @@
       "signature": "getOffsetRange(rowOffset: number, columnOffset: number)",
       "restfulName": "OffsetRange",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "rowOffset",
@@ -397,6 +409,7 @@
       "signature": "getRow(row: number)",
       "restfulName": "Row",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "row",
@@ -416,11 +429,12 @@
       "signature": "insert(shift: string)",
       "restfulName": "Insert",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "shift",
           "dataType": "string",
-          "description": "Specifies which way to shift the cells. Can be one of the following: Down (default option) or Right.",
+          "description": "Specifies which way to shift the cells.",
           "isRequired": true,
           "enumNameJs": "Excel.InsertShiftDirection",
           "notes": null
@@ -435,6 +449,7 @@
       "signature": "select()",
       "restfulName": "Select",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -445,6 +460,7 @@
       "signature": "getUsedRange()",
       "restfulName": "UsedRange",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {

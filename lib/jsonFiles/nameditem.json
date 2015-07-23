@@ -66,6 +66,7 @@
       "signature": "getRange()",
       "restfulName": "Range",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {

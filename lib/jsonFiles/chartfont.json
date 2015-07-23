@@ -46,7 +46,7 @@
     {
       "name": "italic",
       "dataType": "bool",
-      "description": "Represents the bold status of italic.",
+      "description": "Represents the italic status of the font.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,

@@ -68,6 +68,7 @@
       "signature": "getRange()",
       "restfulName": "Range",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -78,6 +79,7 @@
       "signature": "getHeaderRowRange()",
       "restfulName": "HeaderRowRange",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -88,6 +90,7 @@
       "signature": "getDataBodyRange()",
       "restfulName": "DataBodyRange",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -98,6 +101,7 @@
       "signature": "getTotalRowRange()",
       "restfulName": "TotalRowRange",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -108,6 +112,7 @@
       "signature": "delete()",
       "restfulName": "Delete",
       "notes": null,
+      "httpSuccessResponse": "204 No Content",
       "parameters": null
     },
     {

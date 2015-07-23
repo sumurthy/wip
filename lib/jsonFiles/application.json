@@ -33,6 +33,7 @@
       "signature": "calculate(calculationType: string)",
       "restfulName": "Calculate",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "calculationType",

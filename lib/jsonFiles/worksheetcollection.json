@@ -33,6 +33,7 @@
       "signature": "getActiveWorksheet()",
       "restfulName": "ActiveWorksheet",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -43,6 +44,7 @@
       "signature": "getItem(index: string)",
       "restfulName": "Item",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "index",
@@ -62,6 +64,7 @@
       "signature": "add(name: string)",
       "restfulName": "Add",
       "notes": null,
+      "httpSuccessResponse": "201 Created",
       "parameters": [
         {
           "name": "name",

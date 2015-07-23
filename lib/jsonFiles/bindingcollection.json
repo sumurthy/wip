@@ -44,11 +44,12 @@
       "signature": "getItem(id: string)",
       "restfulName": "Item",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "id",
           "dataType": "string",
-          "description": "Id of the binding object to be retrieved. Zero-indexed.",
+          "description": "Id of the binding object to be retrieved.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null
@@ -63,6 +64,7 @@
       "signature": "getItemAt(index: number)",
       "restfulName": "ItemAt",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "index",

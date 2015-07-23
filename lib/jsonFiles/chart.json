@@ -143,6 +143,7 @@
       "signature": "delete()",
       "restfulName": "Delete",
       "notes": null,
+      "httpSuccessResponse": "204 No Content",
       "parameters": null
     },
     {
@@ -153,6 +154,7 @@
       "signature": "setData(sourceData: string, seriesBy: string)",
       "restfulName": "SetData",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "sourceData",

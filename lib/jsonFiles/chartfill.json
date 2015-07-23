@@ -26,6 +26,7 @@
       "signature": "clear()",
       "restfulName": "Clear",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {
@@ -36,6 +37,7 @@
       "signature": "setSolidColor(color: string)",
       "restfulName": "SetSolidColor",
       "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "color",
