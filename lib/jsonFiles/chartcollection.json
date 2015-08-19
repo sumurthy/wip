@@ -7,7 +7,16 @@
     "/workbook/worksheets/{id|name}/charts"
   ],
   "info": {
-    "version": "1.0",
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "Excel"
+    ],
+    "nameSpace": "Excel",
+    "addinHosts": [
+      "Content",
+      "Task pane"
+    ],
     "title": "Office JavaScript Add-in API",
     "description": "Office JavaScript Add-in API for June fork"
   },
@@ -61,7 +70,7 @@
       "returnType": "Chart",
       "description": "Creates a new chart.",
       "syntax": "chartCollectionObject.add(type, sourceData, seriesBy);",
-      "signature": "add(type: string, sourceData: string, seriesBy: string)",
+      "signature": "add(type: string, sourceData: Range or string, seriesBy: string)",
       "restfulName": "Add",
       "notes": null,
       "httpSuccessResponse": "201 Created",
@@ -76,7 +85,7 @@
         },
         {
           "name": "sourceData",
-          "dataType": "string",
+          "dataType": "Range or string",
           "description": "The address or name of the range that contains the source data. If an address or a worksheet-scoped name is used, it must include the worksheet name (e.g. \"Sheet1!A5:B9\"). ",
           "isRequired": true,
           "enumNameJs": null,

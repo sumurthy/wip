@@ -18,7 +18,16 @@
     "/workbook/names/{name}/range"
   ],
   "info": {
-    "version": "1.0",
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "Excel"
+    ],
+    "nameSpace": "Excel",
+    "addinHosts": [
+      "Content",
+      "Task pane"
+    ],
     "title": "Office JavaScript Add-in API",
     "description": "Office JavaScript Add-in API for June fork"
   },
@@ -257,14 +266,14 @@
       "returnType": "Range",
       "description": "Gets the smallest range object that encompasses the given ranges. For example, the GetBoundingRect of \"B2:C5\" and \"D10:E15\" is \"B2:E16\".",
       "syntax": "rangeObject.getBoundingRect(anotherRange);",
-      "signature": "getBoundingRect(anotherRange: object)",
+      "signature": "getBoundingRect(anotherRange: Range or string)",
       "restfulName": "BoundingRect",
       "notes": null,
       "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "anotherRange",
-          "dataType": "object",
+          "dataType": "Range or string",
           "description": "The range object or address or range name.",
           "isRequired": true,
           "enumNameJs": null,
@@ -325,14 +334,14 @@
       "returnType": "Range",
       "description": "Gets the range object that represents the rectangular intersection of the given ranges.",
       "syntax": "rangeObject.getIntersection(anotherRange);",
-      "signature": "getIntersection(anotherRange: object)",
+      "signature": "getIntersection(anotherRange: Range or string)",
       "restfulName": "Intersection",
       "notes": null,
       "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "anotherRange",
-          "dataType": "object",
+          "dataType": "Range or string",
           "description": "The range object or range address that will be used to determine the intersection of ranges.",
           "isRequired": true,
           "enumNameJs": null,

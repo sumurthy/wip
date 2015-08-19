@@ -8,5 +8,6 @@
 	"bindings" : ["id"],
 	"borders" : ["sideIndex"],
 	"series": ["undefined"],
-	"points" : ["undefined"]
+	"points" : ["undefined"],
+	"sessions" : ["id"]
 }

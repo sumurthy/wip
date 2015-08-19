@@ -9,7 +9,16 @@
     "/workbook/worksheets/{id|name}/tables/{id|name}/rows"
   ],
   "info": {
-    "version": "1.0",
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "Excel"
+    ],
+    "nameSpace": "Excel",
+    "addinHosts": [
+      "Content",
+      "Task pane"
+    ],
     "title": "Office JavaScript Add-in API",
     "description": "Office JavaScript Add-in API for June fork"
   },
@@ -63,7 +72,7 @@
       "returnType": "TableRow",
       "description": "Adds a new row to the table.",
       "syntax": "tableRowCollectionObject.add(index, values);",
-      "signature": "add(index: number, values: object[][])",
+      "signature": "add(index: number, values: (boolean or string or number)[][])",
       "restfulName": "Add",
       "notes": null,
       "httpSuccessResponse": "201 Created",
@@ -78,7 +87,7 @@
         },
         {
           "name": "values",
-          "dataType": "object[][]",
+          "dataType": "(boolean or string or number)[][]",
           "description": "A 2-dimensional array of unformatted values of the table row.",
           "isRequired": false,
           "enumNameJs": null,

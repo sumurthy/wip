@@ -7,7 +7,16 @@
     "/workbook/application"
   ],
   "info": {
-    "version": "1.0",
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "Excel"
+    ],
+    "nameSpace": "Excel",
+    "addinHosts": [
+      "Content",
+      "Task pane"
+    ],
     "title": "Office JavaScript Add-in API",
     "description": "Office JavaScript Add-in API for June fork"
   },

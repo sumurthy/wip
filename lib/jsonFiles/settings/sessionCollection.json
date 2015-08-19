@@ -1,0 +1,45 @@
+{
+  "name": "SessionCollection",
+  "description": "Represents the Excel workbook session collection",
+  "isCollection": false,
+  "collectionOf": null,
+  "restPath": [
+    "/workbook/sessions"
+  ],
+  "info": {
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "Excel"
+    ],
+    "nameSpace": "Excel",
+    "addinHosts": [
+      "Content",
+      "Task pane"
+    ],
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "methods": [
+    {
+      "name": "add",
+      "returnType": "void",
+      "description": "Creates a workbook session.",
+      "syntax": null,
+      "signature": null,
+      "restfulName": "add",
+      "notes": null,
+      "httpSuccessResponse": "204 No Content",
+      "parameters": [
+        {
+          "name": "type",
+          "dataType": "string",
+          "description": "Specify the of session to create. Possible values are: `Edit`, `View`. If this parameter is not specified, edit session is created.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    }  
+  ]
+}

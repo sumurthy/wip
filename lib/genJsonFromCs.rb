@@ -23,7 +23,7 @@ require 'json'
 @processed_files = 0
 @json_files_created = 0
 #EXCELAPI_FILE_SOURCE = '../../data/ExcelApi.cs'
-EXCELAPI_FILE_SOURCE = '../../data/ExcelApi_July_pre.cs'
+EXCELAPI_FILE_SOURCE = '../../data/ExcelApi.cs'
 ENUMS = 'jsonFiles/settings/enums.json'
 LOADMETHOD = 'jsonFiles/settings/loadMethod.json'
 JSONOUTPUT_FOLDER = 'jsonFiles/'
@@ -47,7 +47,11 @@ OBJECTKEYS = 'jsonFiles/settings/objectkeys.json'
 @json_object[:collectionOf] = nil
 @json_object[:restPath] = []
 @json_object[:info] = {}
-@json_object[:info][:version] = '1.0'
+@json_object[:info][:version] = '1.1'
+@json_object[:info][:addedIn] = '1.1'
+@json_object[:info][:addinTypes] = ["Excel"]
+@json_object[:info][:nameSpace] = "Excel"
+@json_object[:info][:addinHosts] = ["Content", "Task pane"]
 @json_object[:info][:title] = 'Office JavaScript Add-in API'
 @json_object[:info][:description] = 'Office JavaScript Add-in API for June fork'
 @json_object[:properties] = []
@@ -96,8 +100,10 @@ handle_getItem = ''
 @csarray_pure.each do |line|
 	if line.include?('this[')
 		handle_getItem = line
-		handle_getItem = handle_getItem[0,handle_getItem.index('{')]
-		handle_getItem = handle_getItem.gsub('this[','getItem(').gsub(']',');')
+		#handle_getItem = handle_getItem[0,handle_getItem.index('{')]
+		#handle_getItem = handle_getItem.gsub('this[','getItem(').gsub(']',');')
+		handle_getItem = handle_getItem.gsub('this[','getItem(')
+		handle_getItem = handle_getItem.rpartition(']').first + ')' + ';'
 		line = handle_getItem + "\n"
 	end
 	@csarray.push line	
@@ -227,6 +233,9 @@ restfulName = nil
 		@json_files_created = @json_files_created + 1
 		# Reset the variables.
 		in_region = false
+		# Bug fix. Caused issue with Word API. 
+		member_ahead = false
+		# End bug fix
 		parm_hash_array = []
 		parm_array = []
 		property_array = []
@@ -362,7 +371,30 @@ restfulName = nil
 					suffix = '[]'
 				end
 			end
-			parm_array[j][:dataType] = dataType.split[-1].gsub('(','') + suffix
+
+
+			if dataType.include?('TypeScriptType')
+				typeScriptDataStart = dataType.index('TypeScriptType') + 15
+				typeScriptData = dataType[typeScriptDataStart..-1]
+				typeScriptDataEnd = typeScriptData.index(')') - 1
+				typeScriptData = typeScriptData[0..typeScriptDataEnd]
+				if typeScriptData.include?('>>')
+					typeScriptData = typeScriptData[typeScriptData.index('>>|')+3..-1]
+				else
+					if typeScriptData.include?('>')
+						typeScriptData = typeScriptData[typeScriptData.index('>')+2..-1]
+					end
+				end
+				typeScriptDataArray = typeScriptData.gsub('"','').gsub(')','').gsub('Excel.','').split('|').join(' or ')
+				if suffix != ''
+					parm_array[j][:dataType] = "(" + typeScriptDataArray +")" + suffix
+				else
+					parm_array[j][:dataType] = typeScriptDataArray + suffix
+				end
+			else
+				parm_array[j][:dataType] = dataType.split[-1].gsub('(','') + suffix
+			end
+
 			if parm_array[j][:dataType] == 'int'	
 				parm_array[j][:dataType] = 'number'
 			end
@@ -374,10 +406,13 @@ restfulName = nil
 			end
 
 			# Enum data type should be documented as strings. 
-			if enumName != nil
+			#if enumName != nil  
+			if parm_array[j][:enumNameJs] != nil
 				parm_array[j][:dataType] = 'string'
 			end
 			parm_array[j][:dataType] = parm_array[j][:dataType].gsub('?', '')
+
+
 		end
 
 		parm_array.each do |parmStruct| 
@@ -399,8 +434,8 @@ restfulName = nil
 			syntax = "#{uncapitalize @json_object[:name]}Object.#{mthd_name}();"
 		else			
 			signature = mthd_name + '(' 
-			syntax = "#{uncapitalize @json_object[:name]}Object.#{mthd_name}("
 
+			syntax = "#{uncapitalize @json_object[:name]}Object.#{mthd_name}("
 			parm_hash_array.each_with_index do |parmhash, k|
 				signature = signature + parmhash[:name] + ': ' + parmhash[:dataType] 
 				syntax = syntax + parmhash[:name] 
@@ -525,7 +560,7 @@ end
 		add_restpath File.read(fullpath), ["/workbook"], fullpath
 	end
 
-puts "*** OK. Created #{@json_files_created} JSON files. For REST Processed #{@processed_files} times. Check log file folder for results. ***"
+puts "*** Done. Created #{@json_files_created} JSON files. For REST, processed #{@processed_files} times. Check log folder for results. ***"
 
 #end module
 end

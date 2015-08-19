@@ -7,23 +7,23 @@
 require 'logger'
 
 begin
-	File.delete('log/logfile.txt')
+	File.delete('logs/logfile.txt')
 	File.delete(EXCELAPI_FILE_TRANSIT)
 rescue => err
     #Ignore this error
 end
 
-@logger = Logger.new('log/logfile.txt')
+@logger = Logger.new('logs/logfile.txt')
 @logger.level = Logger::DEBUG
 
 @logger.debug("Created logger")
 @logger.info("Program started")
 @logger.warn("Nothing to do!")
 
-EXCELAPI_FILE_SOURCE = 'c:/ruby/IntellisenseFromMarkdown/ExcelAPI.cs'
-EXCELAPI_FILE_TRANSIT = 'c:/ruby/IntellisenseFromMarkdown/ExcelAPI_transit.cs'
-EXCELAPI_WITH_COMMENTS = 'c:/ruby/IntellisenseFromMarkdown/ExcelAPI_out.cs'
-RESOURCE_FOLDER = 'C:\Users\suramam\git\ExcelJsDocumentation\resources'
+EXCELAPI_FILE_SOURCE = '../WdJscomApi.cs'
+EXCELAPI_FILE_TRANSIT = '../WdJscomApi_transit.cs'
+EXCELAPI_WITH_COMMENTS = '../WdJscomApi_out.cs'
+RESOURCE_FOLDER = '../resources'
 
 @csarray = []
 @csarray_pure = []

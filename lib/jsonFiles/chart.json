@@ -7,7 +7,16 @@
     "/workbook/worksheets/{id|name}/charts/{name}"
   ],
   "info": {
-    "version": "1.0",
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "Excel"
+    ],
+    "nameSpace": "Excel",
+    "addinHosts": [
+      "Content",
+      "Task pane"
+    ],
     "title": "Office JavaScript Add-in API",
     "description": "Office JavaScript Add-in API for June fork"
   },
@@ -151,14 +160,14 @@
       "returnType": "void",
       "description": "Resets the source data for the chart.",
       "syntax": "chartObject.setData(sourceData, seriesBy);",
-      "signature": "setData(sourceData: string, seriesBy: string)",
+      "signature": "setData(sourceData: Range or string, seriesBy: string)",
       "restfulName": "SetData",
       "notes": null,
       "httpSuccessResponse": "200 OK",
       "parameters": [
         {
           "name": "sourceData",
-          "dataType": "string",
+          "dataType": "Range or string",
           "description": "The address or name of the range that contains the source data. If an address or a worksheet-scoped name is used, it must include the worksheet name (e.g. \"Sheet1!A5:B9\"). ",
           "isRequired": true,
           "enumNameJs": null,
@@ -170,6 +179,34 @@
           "description": "Specifies the way columns or rows are used as data series on the chart. Can be one of the following: Auto (default), Rows, Columns.",
           "isRequired": false,
           "enumNameJs": "Excel.ChartSeriesBy",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "setPosition",
+      "returnType": "void",
+      "description": "Positions the chart relative to cells on the worksheet.",
+      "syntax": "chartObject.setPosition(startCell, endCell);",
+      "signature": "setPosition(startCell: Range or string, endCell: Range or string)",
+      "restfulName": "SetPosition",
+      "notes": null,
+      "httpSuccessResponse": "200 OK",
+      "parameters": [
+        {
+          "name": "startCell",
+          "dataType": "Range or string",
+          "description": "The start cell. This is where the chart will be moved to. The start cell is the top-left or top-right cell, depending on the user's right-to-left display settings.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "endCell",
+          "dataType": "Range or string",
+          "description": "(Optional) The end cell. If specified, the chart's width and height will be set to fully cover up this cell/range.",
+          "isRequired": false,
+          "enumNameJs": null,
           "notes": null
         }
       ]

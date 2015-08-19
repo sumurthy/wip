@@ -1,21 +1,41 @@
 {
   "name": "Session",
-  "description": "Represents the Excel workbook session. The session is managed by the server and provides a way for collaborative updates to take place across all the clients currently editing or viewing the Excel file. It is a good practice to create workbook and passed along with the request as part of the request header as allows the server to link the API request to an existing session available on the server. If a session token is not provided, the server dynamically creates a session behind the scene. However, this requires additional server side processing and could add to the latency of the response. Token life span lasts up to 900 seconds from the time of creation or its last usage. Once a session token has expired, a new session token needs to be created. If an expired or invalid session token is provided as part of the request, the API will return an error indicating that the session token is not valid.",
+  "description": "Represents the Excel workbook sessions. It is a good practice to create workbook session and pass it along with the request as part of the request header as it allows the server to link the API request to an existing in-memory copy of the file on the server. If a session ID is not provided, the server dynamically creates a session behind the scene. However, this requires additional server side processing and could add to the latency of the response. Session ID has a life span which gets extended with each usage or regresh. Once a session ID has expired, a new session session ID needs to be created. If an expired or invalid session token is provided as part of the request, the API will return an error indicating that the session ID is not valid.",
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/session"
+    "/workbook/sessions/{id}"
   ],
   "info": {
-    "version": "1.0",
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "Excel"
+    ],
+    "nameSpace": "Excel",
+    "addinHosts": [
+      "Content",
+      "Task pane"
+    ],
     "title": "Office JavaScript Add-in API",
     "description": "Office JavaScript Add-in API for June fork"
   },
   "properties": [
     {
-      "name": "sessionToken",
+      "name": "id",
       "dataType": "string",
-      "description": "Excel workbook session token value.",
+      "description": "Excel workbook view or edit session ID.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": true,
+      "notes": null
+    },
+    {
+      "name": "type",
+      "dataType": "string",
+      "description": "Session Type. Possible values are: Edit or View",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -26,20 +46,9 @@
   ],
   "methods": [
     {
-      "name": "session",
-      "returnType": "Session",
-      "description": "Create a new Excel workbook session token.",
-      "syntax": null,
-      "signature": null,
-      "restfulName": "Session",
-      "notes": null,
-      "httpSuccessResponse": "201 Created",
-      "parameters": null
-    },
-    {
       "name": "delete",
       "returnType": "void",
-      "description": "Deletes the session token sent along with the api request.",
+      "description": "Deletes the session ID sent along with the api request.",
       "syntax": null,
       "signature": null,
       "restfulName": "Delete",
