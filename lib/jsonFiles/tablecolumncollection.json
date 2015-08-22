@@ -51,14 +51,14 @@
       "name": "getItem",
       "returnType": "TableColumn",
       "description": "Gets a column object by Name or ID.",
-      "syntax": "tableColumnCollectionObject.getItem(id);",
-      "signature": "getItem(id: number or string)",
+      "syntax": "tableColumnCollectionObject.getItem(key);",
+      "signature": "getItem(key: number or string)",
       "restfulName": "Item",
       "notes": null,
       "httpSuccessResponse": "200 OK",
       "parameters": [
         {
-          "name": "id",
+          "name": "key",
           "dataType": "number or string",
           "description": " Column Name or ID.",
           "isRequired": true,

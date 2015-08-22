@@ -285,8 +285,7 @@ restfulName = nil
 			enumName = enumName.chomp('.')
 		else
 			enumName = nil
-		end	
-
+		end
 
 		param_name = line.split('"')[1]
 		parameter = ParamStr.new(param_name, nil, param_summary, nil, enumName, nil)	
