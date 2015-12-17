@@ -4,12 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/valueaxis/minorgridlines",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/seriesaxis/minorgridlines",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis/minorgridlines",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/valueaxis/majorgridlines",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/seriesaxis/majorgridlines",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis/majorgridlines"
+
   ],
   "info": {
     "version": "1.1",

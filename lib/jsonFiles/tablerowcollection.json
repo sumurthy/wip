@@ -4,9 +4,7 @@
   "isCollection": true,
   "collectionOf": "TableRow",
   "restPath": [
-    "/workbook/bindings/{id}/table/rows",
-    "/workbook/tables/{id|name}/rows",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/rows"
+
   ],
   "info": {
     "version": "1.1",

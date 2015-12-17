@@ -4,7 +4,7 @@
   "isCollection": true,
   "collectionOf": "Chart",
   "restPath": [
-    "/workbook/worksheets/{id|name}/charts"
+
   ],
   "info": {
     "version": "1.1",
@@ -70,7 +70,7 @@
       "returnType": "Chart",
       "description": "Creates a new chart.",
       "syntax": "chartCollectionObject.add(type, sourceData, seriesBy);",
-      "signature": "add(type: string, sourceData: Range or string, seriesBy: string)",
+      "signature": "add(type: string, sourceData: Range, seriesBy: string)",
       "restfulName": "Add",
       "notes": null,
       "httpSuccessResponse": "201 Created",
@@ -85,8 +85,8 @@
         },
         {
           "name": "sourceData",
-          "dataType": "Range or string",
-          "description": "The address or name of the range that contains the source data. If an address or a worksheet-scoped name is used, it must include the worksheet name (e.g. \"Sheet1!A5:B9\"). ",
+          "dataType": "Range",
+          "description": "The Range object corresponding to the source data.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null

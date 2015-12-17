@@ -4,7 +4,7 @@
   "isCollection": true,
   "collectionOf": "Binding",
   "restPath": [
-    "/workbook/bindings"
+
   ],
   "info": {
     "version": "1.1",

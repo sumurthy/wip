@@ -4,9 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/bindings/{id}/table/rows/{index}",
-    "/workbook/tables/{id|name}/rows/{index}",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/rows/{index}"
+
   ],
   "info": {
     "version": "1.1",

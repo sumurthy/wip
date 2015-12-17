@@ -4,9 +4,7 @@
   "isCollection": true,
   "collectionOf": "TableColumn",
   "restPath": [
-    "/workbook/bindings/{id}/table/columns",
-    "/workbook/tables/{id|name}/columns",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/columns"
+
   ],
   "info": {
     "version": "1.1",

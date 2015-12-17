@@ -4,7 +4,7 @@
   "isCollection": true,
   "collectionOf": "Worksheet",
   "restPath": [
-    "/workbook/worksheets"
+
   ],
   "info": {
     "version": "1.1",

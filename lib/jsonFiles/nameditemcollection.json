@@ -4,7 +4,7 @@
   "isCollection": true,
   "collectionOf": "NamedItem",
   "restPath": [
-    "/workbook/names"
+
   ],
   "info": {
     "version": "1.1",
@@ -21,6 +21,17 @@
     "description": "Office JavaScript Add-in API for June fork"
   },
   "properties": [
+    {
+      "name": "address",
+      "dataType": "string",
+      "description": "The worksheet containing the current range.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
     {
       "name": "items",
       "dataType": "NamedItem[]",

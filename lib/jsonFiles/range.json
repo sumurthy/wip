@@ -4,18 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/bindings/{id}/table/range",
-    "/workbook/tables/{id|name}/range",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/range",
-    "/workbook/bindings/{id}/table/rows/{index}/range",
-    "/workbook/tables/{id|name}/rows/{index}/range",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/rows/{index}/range",
-    "/workbook/bindings/{id}/table/columns/{id|name}/range",
-    "/workbook/tables/{id|name}/columns/{id|name}/range",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/columns/{id|name}/range",
-    "/workbook/bindings/{id}/range",
-    "/workbook/worksheets/{id|name}/range({address})",
-    "/workbook/names/{name}/range"
+
   ],
   "info": {
     "version": "1.1",
@@ -32,6 +21,127 @@
     "description": "Office JavaScript Add-in API for June fork"
   },
   "properties": [
+    {
+      "name": "allowFormatCells",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowFormatColumns",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowFormatRows",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowInsertColumns",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowInsertRows",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowInsertHyperlinks",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowDeleteColumns",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowDeleteRows",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowSort",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowAutoFilter",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowPivotTables",
+      "dataType": "bool",
+      "description": "Unprotect a worksheet",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
     {
       "name": "address",
       "dataType": "string",
@@ -132,6 +242,50 @@
       "notes": null
     },
     {
+      "name": "formulasR1C1",
+      "dataType": "object[][]",
+      "description": "Represents the formula in R1C1-style notation.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "hidden",
+      "dataType": "bool",
+      "description": "Represents if all cells of the current range are hidden.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "rowHidden",
+      "dataType": "bool",
+      "description": "Represents if all rows of the current range are hidden.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "columnHidden",
+      "dataType": "bool",
+      "description": "Represents if all columns of the current range are hidden.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
       "name": "numberFormat",
       "dataType": "object[][]",
       "description": "Represents Excel's number format code for the given cell.",
@@ -189,6 +343,17 @@
     {
       "name": "worksheet",
       "dataType": "Worksheet",
+      "description": "The worksheet containing the current range.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "sort",
+      "dataType": "RangeSort",
       "description": "The worksheet containing the current range.",
       "isReadOnly": true,
       "enumNameJs": null,
@@ -451,6 +616,37 @@
       ]
     },
     {
+      "name": "merge",
+      "returnType": "void",
+      "description": "Merge the range cells into one region in the worksheet.",
+      "syntax": "rangeObject.merge(across);",
+      "signature": "merge(across: bool)",
+      "restfulName": "Merge",
+      "notes": null,
+      "httpSuccessResponse": "200 OK",
+      "parameters": [
+        {
+          "name": "across",
+          "dataType": "bool",
+          "description": " Set to true to merge cells in each row of the specified range as separate merged cells. The default value is false.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "unmerge",
+      "returnType": "void",
+      "description": "Unmerge the range cells into separate cells.",
+      "syntax": "rangeObject.unmerge();",
+      "signature": "unmerge()",
+      "restfulName": "Unmerge",
+      "notes": null,
+      "httpSuccessResponse": "200 OK",
+      "parameters": null
+    },
+    {
       "name": "select",
       "returnType": "void",
       "description": "Selects the specified range in the Excel UI.",
@@ -465,12 +661,21 @@
       "name": "getUsedRange",
       "returnType": "Range",
       "description": "Returns the used range of the given range object.",
-      "syntax": "rangeObject.getUsedRange();",
-      "signature": "getUsedRange()",
+      "syntax": "rangeObject.getUsedRange(valuesOnly);",
+      "signature": "getUsedRange(valuesOnly: [ApiSetVersion)",
       "restfulName": "UsedRange",
       "notes": null,
       "httpSuccessResponse": "200 OK",
-      "parameters": null
+      "parameters": [
+        {
+          "name": "valuesOnly",
+          "dataType": "[ApiSetVersion",
+          "description": "Considers only cells with values as used cells.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
     },
     {
       "name": "load",

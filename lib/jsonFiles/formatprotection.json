@@ -1,6 +1,6 @@
 {
-  "name": "ChartGridlinesFormat",
-  "description": "Encapsulates the format properties for chart gridlines.",
+  "name": "FormatProtection",
+  "description": "Represents the format protection of a range object.",
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
@@ -22,13 +22,24 @@
   },
   "properties": [
     {
-      "name": "line",
-      "dataType": "ChartLineFormat",
-      "description": "Represents chart line formatting.",
-      "isReadOnly": true,
+      "name": "locked",
+      "dataType": "bool",
+      "description": "Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.",
+      "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "isRelationship": true,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "formulaHidden",
+      "dataType": "bool",
+      "description": "Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
       "isKey": null,
       "notes": null
     }

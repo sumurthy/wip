@@ -1,0 +1,78 @@
+{
+  "name": "RangeSort",
+  "description": "Manages sorting operations on Range objects.",
+  "isCollection": false,
+  "collectionOf": null,
+  "restPath": [
+
+  ],
+  "info": {
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "Excel"
+    ],
+    "nameSpace": "Excel",
+    "addinHosts": [
+      "Content",
+      "Task pane"
+    ],
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": null,
+  "methods": [
+    {
+      "name": "apply",
+      "returnType": "void",
+      "description": "Perform a sort operation.",
+      "syntax": "rangeSortObject.apply(fields, matchCase, hasHeaders, orientation, method);",
+      "signature": "apply(fields: SortField[, matchCase: [Optional, hasHeaders: [Optional, orientation: [Optional, method: [Optional)",
+      "restfulName": "Apply",
+      "notes": null,
+      "httpSuccessResponse": "200 OK",
+      "parameters": [
+        {
+          "name": "fields",
+          "dataType": "SortField[",
+          "description": "The list of conditions to sort on.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "matchCase",
+          "dataType": "[Optional",
+          "description": "Whether to have the casing impact string ordering.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "hasHeaders",
+          "dataType": "[Optional",
+          "description": "Whether the range has a header.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "orientation",
+          "dataType": "[Optional",
+          "description": "Whether the operation is sorting rows or columns.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "method",
+          "dataType": "[Optional",
+          "description": "The ordering method used for Chinese characters.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    }
+  ]
+}

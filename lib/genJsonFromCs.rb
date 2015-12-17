@@ -347,8 +347,9 @@ restfulName = nil
 		# Capture the first part of the parameter definition inside method definition to see if it has readonly flag and also note down its data type.
 		parm_array_metadata = line[line.index('('), line.index(');')].split(',')
 		parm_array_metadata.map! {|n| n.split[0]}
-
+		
 		parm_array_metadata.each_with_index do |metadata, j|
+		
 			if metadata.include?('Opitional') || metadata.include?('Optional') 
 				parm_array[j][:isRequired] = false
 			else
@@ -451,9 +452,10 @@ restfulName = nil
 		end
 		line.split[0] = line.split[0].gsub('?','')
 
+
 		# Finally, hanlde the restful names
-		if !restfulName 
-			restfulName = mthd_name			
+		if restfulName.to_s == ''
+			restfulName = mthd_name		
 			if restfulName.start_with?('get')
 				restfulName = restfulName[3..-1]
 			end
@@ -510,7 +512,7 @@ def self.add_restpath (item=nil, restPath=[], pathToWriteBack)
 				if File.file?(relFilePath)
 					@logger.debug(".... Relation: Going recursive with #{prop[:name]}")	
 					pathToSendArray = jsonHash[:restPath].map {|d| d + '/' + prop[:name].downcase }
-					add_restpath File.read(relFilePath), pathToSendArray, relFilePath	
+					#add_restpath File.read(relFilePath), pathToSendArray, relFilePath	
 				end
 				# If it's a collection, add the RESTful path to it's item. Ex: /table from /tables
 				if prop[:isCollection]
@@ -525,7 +527,7 @@ def self.add_restpath (item=nil, restPath=[], pathToWriteBack)
 					collectionItemRestPath = jsonHash[:restPath].map { |d| d + '/' + prop[:name].downcase + lastSegment}
 					if File.file?(collectionItemFilePath)
 						@logger.debug(".... Collection Item: Going recursive with #{collectionItem}")	
-						add_restpath File.read(collectionItemFilePath), collectionItemRestPath, collectionItemFilePath	
+						#add_restpath File.read(collectionItemFilePath), collectionItemRestPath, collectionItemFilePath	
 					end
 				end
 			end
@@ -541,7 +543,7 @@ def self.add_restpath (item=nil, restPath=[], pathToWriteBack)
 				@logger.debug(".... Method: Going recursive with #{method[:restfulName]}")	
 				parmForMethod = method[:parameters] ? '({' + method[:parameters][0][:name] + '})' : ''
 				pathToSendArray = jsonHash[:restPath].map {|d| d + '/' + method[:restfulName].downcase + parmForMethod}
-				add_restpath File.read(methodFilePath), pathToSendArray, methodFilePath	
+				#add_restpath File.read(methodFilePath), pathToSendArray, methodFilePath	
 			end
 		end
 	end		
@@ -556,7 +558,7 @@ end
 
 	fullpath = JSONOUTPUT_FOLDER + 'workbook.json'
 	if File.file?(fullpath)
-		add_restpath File.read(fullpath), ["/workbook"], fullpath
+		#add_restpath File.read(fullpath), ["/workbook"], fullpath
 	end
 
 puts "*** Done. Created #{@json_files_created} JSON files. For REST, processed #{@processed_files} times. Check log folder for results. ***"

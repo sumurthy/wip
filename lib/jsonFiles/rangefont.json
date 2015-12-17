@@ -4,18 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/bindings/{id}/table/range/format/font",
-    "/workbook/tables/{id|name}/range/format/font",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/range/format/font",
-    "/workbook/bindings/{id}/table/rows/{index}/range/format/font",
-    "/workbook/tables/{id|name}/rows/{index}/range/format/font",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/rows/{index}/range/format/font",
-    "/workbook/bindings/{id}/table/columns/{id|name}/range/format/font",
-    "/workbook/tables/{id|name}/columns/{id|name}/range/format/font",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/columns/{id|name}/range/format/font",
-    "/workbook/bindings/{id}/range/format/font",
-    "/workbook/worksheets/{id|name}/range({address})/format/font",
-    "/workbook/names/{name}/range/format/font"
+
   ],
   "info": {
     "version": "1.1",

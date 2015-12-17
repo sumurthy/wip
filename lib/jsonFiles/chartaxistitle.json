@@ -4,9 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/valueaxis/title",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/seriesaxis/title",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis/title"
+
   ],
   "info": {
     "version": "1.1",

@@ -4,7 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets/{id|name}"
+
   ],
   "info": {
     "version": "1.1",
@@ -79,11 +79,22 @@
     {
       "name": "visibility",
       "dataType": "string",
-      "description": "The Visibility of the worksheet,",
-      "isReadOnly": true,
+      "description": "The Visibility of the worksheet.",
+      "isReadOnly": false,
       "enumNameJs": "Excel.SheetVisibility",
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "protection",
+      "dataType": "WorksheetProtection",
+      "description": "Returns sheet protection object for a worksheet.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
       "isKey": null,
       "notes": null
     }
@@ -162,13 +173,22 @@
     {
       "name": "getUsedRange",
       "returnType": "Range",
-      "description": "The used range is the smallest range than encompasses any cells that have a value or formatting assigned to them. If the worksheet is blank, this function will return the top left cell.",
-      "syntax": "worksheetObject.getUsedRange();",
-      "signature": "getUsedRange()",
+      "description": "The used range is the smallest range that encompasses any cells that have a value or formatting assigned to them. If the worksheet is blank, this function will return the top left cell.",
+      "syntax": "worksheetObject.getUsedRange(valuesOnly);",
+      "signature": "getUsedRange(valuesOnly: bool)",
       "restfulName": "UsedRange",
       "notes": null,
       "httpSuccessResponse": "200 OK",
-      "parameters": null
+      "parameters": [
+        {
+          "name": "valuesOnly",
+          "dataType": "bool",
+          "description": "Considers only cells with values as used cells (ignores formatting).",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
     },
     {
       "name": "load",

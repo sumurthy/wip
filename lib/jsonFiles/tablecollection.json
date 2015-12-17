@@ -4,8 +4,7 @@
   "isCollection": true,
   "collectionOf": "Table",
   "restPath": [
-    "/workbook/tables",
-    "/workbook/worksheets/{id|name}/tables"
+
   ],
   "info": {
     "version": "1.1",

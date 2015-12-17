@@ -4,9 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/bindings/{id}/table",
-    "/workbook/tables/{id|name}",
-    "/workbook/worksheets/{id|name}/tables/{id|name}"
+
   ],
   "info": {
     "version": "1.1",
@@ -99,6 +97,28 @@
       "isRelationship": true,
       "isKey": null,
       "notes": null
+    },
+    {
+      "name": "worksheet",
+      "dataType": "Worksheet",
+      "description": "The worksheet containing the current table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "sort",
+      "dataType": "TableSort",
+      "description": "Represents the sorting for the table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
     }
   ],
   "methods": [
@@ -155,6 +175,17 @@
       "restfulName": "Delete",
       "notes": null,
       "httpSuccessResponse": "204 No Content",
+      "parameters": null
+    },
+    {
+      "name": "convertToRange",
+      "returnType": "Range",
+      "description": "Converts the table into a normal range of cells. All data is preserved.",
+      "syntax": "tableObject.convertToRange();",
+      "signature": "convertToRange()",
+      "restfulName": "ConvertToRange",
+      "notes": null,
+      "httpSuccessResponse": "200 OK",
       "parameters": null
     },
     {

@@ -4,16 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets/{id|name}/charts/{name}/format/font",
-    "/workbook/worksheets/{id|name}/charts/{name}/title/format/font",
-    "/workbook/worksheets/{id|name}/charts/{name}/legend/format/font",
-    "/workbook/worksheets/{id|name}/charts/{name}/datalabels/format/font",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/valueaxis/title/format/font",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/seriesaxis/title/format/font",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis/title/format/font",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/valueaxis/format/font",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/seriesaxis/format/font",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis/format/font"
+
   ],
   "info": {
     "version": "1.1",

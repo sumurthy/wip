@@ -1,8 +1,8 @@
 {
-  "name": "RangeBorderCollection",
-  "description": "Represents the border objects that make up range border.",
-  "isCollection": true,
-  "collectionOf": "RangeBorder",
+  "name": "WorksheetProtection",
+  "description": "Represents the protection of a sheet object.",
+  "isCollection": false,
+  "collectionOf": null,
   "restPath": [
 
   ],
@@ -22,9 +22,9 @@
   },
   "properties": [
     {
-      "name": "count",
-      "dataType": "int",
-      "description": "Number of border objects in the collection.",
+      "name": "protected",
+      "dataType": "bool",
+      "description": "Indicates if the worksheet is protected. Read-Only.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -33,53 +33,61 @@
       "notes": null
     },
     {
-      "name": "items",
-      "dataType": "RangeBorder[]",
-      "description": "A collection of rangeBorder objects.",
+      "name": "options",
+      "dataType": "WorksheetProtectionOptions",
+      "description": "Sheet protection options.",
       "isReadOnly": true,
       "enumNameJs": null,
-      "isCollection": true,
-      "isRelationship": false,
+      "isCollection": false,
+      "isRelationship": true,
       "isKey": null,
       "notes": null
     }
   ],
   "methods": [
     {
-      "name": "getItem",
-      "returnType": "RangeBorder",
-      "description": "Gets a border object using its name",
-      "syntax": "rangeBorderCollectionObject.getItem(index);",
-      "signature": "getItem(index: string)",
-      "restfulName": "Item",
+      "name": "protect",
+      "returnType": "void",
+      "description": "Protect a worksheet. It throws if the worksheet has been protected.",
+      "syntax": "worksheetProtectionObject.protect(options, password);",
+      "signature": "protect(options: WorksheetProtectionOptions, password: string)",
+      "restfulName": "Protect",
       "notes": null,
       "httpSuccessResponse": "200 OK",
       "parameters": [
         {
-          "name": "index",
+          "name": "options",
+          "dataType": "WorksheetProtectionOptions",
+          "description": "sheet protection options.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "password",
           "dataType": "string",
-          "description": "Index value of the border object to be retrieved.",
-          "isRequired": true,
-          "enumNameJs": "Excel.BorderIndex",
+          "description": "sheet protection password.",
+          "isRequired": false,
+          "enumNameJs": null,
           "notes": null
         }
       ]
     },
     {
-      "name": "getItemAt",
-      "returnType": "RangeBorder",
-      "description": "Gets a border object using its index",
-      "syntax": "rangeBorderCollectionObject.getItemAt(index);",
-      "signature": "getItemAt(index: number)",
-      "restfulName": "ItemAt",
+      "name": "unprotect",
+      "returnType": "void",
+      "description": "Unprotect a worksheet",
+      "syntax": "worksheetProtectionObject.unprotect(password);",
+      "signature": "unprotect(password: string)",
+      "restfulName": "Unprotect",
       "notes": null,
       "httpSuccessResponse": "200 OK",
       "parameters": [
         {
-          "name": "index",
-          "dataType": "number",
-          "description": "Index value of the object to be retrieved. Zero-indexed.",
-          "isRequired": true,
+          "name": "password",
+          "dataType": "string",
+          "description": "sheet protection password.",
+          "isRequired": false,
           "enumNameJs": null,
           "notes": null
         }

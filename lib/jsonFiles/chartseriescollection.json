@@ -4,7 +4,7 @@
   "isCollection": true,
   "collectionOf": "ChartSeries",
   "restPath": [
-    "/workbook/worksheets/{id|name}/charts/{name}/series"
+
   ],
   "info": {
     "version": "1.1",

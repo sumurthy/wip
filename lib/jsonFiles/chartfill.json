@@ -4,12 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets/{id|name}/charts/{name}/format/fill",
-    "/workbook/worksheets/{id|name}/charts/{name}/title/format/fill",
-    "/workbook/worksheets/{id|name}/charts/{name}/series/{undefined}/points/{undefined}/format/fill",
-    "/workbook/worksheets/{id|name}/charts/{name}/series/{undefined}/format/fill",
-    "/workbook/worksheets/{id|name}/charts/{name}/legend/format/fill",
-    "/workbook/worksheets/{id|name}/charts/{name}/datalabels/format/fill"
+
   ],
   "info": {
     "version": "1.1",
