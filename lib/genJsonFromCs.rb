@@ -147,7 +147,7 @@ restfulName = nil
 @csarray.each_with_index do |line, i|
 
 	## For new object, load its resource and fill the description
-	if line.include?('public interface')
+	if line.include?('public interface') || line.include?('public struct')
 		# Get the third word
 		@json_object[:name] = line.split.first(3).join(' ').split.last(1).join(' ').gsub(':','')
 		if @json_object[:name].include?('Collection')

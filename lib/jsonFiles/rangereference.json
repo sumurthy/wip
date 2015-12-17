@@ -1,8 +1,8 @@
 {
-  "name": "NamedItemCollection",
-  "description": "A collection of all the nameditem objects that are part of the workbook.",
-  "isCollection": true,
-  "collectionOf": "NamedItem",
+  "name": "RangeReference",
+  "description": "Represents a string reference of the form SheetName!A1:B5, or a global or local named range",
+  "isCollection": false,
+  "collectionOf": null,
   "restPath": [
 
   ],
@@ -22,38 +22,18 @@
   },
   "properties": [
     {
-      "name": "items",
-      "dataType": "NamedItem[]",
-      "description": "A collection of namedItem objects.",
-      "isReadOnly": true,
+      "name": "address",
+      "dataType": "string",
+      "description": "The worksheet containing the current range.",
+      "isReadOnly": false,
       "enumNameJs": null,
-      "isCollection": true,
+      "isCollection": false,
       "isRelationship": false,
       "isKey": null,
       "notes": null
     }
   ],
   "methods": [
-    {
-      "name": "getItem",
-      "returnType": "NamedItem",
-      "description": "Gets a nameditem object using its name",
-      "syntax": "namedItemCollectionObject.getItem(name);",
-      "signature": "getItem(name: string)",
-      "restfulName": "Item",
-      "notes": null,
-      "httpSuccessResponse": "200 OK",
-      "parameters": [
-        {
-          "name": "name",
-          "dataType": "string",
-          "description": "nameditem name.",
-          "isRequired": true,
-          "enumNameJs": null,
-          "notes": null
-        }
-      ]
-    },
     {
       "name": "load",
       "returnType": "void",

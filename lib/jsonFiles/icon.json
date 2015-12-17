@@ -1,8 +1,8 @@
 {
-  "name": "NamedItemCollection",
-  "description": "A collection of all the nameditem objects that are part of the workbook.",
-  "isCollection": true,
-  "collectionOf": "NamedItem",
+  "name": "Icon",
+  "description": "Represents a cell icon.",
+  "isCollection": false,
+  "collectionOf": null,
   "restPath": [
 
   ],
@@ -22,38 +22,29 @@
   },
   "properties": [
     {
-      "name": "items",
-      "dataType": "NamedItem[]",
-      "description": "A collection of namedItem objects.",
-      "isReadOnly": true,
+      "name": "set",
+      "dataType": "IconSet",
+      "description": "Represents the set that the icon is part of.",
+      "isReadOnly": false,
       "enumNameJs": null,
-      "isCollection": true,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "index",
+      "dataType": "int",
+      "description": "Represents the index of the icon in the given set.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
       "isRelationship": false,
       "isKey": null,
       "notes": null
     }
   ],
   "methods": [
-    {
-      "name": "getItem",
-      "returnType": "NamedItem",
-      "description": "Gets a nameditem object using its name",
-      "syntax": "namedItemCollectionObject.getItem(name);",
-      "signature": "getItem(name: string)",
-      "restfulName": "Item",
-      "notes": null,
-      "httpSuccessResponse": "200 OK",
-      "parameters": [
-        {
-          "name": "name",
-          "dataType": "string",
-          "description": "nameditem name.",
-          "isRequired": true,
-          "enumNameJs": null,
-          "notes": null
-        }
-      ]
-    },
     {
       "name": "load",
       "returnType": "void",
