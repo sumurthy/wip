@@ -42,11 +42,12 @@
       "signature": "getItem(name: string)",
       "restfulName": "Item",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "name",
           "dataType": "string",
+          "isCollection": false,
           "description": "nameditem name.",
           "isRequired": true,
           "enumNameJs": null,

@@ -4,9 +4,9 @@
   "isCollection": true,
   "collectionOf": "TableRow",
   "restPath": [
-    "/workbook/bindings/{id}/table/rows",
-    "/workbook/tables/{id|name}/rows",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/rows"
+    "/workbook/bindings({id})/table/rows",
+    "/workbook/tables({id|name})/rows",
+    "/workbook/worksheets({id|name})/tables({id|name})/rows"
   ],
   "info": {
     "version": "1.1",
@@ -55,11 +55,12 @@
       "signature": "getItemAt(index: number)",
       "restfulName": "ItemAt",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "index",
           "dataType": "number",
+          "isCollection": false,
           "description": "Index value of the object to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
@@ -73,13 +74,14 @@
       "description": "Adds a new row to the table.",
       "syntax": "tableRowCollectionObject.add(index, values);",
       "signature": "add(index: number, values: (boolean or string or number)[][])",
-      "restfulName": "Add",
+      "restfulName": "add",
       "notes": null,
-      "httpSuccessResponse": "201 Created",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "index",
           "dataType": "number",
+          "isCollection": false,
           "description": "Specifies the relative position of the new row. If null, the addition happens at the end. Any rows below the inserted row are shifted downwards. Zero-indexed.",
           "isRequired": false,
           "enumNameJs": null,
@@ -88,6 +90,7 @@
         {
           "name": "values",
           "dataType": "(boolean or string or number)[][]",
+          "isCollection": true,
           "description": "A 2-dimensional array of unformatted values of the table row.",
           "isRequired": false,
           "enumNameJs": null,

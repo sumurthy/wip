@@ -4,7 +4,7 @@
   "isCollection": true,
   "collectionOf": "Chart",
   "restPath": [
-    "/workbook/worksheets/{id|name}/charts"
+    "/workbook/worksheets({id|name})/charts"
   ],
   "info": {
     "version": "1.1",
@@ -53,11 +53,12 @@
       "signature": "getItem(name: string)",
       "restfulName": "Item",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "name",
           "dataType": "string",
+          "isCollection": false,
           "description": "Name of the chart to be retrieved.",
           "isRequired": true,
           "enumNameJs": null,
@@ -70,14 +71,15 @@
       "returnType": "Chart",
       "description": "Creates a new chart.",
       "syntax": "chartCollectionObject.add(type, sourceData, seriesBy);",
-      "signature": "add(type: string, sourceData: Range or string, seriesBy: string)",
-      "restfulName": "Add",
+      "signature": "add(type: string, sourceData: Range, seriesBy: string)",
+      "restfulName": "add",
       "notes": null,
-      "httpSuccessResponse": "201 Created",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "type",
           "dataType": "string",
+          "isCollection": false,
           "description": "Represents the type of a chart.",
           "isRequired": true,
           "enumNameJs": "Excel.ChartType",
@@ -85,8 +87,9 @@
         },
         {
           "name": "sourceData",
-          "dataType": "Range or string",
-          "description": "The address or name of the range that contains the source data. If an address or a worksheet-scoped name is used, it must include the worksheet name (e.g. \"Sheet1!A5:B9\"). ",
+          "dataType": "Range",
+          "isCollection": false,
+          "description": "The Range object corresponding to the source data.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null
@@ -94,6 +97,7 @@
         {
           "name": "seriesBy",
           "dataType": "string",
+          "isCollection": false,
           "description": "Specifies the way columns or rows are used as data series on the chart.",
           "isRequired": false,
           "enumNameJs": "Excel.ChartSeriesBy",
@@ -109,11 +113,12 @@
       "signature": "getItemAt(index: number)",
       "restfulName": "ItemAt",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "index",
           "dataType": "number",
+          "isCollection": false,
           "description": "Index value of the object to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,

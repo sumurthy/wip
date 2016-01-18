@@ -4,7 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets/{id|name}/charts/{name}/datalabels/format"
+    "/workbook/worksheets({id|name})/charts({name})/datalabels/format"
   ],
   "info": {
     "version": "1.1",

@@ -1,10 +1,12 @@
 {
-  "name": "ChartDataLabels",
-  "description": "Represents a collection of all the data labels on a chart point.",
+  "name": "FilterCriteria",
+  "description": "Represents the filtering criteria applied to a column.",
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/datalabels"
+    "/workbook/bindings({id})/table/columns({id|name})/filter/criteria",
+    "/workbook/tables({id|name})/columns({id|name})/filter/criteria",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/filter/criteria"
   ],
   "info": {
     "version": "1.1",
@@ -22,10 +24,43 @@
   },
   "properties": [
     {
-      "name": "format",
-      "dataType": "ChartDataLabelFormat",
-      "description": "Represents the format of chart data labels, which includes fill and font formatting.",
-      "isReadOnly": true,
+      "name": "criterion1",
+      "dataType": "string",
+      "description": "The first criterion used to filter data. Used as an operator in the case of \"custom\" filtering.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "criterion2",
+      "dataType": "string",
+      "description": "The second criterion used to filter data. Only used as an operator in the case of \"custom\" filtering.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "color",
+      "dataType": "string",
+      "description": "The HTML color string used to filter cells. Used with \"cellColor\" and \"fontColor\" filtering.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "operator",
+      "dataType": "FilterOperator",
+      "description": "The operator used to combine criterion 1 and 2 when using \"custom\" filtering.",
+      "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": true,
@@ -33,31 +68,31 @@
       "notes": null
     },
     {
-      "name": "position",
+      "name": "icon",
+      "dataType": "Icon",
+      "description": "The icon used to filter cells. Used with \"icon\" filtering.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "dynamicCriteria",
       "dataType": "string",
-      "description": "DataLabelPosition value that represents the position of the data label.",
+      "description": "The dynamic criteria from the Excel.DynamicFilterCriteria set to apply on this column. Used with \"dynamic\" filtering.",
       "isReadOnly": false,
-      "enumNameJs": "Excel.ChartDataLabelPosition",
+      "enumNameJs": "Excel.DynamicFilterCriteria",
       "isCollection": false,
       "isRelationship": false,
       "isKey": null,
       "notes": null
     },
     {
-      "name": "showValue",
-      "dataType": "bool",
-      "description": "Boolean value representing if the data label value is visible or not.",
-      "isReadOnly": false,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": false,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "showSeriesName",
-      "dataType": "bool",
-      "description": "Boolean value representing if the data label series name is visible or not.",
+      "name": "values",
+      "dataType": "object[]",
+      "description": "The set of values to be used as part of \"values\" filtering.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
@@ -66,55 +101,11 @@
       "notes": null
     },
     {
-      "name": "showCategoryName",
-      "dataType": "bool",
-      "description": "Boolean value representing if the data label category name is visible or not.",
-      "isReadOnly": false,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": false,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "showLegendKey",
-      "dataType": "bool",
-      "description": "Boolean value representing if the data label legend key is visible or not.",
-      "isReadOnly": false,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": false,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "showPercentage",
-      "dataType": "bool",
-      "description": "Boolean value representing if the data label percentage is visible or not.",
-      "isReadOnly": false,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": false,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "showBubbleSize",
-      "dataType": "bool",
-      "description": "Boolean value representing if the data label bubble size is visible or not.",
-      "isReadOnly": false,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": false,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "separator",
+      "name": "filterOn",
       "dataType": "string",
-      "description": "String representing the separator used for the data labels on a chart.",
+      "description": "The property used by the filter to determine whether the values should stay visible.",
       "isReadOnly": false,
-      "enumNameJs": null,
+      "enumNameJs": "Excel.FilterOn",
       "isCollection": false,
       "isRelationship": false,
       "isKey": null,

@@ -1,0 +1,108 @@
+chart, /workbook/worksheets({id|name})/charts({id|name})
+
+chartareaformat, /workbook/worksheets({id|name})/charts({id|name})/format
+
+chartaxes, /workbook/worksheets({id|name})/charts({id|name})/axes
+
+chartaxis, /workbook/worksheets({id|name})/charts({id|name})/axes/categoryAxis
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/seriesAxis
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/valueAxis
+
+chartaxisformat, /workbook/worksheets({id|name})/charts({id|name})/axes/categoryAxis/format
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/seriesAxis/format
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/valueAxis/format
+
+chartaxistitle, /workbook/worksheets({id|name})/charts({id|name})/axes/categoryAxis/title
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/seriesAxis/title
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/valueAxis/title
+
+chartaxistitleformat, /workbook/worksheets({id|name})/charts({id|name})/axes/categoryAxis/format
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/seriesAxis/format
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/valueAxis/format
+
+chartcollection
+
+chartdatalabelformat
+
+chartdatalabels
+
+chartfill, /workbook/worksheets({id|name})/charts({id|name})/format/fill
+
+chartfont, /workbook/worksheets({id|name})/charts({id|name})/format/font
+
+chartgridlines
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/categoryAxis/majorGridlines
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/seriesAxis/majorGridlines
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/valueAxis/majorGridlines
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/categoryAxis/minorGridlines
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/seriesAxis/minorGridlines
+		   /workbook/worksheets({id|name})/charts({id|name})/axes/valueAxis/minorGridlines
+
+chartgridlinesformat
+
+chartlegend
+
+chartlegendformat
+
+chartlineformat
+
+chartpoint
+
+chartpointformat
+
+chartpointscollection
+
+chartseries
+
+chartseriescollection
+
+chartseriesformat
+
+charttitle
+
+charttitleformat
+
+filter
+
+filtercriteria
+
+filterdatetime
+
+formatprotection
+
+icon
+
+nameditem
+
+nameditemcollection
+
+range
+
+rangeborder
+
+rangebordercollection
+
+rangefill
+
+rangefont
+
+rangeformat
+
+rangereference
+
+rangesort
+
+sortfield
+
+table
+tablecollection
+tablecolumn
+tablecolumncollection
+tablerow
+tablerowcollection
+tablesort
+workbook
+worksheet
+worksheetcollection
+worksheetprotection
+worksheetprotectionoptions

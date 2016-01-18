@@ -4,18 +4,12 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/bindings/{id}/table/range/format",
-    "/workbook/tables/{id|name}/range/format",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/range/format",
-    "/workbook/bindings/{id}/table/rows/{index}/range/format",
-    "/workbook/tables/{id|name}/rows/{index}/range/format",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/rows/{index}/range/format",
-    "/workbook/bindings/{id}/table/columns/{id|name}/range/format",
-    "/workbook/tables/{id|name}/columns/{id|name}/range/format",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/columns/{id|name}/range/format",
-    "/workbook/bindings/{id}/range/format",
-    "/workbook/worksheets/{id|name}/range({address})/format",
-    "/workbook/names/{name}/range/format"
+    "/workbook/tables({id|name})/columns({id|name})/range/format",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/range/format",
+    "/workbook/worksheets({id|name})/range({address})/format",
+    "/workbook/worksheets({id|name})/tables({id|name})/range/format",
+    "/workbook/worksheets({id|name})/tables({id|name})/rows({index})/range/format",
+    "/workbook/names({name})/range/format"
   ],
   "info": {
     "version": "1.1",
@@ -32,6 +26,17 @@
     "description": "Office JavaScript Add-in API for June fork"
   },
   "properties": [
+    {
+      "name": "columnWidth",
+      "dataType": "double",
+      "description": "Gets or sets the width of all colums within the range. If the column widths are not uniform, null will be returned.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
     {
       "name": "fill",
       "dataType": "RangeFill",
@@ -77,6 +82,17 @@
       "notes": null
     },
     {
+      "name": "rowHeight",
+      "dataType": "double",
+      "description": "Gets or sets the height of all rows in the range. If the row heights are not uniform null will be returned.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
       "name": "verticalAlignment",
       "dataType": "string",
       "description": "Represents the vertical alignment for the specified object.",
@@ -97,9 +113,42 @@
       "isRelationship": false,
       "isKey": null,
       "notes": null
+    },
+    {
+      "name": "protection",
+      "dataType": "FormatProtection",
+      "description": "Returns the format protection object for a range.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
     }
   ],
   "methods": [
+    {
+      "name": "autofitColumns",
+      "returnType": "void",
+      "description": "Changes the width of the columns of the current range to achieve the best fit, based on the current data in the columns.",
+      "syntax": "rangeFormatObject.autofitColumns();",
+      "signature": "autofitColumns()",
+      "restfulName": "autofitColumns",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "autofitRows",
+      "returnType": "void",
+      "description": "Changes the height of the rows of the current range to achieve the best fit, based on the current data in the columns.",
+      "syntax": "rangeFormatObject.autofitRows();",
+      "signature": "autofitRows()",
+      "restfulName": "autofitRows",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
     {
       "name": "load",
       "returnType": "void",

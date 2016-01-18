@@ -33,6 +33,17 @@
       "notes": null
     },
     {
+      "name": "functions",
+      "dataType": "Functions",
+      "description": "Represents Excel application instance that contains this workbook.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
       "name": "names",
       "dataType": "NamedItemCollection",
       "description": "Represents a collection of workbook scoped named items (named ranges and constants).",
@@ -78,17 +89,6 @@
     }
   ],
   "methods": [
-    {
-      "name": "getSelectedRange",
-      "returnType": "Range",
-      "description": "Gets the currently selected range from the workbook.",
-      "syntax": "workbookObject.getSelectedRange();",
-      "signature": "getSelectedRange()",
-      "restfulName": "SelectedRange",
-      "notes": null,
-      "httpSuccessResponse": "200 OK",
-      "parameters": null
-    },
     {
       "name": "load",
       "returnType": "void",

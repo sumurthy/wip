@@ -1,10 +1,15 @@
 {
-  "name": "ChartLegendFormat",
-  "description": "Encapsulates the format properties of a chart legend.",
+  "name": "Icon",
+  "description": "Represents a cell icon.",
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/legend/format"
+    "/workbook/bindings({id})/table/sort/fields/icon",
+    "/workbook/tables({id|name})/sort/fields/icon",
+    "/workbook/worksheets({id|name})/tables({id|name})/sort/fields/icon",
+    "/workbook/bindings({id})/table/columns({id|name})/filter/criteria/icon",
+    "/workbook/tables({id|name})/columns({id|name})/filter/criteria/icon",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/filter/criteria/icon"
   ],
   "info": {
     "version": "1.1",
@@ -22,24 +27,24 @@
   },
   "properties": [
     {
-      "name": "font",
-      "dataType": "ChartFont",
-      "description": "Represents the font attributes such as font name, font size, color, etc. of a chart legend.",
-      "isReadOnly": true,
-      "enumNameJs": null,
+      "name": "set",
+      "dataType": "string",
+      "description": "Represents the set that the icon is part of.",
+      "isReadOnly": false,
+      "enumNameJs": "Excel.IconSet",
       "isCollection": false,
-      "isRelationship": true,
+      "isRelationship": false,
       "isKey": null,
       "notes": null
     },
     {
-      "name": "fill",
-      "dataType": "ChartFill",
-      "description": "Represents the fill format of an object, which includes background formating information.",
-      "isReadOnly": true,
+      "name": "index",
+      "dataType": "int",
+      "description": "Represents the index of the icon in the given set.",
+      "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "isRelationship": true,
+      "isRelationship": false,
       "isKey": null,
       "notes": null
     }

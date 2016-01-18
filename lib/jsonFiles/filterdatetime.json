@@ -1,11 +1,9 @@
 {
-  "name": "ChartLegendFormat",
-  "description": "Encapsulates the format properties of a chart legend.",
+  "name": "FilterDatetime",
+  "description": "Represents how to filter a date when filtering on values.",
   "isCollection": false,
   "collectionOf": null,
-  "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/legend/format"
-  ],
+  "restPath": null,
   "info": {
     "version": "1.1",
     "addedIn": "1.1",
@@ -22,24 +20,24 @@
   },
   "properties": [
     {
-      "name": "font",
-      "dataType": "ChartFont",
-      "description": "Represents the font attributes such as font name, font size, color, etc. of a chart legend.",
-      "isReadOnly": true,
+      "name": "date",
+      "dataType": "string",
+      "description": "The date in ISO8601 format used to filter data.",
+      "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "isRelationship": true,
+      "isRelationship": false,
       "isKey": null,
       "notes": null
     },
     {
-      "name": "fill",
-      "dataType": "ChartFill",
-      "description": "Represents the fill format of an object, which includes background formating information.",
-      "isReadOnly": true,
-      "enumNameJs": null,
+      "name": "specificity",
+      "dataType": "string",
+      "description": "How specific the date should be used to keep data. For example, if the date is 2005-04-02 and the specifity is set to \"month\", the filter operation will keep all rows with a date in the month of april 2009.",
+      "isReadOnly": false,
+      "enumNameJs": "Excel.FilterDatetimeSpecificity",
       "isCollection": false,
-      "isRelationship": true,
+      "isRelationship": false,
       "isKey": null,
       "notes": null
     }

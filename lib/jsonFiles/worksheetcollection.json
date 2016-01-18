@@ -42,7 +42,7 @@
       "signature": "getActiveWorksheet()",
       "restfulName": "ActiveWorksheet",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {
@@ -53,11 +53,12 @@
       "signature": "getItem(key: string)",
       "restfulName": "Item",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "key",
           "dataType": "string",
+          "isCollection": false,
           "description": "The Name or ID of the worksheet.",
           "isRequired": true,
           "enumNameJs": null,
@@ -71,13 +72,14 @@
       "description": "Adds a new worksheet to the workbook. The worksheet will be added at the end of existing worksheets. If you wish to activate the newly added worksheet, call \".activate() on it.",
       "syntax": "worksheetCollectionObject.add(name);",
       "signature": "add(name: string)",
-      "restfulName": "Add",
+      "restfulName": "add",
       "notes": null,
-      "httpSuccessResponse": "201 Created",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "name",
           "dataType": "string",
+          "isCollection": false,
           "description": "The name of the worksheet to be added. If specified, name should be unqiue. If not specified, Excel determines the name of the new worksheet.",
           "isRequired": false,
           "enumNameJs": null,

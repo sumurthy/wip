@@ -4,7 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets/{id|name}/charts/{name}"
+    "/workbook/worksheets({id|name})/charts({name})"
   ],
   "info": {
     "version": "1.1",
@@ -21,6 +21,17 @@
     "description": "Office JavaScript Add-in API for June fork"
   },
   "properties": [
+    {
+      "name": "id",
+      "dataType": "string",
+      "description": "Gets a chart based on its position in the collection.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
     {
       "name": "axes",
       "dataType": "ChartAxes",
@@ -141,6 +152,17 @@
       "isRelationship": true,
       "isKey": null,
       "notes": null
+    },
+    {
+      "name": "worksheet",
+      "dataType": "Worksheet",
+      "description": "The worksheet containing the current chart.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
     }
   ],
   "methods": [
@@ -150,9 +172,9 @@
       "description": "Deletes the chart object.",
       "syntax": "chartObject.delete();",
       "signature": "delete()",
-      "restfulName": "Delete",
+      "restfulName": "delete",
       "notes": null,
-      "httpSuccessResponse": "204 No Content",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {
@@ -160,15 +182,16 @@
       "returnType": "void",
       "description": "Resets the source data for the chart.",
       "syntax": "chartObject.setData(sourceData, seriesBy);",
-      "signature": "setData(sourceData: Range or string, seriesBy: string)",
-      "restfulName": "SetData",
+      "signature": "setData(sourceData: Range, seriesBy: string)",
+      "restfulName": "setData",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "sourceData",
-          "dataType": "Range or string",
-          "description": "The address or name of the range that contains the source data. If an address or a worksheet-scoped name is used, it must include the worksheet name (e.g. \"Sheet1!A5:B9\"). ",
+          "dataType": "Range",
+          "isCollection": false,
+          "description": "The Range object corresponding to the source data.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null
@@ -176,6 +199,7 @@
         {
           "name": "seriesBy",
           "dataType": "string",
+          "isCollection": false,
           "description": "Specifies the way columns or rows are used as data series on the chart. Can be one of the following: Auto (default), Rows, Columns.",
           "isRequired": false,
           "enumNameJs": "Excel.ChartSeriesBy",
@@ -189,13 +213,14 @@
       "description": "Positions the chart relative to cells on the worksheet.",
       "syntax": "chartObject.setPosition(startCell, endCell);",
       "signature": "setPosition(startCell: Range or string, endCell: Range or string)",
-      "restfulName": "SetPosition",
+      "restfulName": "setPosition",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "startCell",
           "dataType": "Range or string",
+          "isCollection": false,
           "description": "The start cell. This is where the chart will be moved to. The start cell is the top-left or top-right cell, depending on the user's right-to-left display settings.",
           "isRequired": true,
           "enumNameJs": null,
@@ -204,9 +229,49 @@
         {
           "name": "endCell",
           "dataType": "Range or string",
+          "isCollection": false,
           "description": "(Optional) The end cell. If specified, the chart's width and height will be set to fully cover up this cell/range.",
           "isRequired": false,
           "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "getImage",
+      "returnType": "System.IO.Stream",
+      "description": "Renders the chart as a base64-encoded image by scaling the chart to fit the specified dimensions.",
+      "syntax": "chartObject.getImage(height, width, fittingMode);",
+      "signature": "getImage(height: number, width: number, fittingMode: string)",
+      "restfulName": "Image",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "height",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "(Optional) The desired height of the resulting image.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "width",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "(Optional) The desired width of the resulting image.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "fittingMode",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "(Optional) The method used to scale the chart to the specified to the specified dimensions (if both height and width are set).\"",
+          "isRequired": false,
+          "enumNameJs": "Excel.ImageFittingMode",
           "notes": null
         }
       ]

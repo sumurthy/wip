@@ -1,10 +1,12 @@
 {
-  "name": "Application",
-  "description": "Represents the Excel application that manages the workbook.",
+  "name": "Filter",
+  "description": "Manages the filtering of a table's column.",
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/application"
+    "/workbook/bindings({id})/table/columns({id|name})/filter",
+    "/workbook/tables({id|name})/columns({id|name})/filter",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/filter"
   ],
   "info": {
     "version": "1.1",
@@ -22,38 +24,49 @@
   },
   "properties": [
     {
-      "name": "calculationMode",
-      "dataType": "string",
-      "description": "Returns the calculation mode used in the workbook.",
+      "name": "criteria",
+      "dataType": "FilterCriteria",
+      "description": "The currently applied filter on the given column.",
       "isReadOnly": true,
-      "enumNameJs": "Excel.CalculationMode",
+      "enumNameJs": null,
       "isCollection": false,
-      "isRelationship": false,
+      "isRelationship": true,
       "isKey": null,
       "notes": null
     }
   ],
   "methods": [
     {
-      "name": "calculate",
+      "name": "apply",
       "returnType": "void",
-      "description": "Recalculate all currently opened workbooks in Excel.",
-      "syntax": "applicationObject.calculate(calculationType);",
-      "signature": "calculate(calculationType: string)",
-      "restfulName": "calculate",
+      "description": "Apply the given filter criteria on the given column.",
+      "syntax": "filterObject.apply(criteria);",
+      "signature": "apply(criteria: FilterCriteria)",
+      "restfulName": "apply",
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": [
         {
-          "name": "calculationType",
-          "dataType": "string",
+          "name": "criteria",
+          "dataType": "FilterCriteria",
           "isCollection": false,
-          "description": "Specifies the calculation type to use.",
+          "description": "The criteria to apply.",
           "isRequired": true,
-          "enumNameJs": "Excel.CalculationType",
+          "enumNameJs": null,
           "notes": null
         }
       ]
+    },
+    {
+      "name": "clear",
+      "returnType": "void",
+      "description": "Clear the filter on the given column.",
+      "syntax": "filterObject.clear();",
+      "signature": "clear()",
+      "restfulName": "clear",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
     },
     {
       "name": "load",

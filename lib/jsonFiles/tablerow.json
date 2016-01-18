@@ -4,9 +4,9 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/bindings/{id}/table/rows/{index}",
-    "/workbook/tables/{id|name}/rows/{index}",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/rows/{index}"
+    "/workbook/bindings({id})/table/rows({index})",
+    "/workbook/tables({id|name})/rows({index})",
+    "/workbook/worksheets({id|name})/tables({id|name})/rows({index})"
   ],
   "info": {
     "version": "1.1",
@@ -55,7 +55,7 @@
       "signature": "getRange()",
       "restfulName": "Range",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {
@@ -64,9 +64,9 @@
       "description": "Deletes the row from the table.",
       "syntax": "tableRowObject.delete();",
       "signature": "delete()",
-      "restfulName": "Delete",
+      "restfulName": "delete",
       "notes": null,
-      "httpSuccessResponse": "204 No Content",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {

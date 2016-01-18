@@ -1,10 +1,15 @@
 {
-  "name": "ChartLegendFormat",
-  "description": "Encapsulates the format properties of a chart legend.",
+  "name": "FormatProtection",
+  "description": "Represents the format protection of a range object.",
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/legend/format"
+    "/workbook/tables({id|name})/columns({id|name})/range/format/protection",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/range/format/protection",
+    "/workbook/worksheets({id|name})/range({address})/format/protection",
+    "/workbook/worksheets({id|name})/tables({id|name})/range/format/protection",
+    "/workbook/worksheets({id|name})/tables({id|name})/rows({index})/range/format/protection",
+    "/workbook/names({name})/range/format/protection"
   ],
   "info": {
     "version": "1.1",
@@ -22,24 +27,24 @@
   },
   "properties": [
     {
-      "name": "font",
-      "dataType": "ChartFont",
-      "description": "Represents the font attributes such as font name, font size, color, etc. of a chart legend.",
-      "isReadOnly": true,
+      "name": "locked",
+      "dataType": "bool",
+      "description": "Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.",
+      "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "isRelationship": true,
+      "isRelationship": false,
       "isKey": null,
       "notes": null
     },
     {
-      "name": "fill",
-      "dataType": "ChartFill",
-      "description": "Represents the fill format of an object, which includes background formating information.",
-      "isReadOnly": true,
+      "name": "formulaHidden",
+      "dataType": "bool",
+      "description": "Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.",
+      "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "isRelationship": true,
+      "isRelationship": false,
       "isKey": null,
       "notes": null
     }

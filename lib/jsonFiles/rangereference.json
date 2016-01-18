@@ -1,11 +1,9 @@
 {
-  "name": "ChartLegendFormat",
-  "description": "Encapsulates the format properties of a chart legend.",
+  "name": "RangeReference",
+  "description": "Represents a string reference of the form SheetName!A1:B5, or a global or local named range",
   "isCollection": false,
   "collectionOf": null,
-  "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/legend/format"
-  ],
+  "restPath": null,
   "info": {
     "version": "1.1",
     "addedIn": "1.1",
@@ -22,24 +20,13 @@
   },
   "properties": [
     {
-      "name": "font",
-      "dataType": "ChartFont",
-      "description": "Represents the font attributes such as font name, font size, color, etc. of a chart legend.",
-      "isReadOnly": true,
+      "name": "address",
+      "dataType": "string",
+      "description": "The worksheet containing the current range.",
+      "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "fill",
-      "dataType": "ChartFill",
-      "description": "Represents the fill format of an object, which includes background formating information.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": true,
+      "isRelationship": false,
       "isKey": null,
       "notes": null
     }

@@ -1,10 +1,10 @@
 {
-  "name": "BindingCollection",
-  "description": "Represents the collection of all the binding objects that are part of the workbook.",
-  "isCollection": true,
-  "collectionOf": "Binding",
+  "name": "WorksheetProtection",
+  "description": "Represents the protection of a sheet object.",
+  "isCollection": false,
+  "collectionOf": null,
   "restPath": [
-    "/workbook/bindings"
+    "/workbook/worksheets({id|name})/protection"
   ],
   "info": {
     "version": "1.1",
@@ -22,9 +22,9 @@
   },
   "properties": [
     {
-      "name": "count",
-      "dataType": "int",
-      "description": "Returns the number of bindings in the collection.",
+      "name": "protected",
+      "dataType": "bool",
+      "description": "Indicates if the worksheet is protected. Read-Only.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -33,55 +33,64 @@
       "notes": null
     },
     {
-      "name": "items",
-      "dataType": "Binding[]",
-      "description": "A collection of binding objects.",
+      "name": "options",
+      "dataType": "WorksheetProtectionOptions",
+      "description": "Sheet protection options.",
       "isReadOnly": true,
       "enumNameJs": null,
-      "isCollection": true,
-      "isRelationship": false,
+      "isCollection": false,
+      "isRelationship": true,
       "isKey": null,
       "notes": null
     }
   ],
   "methods": [
     {
-      "name": "getItem",
-      "returnType": "Binding",
-      "description": "Gets a binding object by ID.",
-      "syntax": "bindingCollectionObject.getItem(id);",
-      "signature": "getItem(id: string)",
-      "restfulName": "Item",
+      "name": "protect",
+      "returnType": "void",
+      "description": "Protect a worksheet. It throws if the worksheet has been protected.",
+      "syntax": "worksheetProtectionObject.protect(options, password);",
+      "signature": "protect(options: WorksheetProtectionOptions, password: string)",
+      "restfulName": "protect",
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": [
         {
-          "name": "id",
+          "name": "options",
+          "dataType": "WorksheetProtectionOptions",
+          "isCollection": false,
+          "description": "sheet protection options.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "password",
           "dataType": "string",
           "isCollection": false,
-          "description": "Id of the binding object to be retrieved.",
-          "isRequired": true,
+          "description": "sheet protection password.",
+          "isRequired": false,
           "enumNameJs": null,
           "notes": null
         }
       ]
     },
     {
-      "name": "getItemAt",
-      "returnType": "Binding",
-      "description": "Gets a binding object based on its position in the items array.",
-      "syntax": "bindingCollectionObject.getItemAt(index);",
-      "signature": "getItemAt(index: number)",
-      "restfulName": "ItemAt",
+      "name": "unprotect",
+      "returnType": "void",
+      "description": "Unprotect a worksheet",
+      "syntax": "worksheetProtectionObject.unprotect(password);",
+      "signature": "unprotect(password: string)",
+      "restfulName": "unprotect",
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": [
         {
-          "name": "index",
-          "dataType": "number",
+          "name": "password",
+          "dataType": "string",
           "isCollection": false,
-          "description": "Index value of the object to be retrieved. Zero-indexed.",
-          "isRequired": true,
+          "description": "sheet protection password.",
+          "isRequired": false,
           "enumNameJs": null,
           "notes": null
         }

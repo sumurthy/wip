@@ -4,9 +4,9 @@
   "isCollection": true,
   "collectionOf": "TableColumn",
   "restPath": [
-    "/workbook/bindings/{id}/table/columns",
-    "/workbook/tables/{id|name}/columns",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/columns"
+    "/workbook/bindings({id})/table/columns",
+    "/workbook/tables({id|name})/columns",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns"
   ],
   "info": {
     "version": "1.1",
@@ -55,11 +55,12 @@
       "signature": "getItem(key: number or string)",
       "restfulName": "Item",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "key",
           "dataType": "number or string",
+          "isCollection": false,
           "description": " Column Name or ID.",
           "isRequired": true,
           "enumNameJs": null,
@@ -75,11 +76,12 @@
       "signature": "getItemAt(index: number)",
       "restfulName": "ItemAt",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "index",
           "dataType": "number",
+          "isCollection": false,
           "description": "Index value of the object to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
@@ -93,13 +95,14 @@
       "description": "Adds a new column to the table.",
       "syntax": "tableColumnCollectionObject.add(index, values);",
       "signature": "add(index: number, values: (boolean or string or number)[][])",
-      "restfulName": "Add",
+      "restfulName": "add",
       "notes": null,
-      "httpSuccessResponse": "201 Created",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "index",
           "dataType": "number",
+          "isCollection": false,
           "description": "Specifies the relative position of the new column. The previous column at this position is shifted to the right. The index value should be equal to or less than the last column's index value, so it cannot be used to append a column at the end of the table. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
@@ -108,6 +111,7 @@
         {
           "name": "values",
           "dataType": "(boolean or string or number)[][]",
+          "isCollection": true,
           "description": "A 2-dimensional array of unformatted values of the table column.",
           "isRequired": false,
           "enumNameJs": null,

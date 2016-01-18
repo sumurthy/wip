@@ -4,7 +4,7 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/names/{name}"
+    "/workbook/names({name})"
   ],
   "info": {
     "version": "1.1",
@@ -75,7 +75,7 @@
       "signature": "getRange()",
       "restfulName": "Range",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {

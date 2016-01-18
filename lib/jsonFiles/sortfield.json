@@ -1,15 +1,12 @@
 {
-  "name": "ChartFont",
-  "description": "This object represents the font attributes (font name, font size, color, etc.) for a chart object.",
+  "name": "SortField",
+  "description": "Represents a condition in a sorting operation.",
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/title/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/title/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/title/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/format/font",
-    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/format/font"
+    "/workbook/bindings({id})/table/sort/fields",
+    "/workbook/tables({id|name})/sort/fields",
+    "/workbook/worksheets({id|name})/tables({id|name})/sort/fields"
   ],
   "info": {
     "version": "1.1",
@@ -27,9 +24,31 @@
   },
   "properties": [
     {
-      "name": "bold",
+      "name": "key",
+      "dataType": "int",
+      "description": "Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row).",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "sortOn",
+      "dataType": "string",
+      "description": "Represents the type of sorting of this condition.",
+      "isReadOnly": false,
+      "enumNameJs": "Excel.SortOn",
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "ascending",
       "dataType": "bool",
-      "description": "Represents the bold status of font.",
+      "description": "Represents whether the sorting is done in an ascending fashion.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
@@ -40,7 +59,7 @@
     {
       "name": "color",
       "dataType": "string",
-      "description": "HTML color code representation of the text color. E.g. #FF0000 represents Red.",
+      "description": "Represents the color that is the target of the condition if the sorting is on font or cell color.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
@@ -49,46 +68,24 @@
       "notes": null
     },
     {
-      "name": "italic",
-      "dataType": "bool",
-      "description": "Represents the italic status of the font.",
-      "isReadOnly": false,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": false,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "name",
+      "name": "dataOption",
       "dataType": "string",
-      "description": "Font name (e.g. \"Calibri\")",
+      "description": "Represents additional sorting options for this field.",
       "isReadOnly": false,
-      "enumNameJs": null,
+      "enumNameJs": "Excel.SortDataOption",
       "isCollection": false,
       "isRelationship": false,
       "isKey": null,
       "notes": null
     },
     {
-      "name": "size",
-      "dataType": "double",
-      "description": "Size of the font (e.g. 11)",
+      "name": "icon",
+      "dataType": "Icon",
+      "description": "Represents the icon that is the target of the condition if the sorting is on the cell's icon.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
-      "isRelationship": false,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "underline",
-      "dataType": "string",
-      "description": "Type of underline applied to the font.",
-      "isReadOnly": false,
-      "enumNameJs": "Excel.ChartUnderlineStyle",
-      "isCollection": false,
-      "isRelationship": false,
+      "isRelationship": true,
       "isKey": null,
       "notes": null
     }

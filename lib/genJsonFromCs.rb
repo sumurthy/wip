@@ -62,7 +62,7 @@ OBJECTKEYS = 'jsonFiles/settings/objectkeys.json'
 # Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :vbaInfo, :possibleValues, :isRelationship)
 Method = Struct.new(:name, :returnType, :description, :syntax, :signature, :restfulName, :notes, :httpSuccessResponse, :parameters)
 Property = Struct.new(:name, :dataType, :description, :isReadOnly, :enumNameJs, :isCollection, :isRelationship, :isKey, :notes)
-ParamStr = Struct.new(:name, :dataType, :description, :isRequired, :enumNameJs, :notes)
+ParamStr = Struct.new(:name, :dataType, :isCollection, :description, :isRequired, :enumNameJs, :notes)
 
 SIMPLETYPES = %w[int string object object[][] object[] double bool number void]
 
@@ -147,7 +147,7 @@ restfulName = nil
 @csarray.each_with_index do |line, i|
 
 	## For new object, load its resource and fill the description
-	if line.include?('public interface')
+	if line.include?('public interface') || line.include?('public struct')
 		# Get the third word
 		@json_object[:name] = line.split.first(3).join(' ').split.last(1).join(' ').gsub(':','')
 		if @json_object[:name].include?('Collection')
@@ -171,6 +171,7 @@ restfulName = nil
 			lineSplitArray = line.split(',')
 			restNameIndex = lineSplitArray.index {|w| w.include?('RESTfulName')}
 			restfulName = lineSplitArray[restNameIndex].split('=')[1].gsub('"','').gsub(')','').gsub(']','').strip
+
 		end
 	end
 
@@ -219,12 +220,12 @@ restfulName = nil
 			@json_object[:methods] = method_array				
 		end	
 
-		# # Seed the restPath if its the parent object (workbook)
-		# if @json_object[:name] == 'Workbook' 
-		# 	@json_object[:restPath] = '/workbook'
-		# else
-		# 	@json_object[:restPath] = nil
-		# end
+		# Seed the restPath if its the parent object (workbook)
+		if @json_object[:name] == 'Workbook' 
+			@json_object[:restPath] = ['/workbook']
+		else
+			@json_object[:restPath] = nil
+		end
 
 
 		File.open("#{JSONOUTPUT_FOLDER}#{(@json_object[:name]).downcase}.json", "w") do |f|
@@ -288,7 +289,7 @@ restfulName = nil
 		end
 
 		param_name = line.split('"')[1]
-		parameter = ParamStr.new(param_name, nil, param_summary, nil, enumName, nil)	
+		parameter = ParamStr.new(param_name, nil, false, param_summary, nil, enumName, nil)	
 		parm_array.push parameter
 	end
 
@@ -342,14 +343,15 @@ restfulName = nil
 	end
 
 	# If member is a method and has param, capture its optional param and data type.
+	line = line.chomp
 	if member_ahead && line.include?(');')  && !line.include?('();') && !line.include?('_') 
 
 		# Capture the first part of the parameter definition inside method definition to see if it has readonly flag and also note down its data type.
-		parm_array_metadata = line[line.index('('), line.index(');')].split(',')
-		parm_array_metadata.map! {|n| n.split[0]}
-
-		parm_array_metadata.each_with_index do |metadata, j|
-			if metadata.include?('Opitional') || metadata.include?('Optional') 
+		
+		parm_array_metadata = line[line.index('(')+1, line.index(');')].chomp(');').split(',')
+		opt_array = parm_array_metadata.map {|n| n.split[0]}
+		opt_array.each_with_index do |metadata, j|
+			if metadata.include?('Optional') 
 				parm_array[j][:isRequired] = false
 			else
 				parm_array[j][:isRequired] = true
@@ -357,8 +359,9 @@ restfulName = nil
 		end
 	
 		# Now we can thrash the metadata array to figure out the actual data type
+		parm_array_metadata.map! {|n| n.gsub('[Optional]','')}
 		parm_array_metadata.map! {|n| n.gsub('?','')}
-		parm_array_metadata.map! {|n| n.gsub(']',' ')}
+		#parm_array_metadata.map! {|n| n.gsub(']',' ')}
 		parm_array_metadata.map! {|n| n.gsub(';',' ')}
 
 		parm_array_metadata.each_with_index do |dataType, j|
@@ -370,8 +373,6 @@ restfulName = nil
 					suffix = '[]'
 				end
 			end
-
-
 			if dataType.include?('TypeScriptType')
 				typeScriptDataStart = dataType.index('TypeScriptType') + 15
 				typeScriptData = dataType[typeScriptDataStart..-1]
@@ -390,10 +391,15 @@ restfulName = nil
 				else
 					parm_array[j][:dataType] = typeScriptDataArray + suffix
 				end
-			else
-				parm_array[j][:dataType] = dataType.split[-1].gsub('(','') + suffix
+			else				
+				parm_array[j][:dataType] = dataType.split[0] + suffix
 			end
 
+			# Add Collection string at the end instead of "[]"
+			parm_array[j][:isCollection] = false
+			if parm_array[j][:dataType].include?('[]')
+				parm_array[j][:isCollection] = true
+			end
 			if parm_array[j][:dataType] == 'int'	
 				parm_array[j][:dataType] = 'number'
 			end
@@ -410,7 +416,6 @@ restfulName = nil
 				parm_array[j][:dataType] = 'string'
 			end
 			parm_array[j][:dataType] = parm_array[j][:dataType].gsub('?', '')
-
 
 		end
 
@@ -452,24 +457,17 @@ restfulName = nil
 		line.split[0] = line.split[0].gsub('?','')
 
 		# Finally, hanlde the restful names
-		if !restfulName 
+		if restfulName.to_s.length == 0
 			restfulName = mthd_name			
 			if restfulName.start_with?('get')
 				restfulName = restfulName[3..-1]
 			end
 		end
-		restfulName = restfulName.slice(0,1).capitalize + restfulName.slice(1..-1)
-
-		httpSuccessResponse = '200 OK'
-		if mthd_name.casecmp('add') == 0
-			httpSuccessResponse = '201 Created'
-		end
-		if mthd_name.casecmp('delete') == 0
-			httpSuccessResponse = '204 No Content'			
-		end
+		
+		restfulName.slice(0,1).capitalize + restfulName.slice(1..-1)
 
 		# Create method hash and push the values. 
-		method = Method.new(mthd_name, line.split[0], member_summary, syntax, signature, restfulName, nil, httpSuccessResponse, parm_hash_array)
+		method = Method.new(mthd_name, line.split[0], member_summary, syntax, signature, restfulName, nil, nil, parm_hash_array)
 		method_array.push method.to_h
 
 		# Reset the variables. 
@@ -479,38 +477,44 @@ restfulName = nil
 	end
 end
 
-
-
-# Recursively add restPath
+# Reccursively add restPath
 
 def self.add_restpath (item=nil, restPath=[], pathToWriteBack)
 
 	@processed_files = @processed_files + 1
-	@logger.debug(".... #{@processed_files} .... Beginning #{__method__} for #{restPath} .... #{pathToWriteBack}")	
 	jsonHash = JSON.parse(item, {:symbolize_names => true})	
-	@logger.debug(".... Before restpath: #{jsonHash[:restPath]}")	
+	
+	@logger.debug("-----> Recursive called from, #{pathToWriteBack}, for #{jsonHash[:name]}")	
+
+	# Max of 5 paths are enough for display. 
+	if jsonHash[:restPath] && jsonHash[:restPath].length > 5	
+		return
+	end
+
 	# Assign path. If one already exists, merge and remove dups. 	
 	jsonHash[:restPath] = jsonHash[:restPath] ? (restPath | jsonHash[:restPath]) : restPath
-	@logger.debug(".... After restpath: #{jsonHash[:restPath]}")
+	#@logger.debug(".... After restpath: #{jsonHash[:restPath]}")
 	#resource = uncapitalize(jsonHash[:name])
-
-
 
 	propreties = jsonHash[:properties]
 	methods = jsonHash[:methods]
-
+	printName = jsonHash[:name]
 	# Process if the resource has properties. 
 	if propreties
 		
 		propreties.each do |prop| 
 			# Process only if its a relation. 
 			# Avoid infinite loop by avoiding circular reference with worksheet > range > worksheet
-			if prop[:isRelationship] && !((prop[:name] == 'worksheet') && (jsonHash[:name] == 'Range'))
+			if prop[:isRelationship] && !((prop[:name] == 'worksheet') && (jsonHash[:name] == 'Range')) &&  \
+					!((prop[:name] == 'worksheet') && (jsonHash[:name] == 'Table'))  && \
+					!((prop[:name] == 'worksheet') && (jsonHash[:name] == 'Chart'))  
 				relFilePath = JSONOUTPUT_FOLDER + prop[:dataType].downcase + '.json'
 				if File.file?(relFilePath)
-					@logger.debug(".... Relation: Going recursive with #{prop[:name]}")	
+					@logger.debug(".... Relation: Going recursive with #{prop[:name]} for @>#{printName}|")	
+					
 					pathToSendArray = jsonHash[:restPath].map {|d| d + '/' + prop[:name].downcase }
 					add_restpath File.read(relFilePath), pathToSendArray, relFilePath	
+					
 				end
 				# If it's a collection, add the RESTful path to it's item. Ex: /table from /tables
 				if prop[:isCollection]
@@ -521,11 +525,12 @@ def self.add_restpath (item=nil, restPath=[], pathToWriteBack)
 					end
 					collectionItemFilePath = JSONOUTPUT_FOLDER + collectionItem + '.json'
 					# Append the keys of collection. e.g. worksheets({id|name})
-					lastSegment = (@objectKeyHash.has_key?(prop[:name].downcase)) ? ('/{' + @objectKeyHash[prop[:name].downcase].join('|') + '}') : '/{undefined}'
+					lastSegment = (@objectKeyHash.has_key?(prop[:name].downcase)) ? ('({' + @objectKeyHash[prop[:name].downcase].join('|') + '})') : '/{undefined}'
 					collectionItemRestPath = jsonHash[:restPath].map { |d| d + '/' + prop[:name].downcase + lastSegment}
 					if File.file?(collectionItemFilePath)
 						@logger.debug(".... Collection Item: Going recursive with #{collectionItem}")	
 						add_restpath File.read(collectionItemFilePath), collectionItemRestPath, collectionItemFilePath	
+					
 					end
 				end
 			end

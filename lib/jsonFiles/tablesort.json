@@ -1,0 +1,143 @@
+{
+  "name": "TableSort",
+  "description": "Manages sorting operations on Table objects.",
+  "isCollection": false,
+  "collectionOf": null,
+  "restPath": [
+    "/workbook/bindings({id})/table/sort",
+    "/workbook/tables({id|name})/sort",
+    "/workbook/worksheets({id|name})/tables({id|name})/sort"
+  ],
+  "info": {
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "Excel"
+    ],
+    "nameSpace": "Excel",
+    "addinHosts": [
+      "Content",
+      "Task pane"
+    ],
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": [
+    {
+      "name": "matchCase",
+      "dataType": "bool",
+      "description": "Represents whether the casing impacted the last sort of the table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "method",
+      "dataType": "string",
+      "description": "Represents Chinese character ordering method last used to sort the table.",
+      "isReadOnly": true,
+      "enumNameJs": "Excel.SortMethod",
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "fields",
+      "dataType": "SortField",
+      "description": "Represents the current conditions used to last sort the table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "apply",
+      "returnType": "void",
+      "description": "Perform a sort operation.",
+      "syntax": "tableSortObject.apply(fields, matchCase, method);",
+      "signature": "apply(fields: SortField[], matchCase: bool, method: string)",
+      "restfulName": "apply",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "dataType": "SortField[]",
+          "isCollection": true,
+          "description": "The list of conditions to sort on.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "matchCase",
+          "dataType": "bool",
+          "isCollection": false,
+          "description": "Whether to have the casing impact string ordering.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "method",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "The ordering method used for Chinese characters.",
+          "isRequired": false,
+          "enumNameJs": "Excel.SortMethod",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "clear",
+      "returnType": "void",
+      "description": "Clears the sorting that is currently on the table. While this doesn't modify the table's ordering, it clears the state of the header buttons.",
+      "syntax": "tableSortObject.clear();",
+      "signature": "clear()",
+      "restfulName": "clear",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "reapply",
+      "returnType": "void",
+      "description": "Reapplies the current sorting parameters to the table.",
+      "syntax": "tableSortObject.reapply();",
+      "signature": "reapply()",
+      "restfulName": "reapply",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "load",
+      "returnType": "void",
+      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
+      "parameters": [
+        {
+          "name": "param",
+          "dataType": "object",
+          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 {
-  "name": "ChartDataLabels",
-  "description": "Represents a collection of all the data labels on a chart point.",
+  "name": "WorksheetProtectionOptions",
+  "description": "Represents the options in sheet protection.",
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets({id|name})/charts({name})/datalabels"
+    "/workbook/worksheets({id|name})/protection/options"
   ],
   "info": {
     "version": "1.1",
@@ -22,31 +22,9 @@
   },
   "properties": [
     {
-      "name": "format",
-      "dataType": "ChartDataLabelFormat",
-      "description": "Represents the format of chart data labels, which includes fill and font formatting.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "position",
-      "dataType": "string",
-      "description": "DataLabelPosition value that represents the position of the data label.",
-      "isReadOnly": false,
-      "enumNameJs": "Excel.ChartDataLabelPosition",
-      "isCollection": false,
-      "isRelationship": false,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "showValue",
+      "name": "allowFormatCells",
       "dataType": "bool",
-      "description": "Boolean value representing if the data label value is visible or not.",
+      "description": "Represents the worksheet protection option of allowing formatting cells.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
@@ -55,9 +33,9 @@
       "notes": null
     },
     {
-      "name": "showSeriesName",
+      "name": "allowFormatColumns",
       "dataType": "bool",
-      "description": "Boolean value representing if the data label series name is visible or not.",
+      "description": "Represents the worksheet protection option of allowing formatting columns.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
@@ -66,9 +44,9 @@
       "notes": null
     },
     {
-      "name": "showCategoryName",
+      "name": "allowFormatRows",
       "dataType": "bool",
-      "description": "Boolean value representing if the data label category name is visible or not.",
+      "description": "Represents the worksheet protection option of allowing formatting rows.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
@@ -77,9 +55,9 @@
       "notes": null
     },
     {
-      "name": "showLegendKey",
+      "name": "allowInsertColumns",
       "dataType": "bool",
-      "description": "Boolean value representing if the data label legend key is visible or not.",
+      "description": "Represents the worksheet protection option of allowing inserting columns.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
@@ -88,9 +66,9 @@
       "notes": null
     },
     {
-      "name": "showPercentage",
+      "name": "allowInsertRows",
       "dataType": "bool",
-      "description": "Boolean value representing if the data label percentage is visible or not.",
+      "description": "Represents the worksheet protection option of allowing inserting rows.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
@@ -99,9 +77,9 @@
       "notes": null
     },
     {
-      "name": "showBubbleSize",
+      "name": "allowInsertHyperlinks",
       "dataType": "bool",
-      "description": "Boolean value representing if the data label bubble size is visible or not.",
+      "description": "Represents the worksheet protection option of allowing inserting hyperlinks.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,
@@ -110,9 +88,53 @@
       "notes": null
     },
     {
-      "name": "separator",
-      "dataType": "string",
-      "description": "String representing the separator used for the data labels on a chart.",
+      "name": "allowDeleteColumns",
+      "dataType": "bool",
+      "description": "Represents the worksheet protection option of allowing deleting columns.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowDeleteRows",
+      "dataType": "bool",
+      "description": "Represents the worksheet protection option of allowing deleting rows.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowSort",
+      "dataType": "bool",
+      "description": "Represents the worksheet protection option of allowing using sort feature.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowAutoFilter",
+      "dataType": "bool",
+      "description": "Represents the worksheet protection option of allowing using auto filter feature.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "allowPivotTables",
+      "dataType": "bool",
+      "description": "Represents the worksheet protection option of allowing using pivot table feature.",
       "isReadOnly": false,
       "enumNameJs": null,
       "isCollection": false,

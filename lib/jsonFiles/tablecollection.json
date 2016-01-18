@@ -5,7 +5,7 @@
   "collectionOf": "Table",
   "restPath": [
     "/workbook/tables",
-    "/workbook/worksheets/{id|name}/tables"
+    "/workbook/worksheets({id|name})/tables"
   ],
   "info": {
     "version": "1.1",
@@ -54,11 +54,12 @@
       "signature": "getItem(key: number or string)",
       "restfulName": "Item",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "key",
           "dataType": "number or string",
+          "isCollection": false,
           "description": "Name or ID of the table to be retrieved.",
           "isRequired": true,
           "enumNameJs": null,
@@ -74,11 +75,12 @@
       "signature": "getItemAt(index: number)",
       "restfulName": "ItemAt",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "index",
           "dataType": "number",
+          "isCollection": false,
           "description": "Index value of the object to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
@@ -92,13 +94,14 @@
       "description": "Create a new table. The range source address determines the worksheet under which the table will be added. If the table cannot be added (e.g., because the address is invalid, or the table would overlap with another table), an error will be thrown.",
       "syntax": "tableCollectionObject.add(address, hasHeaders);",
       "signature": "add(address: string, hasHeaders: bool)",
-      "restfulName": "Add",
+      "restfulName": "add",
       "notes": null,
-      "httpSuccessResponse": "201 Created",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "address",
           "dataType": "string",
+          "isCollection": false,
           "description": "Address or name of the range object representing the data source. If the address does not contain a sheet name, the currently-active sheet is used.",
           "isRequired": true,
           "enumNameJs": null,
@@ -107,6 +110,7 @@
         {
           "name": "hasHeaders",
           "dataType": "bool",
+          "isCollection": false,
           "description": "Boolean value that indicates whether the data being imported has column labels. If the source does not contain headers (i.e,. when this property set to false), Excel will automatically generate header shifting the data down by one row.",
           "isRequired": true,
           "enumNameJs": null,

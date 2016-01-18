@@ -4,18 +4,12 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/bindings/{id}/table/range",
-    "/workbook/tables/{id|name}/range",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/range",
-    "/workbook/bindings/{id}/table/rows/{index}/range",
-    "/workbook/tables/{id|name}/rows/{index}/range",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/rows/{index}/range",
-    "/workbook/bindings/{id}/table/columns/{id|name}/range",
-    "/workbook/tables/{id|name}/columns/{id|name}/range",
-    "/workbook/worksheets/{id|name}/tables/{id|name}/columns/{id|name}/range",
-    "/workbook/bindings/{id}/range",
-    "/workbook/worksheets/{id|name}/range({address})",
-    "/workbook/names/{name}/range"
+    "/workbook/tables({id|name})/columns({id|name})/range",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/range",
+    "/workbook/worksheets({id|name})/range({address})",
+    "/workbook/worksheets({id|name})/tables({id|name})/range",
+    "/workbook/worksheets({id|name})/tables({id|name})/rows({index})/range",
+    "/workbook/names({name})/range"
   ],
   "info": {
     "version": "1.1",
@@ -132,6 +126,50 @@
       "notes": null
     },
     {
+      "name": "formulasR1C1",
+      "dataType": "object[][]",
+      "description": "Represents the formula in R1C1-style notation.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "hidden",
+      "dataType": "bool",
+      "description": "Represents if all cells of the current range are hidden.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "rowHidden",
+      "dataType": "bool",
+      "description": "Represents if all rows of the current range are hidden.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "columnHidden",
+      "dataType": "bool",
+      "description": "Represents if all columns of the current range are hidden.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
       "name": "numberFormat",
       "dataType": "object[][]",
       "description": "Represents Excel's number format code for the given cell.",
@@ -196,6 +234,17 @@
       "isRelationship": true,
       "isKey": null,
       "notes": null
+    },
+    {
+      "name": "sort",
+      "dataType": "RangeSort",
+      "description": "The worksheet containing the current range.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
     }
   ],
   "methods": [
@@ -205,13 +254,14 @@
       "description": "Clear range values, format, fill, border, etc.",
       "syntax": "rangeObject.clear(applyTo);",
       "signature": "clear(applyTo: string)",
-      "restfulName": "Clear",
+      "restfulName": "clear",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "applyTo",
           "dataType": "string",
+          "isCollection": false,
           "description": "Determines the type of clear action.",
           "isRequired": false,
           "enumNameJs": "Excel.ClearApplyTo",
@@ -225,13 +275,14 @@
       "description": "Deletes the cells associated with the range.",
       "syntax": "rangeObject.delete(shift);",
       "signature": "delete(shift: string)",
-      "restfulName": "Delete",
+      "restfulName": "delete",
       "notes": null,
-      "httpSuccessResponse": "204 No Content",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "shift",
           "dataType": "string",
+          "isCollection": false,
           "description": "Specifies which way to shift the cells.",
           "isRequired": true,
           "enumNameJs": "Excel.DeleteShiftDirection",
@@ -247,7 +298,7 @@
       "signature": "getEntireColumn()",
       "restfulName": "EntireColumn",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {
@@ -258,7 +309,7 @@
       "signature": "getEntireRow()",
       "restfulName": "EntireRow",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {
@@ -269,11 +320,12 @@
       "signature": "getBoundingRect(anotherRange: Range or string)",
       "restfulName": "BoundingRect",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "anotherRange",
           "dataType": "Range or string",
+          "isCollection": false,
           "description": "The range object or address or range name.",
           "isRequired": true,
           "enumNameJs": null,
@@ -289,11 +341,12 @@
       "signature": "getCell(row: number, column: number)",
       "restfulName": "Cell",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "row",
           "dataType": "number",
+          "isCollection": false,
           "description": "Row number of the cell to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
@@ -302,6 +355,7 @@
         {
           "name": "column",
           "dataType": "number",
+          "isCollection": false,
           "description": "Column number of the cell to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
@@ -317,11 +371,12 @@
       "signature": "getColumn(column: number)",
       "restfulName": "Column",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "column",
           "dataType": "number",
+          "isCollection": false,
           "description": "Column number of the range to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
@@ -337,11 +392,12 @@
       "signature": "getIntersection(anotherRange: Range or string)",
       "restfulName": "Intersection",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "anotherRange",
           "dataType": "Range or string",
+          "isCollection": false,
           "description": "The range object or range address that will be used to determine the intersection of ranges.",
           "isRequired": true,
           "enumNameJs": null,
@@ -357,7 +413,7 @@
       "signature": "getLastCell()",
       "restfulName": "LastCell",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {
@@ -368,7 +424,7 @@
       "signature": "getLastColumn()",
       "restfulName": "LastColumn",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {
@@ -379,7 +435,7 @@
       "signature": "getLastRow()",
       "restfulName": "LastRow",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {
@@ -390,11 +446,12 @@
       "signature": "getOffsetRange(rowOffset: number, columnOffset: number)",
       "restfulName": "OffsetRange",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "rowOffset",
           "dataType": "number",
+          "isCollection": false,
           "description": "The number of rows (positive, negative, or 0) by which the range is to be offset. Positive values are offset downward, and negative values are offset upward.",
           "isRequired": true,
           "enumNameJs": null,
@@ -403,6 +460,7 @@
         {
           "name": "columnOffset",
           "dataType": "number",
+          "isCollection": false,
           "description": "The number of columns (positive, negative, or 0) by which the range is to be offset. Positive values are offset to the right, and negative values are offset to the left.",
           "isRequired": true,
           "enumNameJs": null,
@@ -418,11 +476,12 @@
       "signature": "getRow(row: number)",
       "restfulName": "Row",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "row",
           "dataType": "number",
+          "isCollection": false,
           "description": "Row number of the range to be retrieved. Zero-indexed.",
           "isRequired": true,
           "enumNameJs": null,
@@ -436,13 +495,14 @@
       "description": "Inserts a cell or a range of cells into the worksheet in place of this range, and shifts the other cells to make space. Returns a new Range object at the now blank space.",
       "syntax": "rangeObject.insert(shift);",
       "signature": "insert(shift: string)",
-      "restfulName": "Insert",
+      "restfulName": "insert",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": [
         {
           "name": "shift",
           "dataType": "string",
+          "isCollection": false,
           "description": "Specifies which way to shift the cells.",
           "isRequired": true,
           "enumNameJs": "Excel.InsertShiftDirection",
@@ -451,26 +511,68 @@
       ]
     },
     {
+      "name": "merge",
+      "returnType": "void",
+      "description": "Merge the range cells into one region in the worksheet.",
+      "syntax": "rangeObject.merge(across);",
+      "signature": "merge(across: bool)",
+      "restfulName": "merge",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "across",
+          "dataType": "bool",
+          "isCollection": false,
+          "description": "Set true to merge cells in each row of the specified range as separate merged cells. The default value is false.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "unmerge",
+      "returnType": "void",
+      "description": "Unmerge the range cells into separate cells.",
+      "syntax": "rangeObject.unmerge();",
+      "signature": "unmerge()",
+      "restfulName": "unmerge",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
       "name": "select",
       "returnType": "void",
       "description": "Selects the specified range in the Excel UI.",
       "syntax": "rangeObject.select();",
       "signature": "select()",
-      "restfulName": "Select",
+      "restfulName": "select",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
+      "httpSuccessResponse": null,
       "parameters": null
     },
     {
       "name": "getUsedRange",
       "returnType": "Range",
       "description": "Returns the used range of the given range object.",
-      "syntax": "rangeObject.getUsedRange();",
-      "signature": "getUsedRange()",
+      "syntax": "rangeObject.getUsedRange(valuesOnly);",
+      "signature": "getUsedRange(valuesOnly: bool)",
       "restfulName": "UsedRange",
       "notes": null,
-      "httpSuccessResponse": "200 OK",
-      "parameters": null
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "valuesOnly",
+          "dataType": "bool",
+          "isCollection": false,
+          "description": "Considers only cells with values as used cells.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
     },
     {
       "name": "load",

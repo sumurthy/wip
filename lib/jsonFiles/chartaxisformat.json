@@ -4,9 +4,9 @@
   "isCollection": false,
   "collectionOf": null,
   "restPath": [
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/valueaxis/format",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/seriesaxis/format",
-    "/workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis/format"
+    "/workbook/worksheets({id|name})/charts({name})/axes/valueaxis/format",
+    "/workbook/worksheets({id|name})/charts({name})/axes/seriesaxis/format",
+    "/workbook/worksheets({id|name})/charts({name})/axes/categoryaxis/format"
   ],
   "info": {
     "version": "1.1",

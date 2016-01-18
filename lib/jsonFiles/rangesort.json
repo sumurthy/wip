@@ -1,0 +1,88 @@
+{
+  "name": "RangeSort",
+  "description": "Manages sorting operations on Range objects.",
+  "isCollection": false,
+  "collectionOf": null,
+  "restPath": [
+    "/workbook/tables({id|name})/columns({id|name})/range/sort",
+    "/workbook/worksheets({id|name})/tables({id|name})/columns({id|name})/range/sort",
+    "/workbook/worksheets({id|name})/range({address})/sort",
+    "/workbook/worksheets({id|name})/tables({id|name})/range/sort",
+    "/workbook/worksheets({id|name})/tables({id|name})/rows({index})/range/sort",
+    "/workbook/names({name})/range/sort"
+  ],
+  "info": {
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "Excel"
+    ],
+    "nameSpace": "Excel",
+    "addinHosts": [
+      "Content",
+      "Task pane"
+    ],
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API for June fork"
+  },
+  "properties": null,
+  "methods": [
+    {
+      "name": "apply",
+      "returnType": "void",
+      "description": "Perform a sort operation.",
+      "syntax": "rangeSortObject.apply(fields, matchCase, hasHeaders, orientation, method);",
+      "signature": "apply(fields: SortField[], matchCase: bool, hasHeaders: bool, orientation: string, method: string)",
+      "restfulName": "apply",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "fields",
+          "dataType": "SortField[]",
+          "isCollection": true,
+          "description": "The list of conditions to sort on.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "matchCase",
+          "dataType": "bool",
+          "isCollection": false,
+          "description": "Whether to have the casing impact string ordering.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "hasHeaders",
+          "dataType": "bool",
+          "isCollection": false,
+          "description": "Whether the range has a header.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "orientation",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "Whether the operation is sorting rows or columns.",
+          "isRequired": false,
+          "enumNameJs": "Excel.SortOrientation",
+          "notes": null
+        },
+        {
+          "name": "method",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "The ordering method used for Chinese characters.",
+          "isRequired": false,
+          "enumNameJs": "Excel.SortMethod",
+          "notes": null
+        }
+      ]
+    }
+  ]
+}
